@@ -1,58 +1,70 @@
 <mxfile host="65bd71144e">
     <diagram id="Lm4gdlAAkMD3CkZeusZA" name="Page-1">
-        <mxGraphModel dx="755" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="782" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="5" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="3">
+                <mxCell id="5" value="" style="edgeStyle=none;html=1;" parent="1" source="2" target="3" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="user&lt;br&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                <mxCell id="2" value="user&lt;br&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
                     <mxGeometry x="370" y="440" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="6">
+                <mxCell id="7" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="9">
+                <mxCell id="10" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="12">
+                <mxCell id="13" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="13">
+                <mxCell id="14" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="13" vertex="1" connectable="0">
                     <mxGeometry x="-0.5867" y="5" relative="1" as="geometry">
                         <mxPoint x="-1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="15" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="12">
+                <mxCell id="15" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="12">
+                <mxCell id="16" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="12">
+                <mxCell id="17" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="18">
+                <mxCell id="19" value="" style="edgeStyle=none;html=1;" parent="1" source="3" target="18" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="PDA" style="html=1;" vertex="1" parent="1">
+                <mxCell id="3" value="PDA" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="330" y="280" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="Service 2&lt;br&gt;Siri API" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="540" y="220" width="110" height="50" as="geometry"/>
+                <mxCell id="4" value="Service 2&lt;br&gt;Nachrichten" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="120" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="Service 3&lt;br&gt;Wetter API" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="560" y="280" width="110" height="50" as="geometry"/>
+                <mxCell id="6" value="Service 3&lt;br&gt;Wetter API" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="160" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="Service 1:&lt;br&gt;" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="330" y="150" width="110" height="50" as="geometry"/>
+                <mxCell id="9" value="Service 1:&lt;br&gt;Kalender" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="120" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="Speech Synthesis" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="12" value="Speech Synthesis" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="120" y="220" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="Speech Detection" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="18" value="Speech Detection" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="120" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Service 4&lt;br&gt;Verkehr/ Maps" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="260" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Service 5&lt;br&gt;Spotify" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="350" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Service 6&lt;br&gt;Memes" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="420" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="Service 7&lt;br&gt;Aktien" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="480" width="110" height="50" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
