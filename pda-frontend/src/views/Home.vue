@@ -1,5 +1,8 @@
 <template>
-  <v-img contain src="@/assets/jarvis.png" max-height="300px" />
+  <div @click="animate()" style="height: 400px">
+    <v-img v-if="speaking" contain src="@/assets/circles_spinning.gif" max-height="400px" />
+    <v-img v-else contain src="@/assets/frame_0.png" max-height="400px" />
+  </div>
   <h1>{{ jarvisText }}</h1>
   <v-textarea clearable label="Eingabe" v-model="userText"></v-textarea>
   <v-btn size="large" color="success" @click="send2Jarvis">Senden</v-btn>
@@ -12,6 +15,7 @@ export default {
     return {
       jarvisText: "",
       userText: "",
+      speaking: false
     };
   },
   methods: {
@@ -22,6 +26,12 @@ export default {
         this.jarvisText = response.data
       })
     },
+    animate() {
+      this.speaking = true;
+      setTimeout(() => {
+        this.speaking = false;
+      }, 2000)
+    }
   },
 };
 </script>
