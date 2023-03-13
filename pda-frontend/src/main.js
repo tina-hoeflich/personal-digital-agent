@@ -1,6 +1,14 @@
-import { createApp } from 'vue'
+// Components
 import App from './App.vue'
 
-import './assets/main.css'
+// Composables
+import { createApp } from 'vue'
 
-createApp(App).mount('#app')
+// Plugins
+import { registerPlugins } from '@/plugins'
+
+const app = createApp(App)
+
+registerPlugins(app)
+
+app.mount('#app')
