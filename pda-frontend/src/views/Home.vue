@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -15,7 +16,11 @@ export default {
   },
   methods: {
     send2Jarvis(event) {
-      alert(`Hello ${this.userText}!`);
+      axios.post("http://127.0.0.1:8000/input", this.userText)
+      .then((response) => {
+        console.log("Jarvis response", response)
+        this.jarvisText = response.data
+      })
     },
   },
 };
