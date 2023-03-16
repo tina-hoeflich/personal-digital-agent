@@ -13,10 +13,9 @@ def text_input():
 
     for usecase in usecases:
         triggers = usecase.get_triggerwords()
-        for trigger in triggers:
-            if trigger in message:
-                selected_usecase = usecase
-                continue
+        if any(trigger in message for trigger in triggers):
+            selected_usecase = usecase
+            break
 
 
     response = None
