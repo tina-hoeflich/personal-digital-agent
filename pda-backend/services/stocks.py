@@ -1,8 +1,9 @@
-import requests
+from alpha_vantage.timeseries import TimeSeries
 
-ENDPOINT = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&apikey=5MECCCPWG3K5D69X&symbol="
+APIKEY = "5MECCCPWG3K5D69X"
 
 def get_stock_price(symbol: str) -> float:
-	response = requests.get(ENDPOINT + symbol)
-	price = response.json()["Global Quote"]["05. price"]
-	return float(price)
+	# get the current stock price for a given symbol with alpha_vantage using the GLOBAL_QUOTE api
+	ts = TimeSeries(key=APIKEY, output_format='json')
+	data, _ = ts.get_quote_endpoint(symbol=symbol)
+	return float(data["05. price"])
