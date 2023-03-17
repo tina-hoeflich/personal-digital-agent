@@ -2,6 +2,7 @@ from usecases.example import ExampleUseCase
 from usecases.usecase import UseCase
 from __main__ import app
 from flask import request
+import random
 
 @app.route('/input', methods=['POST'])
 def text_input():
