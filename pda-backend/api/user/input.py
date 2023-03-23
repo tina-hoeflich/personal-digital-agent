@@ -1,16 +1,17 @@
 from usecases.example import ExampleUseCase
 from usecases.usecase import UseCase
 from usecases.sparsupport import SparenUseCase
-from __main__ import app
+from app import app
 from flask import request
 import random
+
 
 @app.route('/input', methods=['POST'])
 def text_input():
     message = request.get_data(as_text=True)
     app.logger.info("Nachricht empfangen: {}".format(message))
 
-    usecases: List[UseCase] = [ExampleUseCase(), SparenUseCase()]
+    usecases: list[UseCase] = [ExampleUseCase(), SparenUseCase()]
     selected_usecase = None
 
     for usecase in usecases:
@@ -18,7 +19,6 @@ def text_input():
         if any(trigger in message for trigger in triggers):
             selected_usecase = usecase
             break
-
 
     response = None
     if selected_usecase is None:
