@@ -3,7 +3,7 @@
     <v-form v-model="valid" @submit.prevent>
       <v-container fluid class="d-flex flex-lg-row flex-column justify-center">
         <v-card class="ma-2" style="flex: 1">
-          
+
           <v-card-item>
             <v-card-title class="float-left">
               Personal Settings
@@ -93,8 +93,9 @@
 
           <v-card-text>
               <v-text-field
-                v-model="stockISIN"
-                :rules="isinRules"
+                v-model="stockSymbol
+                "
+                :rules="stockRules"
                 :counter="12"
                 label="Security ISIN"
                 required
@@ -116,13 +117,26 @@
 </template>
   
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
-      // Text input rules
       valid: false,
+
+      // Text field input variables 
+      name: '',
       homeAddress: '',
       workAddress: '',
+      emergencyEmail: '',
+      friendEmail: '',
+      stockSymbol
+      : '',
+
+      // Selector input variables
+      modeOfTP: '',
+      fuelType: '',
+
+      // Input rules
       basicRules: [
         value => {
           if (value) return true
@@ -135,8 +149,6 @@ export default {
           return 'Input must be less than 50 characters.'
         },
       ],
-      emergencyEmail: '',
-      friendEmail: '',
       emailRules: [
         value => {
           if (value) return true
@@ -149,29 +161,54 @@ export default {
           return 'E-mail must be valid.'
         },
       ],
-      stockISIN: '',
-      isinRules: [
+      stockRules: [
       value => {
           if (value) return true
 
           return 'Number is required.'
         },
         value => {
-          if (value?.length != 12 &/^[a-zA-Z][a-zA-Z][0-9-]+/.test(value)) return true
+          if (/^[A-Z]+\:[A-Z]+/.test(value)) return true
 
-          return 'Input must be of shape XX0000000000'
+          return 'Input must be of shape XXX:XXX'
         },
       ],
 
-      // Selector input variables
-      modeOfTP: '',
-      fuelType: '',
+      // JSON Document Variable
+      settingsJSON: {},
     };
   },
   methods: {
     async submit () {
-      console.log("sumbitting data...")
+      if(this.valid) {
+        // Create JSON Doc
+        this.settingsJSON = {
+          "goodMorning": {
+            "name": this.name,
+            "homeAddress": this.homeAddress,
+            "workAddress": this.workAddress,
+            "modeOfTransportation": this.modeOfTP,
+          },
+          "depressionHandler": {
+            "emergencyEmail": this.emergencyEmail,
+            "friendEmail": this.friendEmail,
+          },
+          "savingSupport": {
+            "stockSymbol": this.stockSymbol,
+            "fueTtype": this.fuelType
+          }
+        }
+        console.log("sumbitting data...", JSON.stringify(this.settingsJSON))
+        axios.post("http://127.0.0.1:8000/setPreferences", this.settingsJSON)
+        .then((response) => {
+          console.log(response)
+        })
+      }
+      else {
+        console.log("Error: Input fields not properly filled in")
+      }
     },
+
   }
 };
 </script>
