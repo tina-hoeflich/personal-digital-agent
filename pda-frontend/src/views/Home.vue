@@ -74,7 +74,11 @@ export default {
             console.log("Finished speaking");
 						this.speaking = false;
           });
-        });
+        })
+				.catch((error) => {
+					console.log(error)
+					alert(error)
+				})
     },
 
     startStopListening() {

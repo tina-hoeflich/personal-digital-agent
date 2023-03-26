@@ -1,5 +1,11 @@
 connexion[swagger-ui]==2.14.2
 Flask==2.2.3
 flask-cors
+alpha_vantage
+pytankerkoenig
+pytest
+pytest-cov
+pytest-mock
+pytest-func-cov
 apscheduler
 kink

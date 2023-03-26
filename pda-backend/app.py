@@ -15,12 +15,11 @@ sched = Scheduler()
 di[SettingsManager] = set_man
 di[Scheduler] = sched
 
-# Use case services
-
-
 # das sagt, dass die api routes aus api/user/input.py und api/user/settings.py geladen werden sollen
-import api.user.input
-import api.user.settings
+from api.user.input import input_blueprint
+from api.user.settings import settings_blueprint
+app.register_blueprint(input_blueprint)
+app.register_blueprint(settings_blueprint)
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=8000)
