@@ -19,16 +19,13 @@ export default {
      */
     initializeTTS() {
       const voices = window.speechSynthesis.getVoices();
-      console.log("Voices:", voices);
       // use nathan voice if available, otherwise use first default voice
       var nathan = voices.filter(
         (voice) => voice.voiceURI == "Nathan (erweitert)"
       )[0];
-      console.log("Nathan:", nathan);
       var firstDefaultVoice = voices.filter(
         (voice) => voice.lang == "en-US" && voice.default
       )[0];
-      console.log("First default voice:", firstDefaultVoice);
       this.voice = nathan ?? firstDefaultVoice;
       console.log("Using voice:", this.voice);
     },
