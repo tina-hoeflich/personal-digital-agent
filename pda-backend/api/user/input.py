@@ -5,16 +5,16 @@ from app import app
 from flask import request
 import random
 
+USECASES: list[UseCase] = [ExampleUseCase()]
 
 @app.route('/input', methods=['POST'])
 def text_input():
     message = request.get_data(as_text=True)
     app.logger.info("Nachricht empfangen: {}".format(message))
 
-    usecases: list[UseCase] = [ExampleUseCase(), SparenUseCase()]
     selected_usecase = None
 
-    for usecase in usecases:
+    for usecase in USECASES:
         triggers = usecase.get_triggerwords()
         if any(trigger in message for trigger in triggers):
             selected_usecase = usecase
