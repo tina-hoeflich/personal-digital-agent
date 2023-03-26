@@ -1,5 +1,33 @@
 {
 	"example": {
 		"name": "How to use settings.json",
+	},
+	"sparen": {
+		"sprit": {
+			"typ": "e10",
+			"lat": 48.83421132375812,
+			"lng":  9.152560823835184,
+			"radius": 5,
+			"preisschwelle": 1.299,
+		},
+		"stocks": {
+			"favorites": [
+				{
+					"symbol": "AAPL",
+					"priceHigh": 200,
+					"priceLow": 100
+				},
+				{
+					"symbol": "MSFT",
+					"priceHigh": 200,
+					"priceLow": 100
+				},
+				{
+					"symbol": "P911.DEX",
+					"priceHigh": 150,
+					"priceLow": 50
+				}
+			]
+		}
 	}
 }

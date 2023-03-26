@@ -15,9 +15,6 @@ sched = Scheduler()
 di[SettingsManager] = set_man
 di[Scheduler] = sched
 
-# Use case services
-
-
 # das sagt, dass die api routes aus api/user/input.py und api/user/settings.py geladen werden sollen
 import api.user.input
 import api.user.settings

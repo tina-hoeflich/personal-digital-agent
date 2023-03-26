@@ -8,7 +8,7 @@ from kink import inject
 class ExampleUseCase(UseCase):
 	def __init__(self, scheduler: Scheduler, settings: SettingsManager):
 		self.scheduler = scheduler
-		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(seconds=10))
+		# self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(seconds=10))
 		self.settings = settings
 
 	def get_triggerwords(self) -> list[str]:
