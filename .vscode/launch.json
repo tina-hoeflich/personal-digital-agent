@@ -1,31 +1,40 @@
 {
-	// Verwendet IntelliSense zum Ermitteln möglicher Attribute.
-	// Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
-	// Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Run Frontend",
-			"request": "launch",
-			"runtimeArgs": [
-				"run",
-				"dev",
-				"--prefix",
-				"pda-frontend"
-			],
-			"runtimeExecutable": "npm",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"type": "node"
-		},
-		{
-			"name": "Run Backend",
-			"type": "python",
-			"request": "launch",
-			"program": "${workspaceFolder}/pda-backend/app.py",
-			"jinja": true,
-			"justMyCode": true
-		}
-	]
+    // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+    // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+    // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Frontend",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "dev",
+                "--prefix",
+                "pda-frontend"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "Run Backend",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "pda-backend/app.py",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        }
+    ]
 }
