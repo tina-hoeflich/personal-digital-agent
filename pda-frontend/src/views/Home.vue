@@ -57,6 +57,15 @@ export default {
     };
   },
 
+	sockets: {
+		connect() {
+			console.log('socket connected')
+		},
+		proaktiv(data) {
+			console.log('proaktiv', data.text)
+		}
+	},
+
   methods: {
     send2Jarvis(event) {
       axios
