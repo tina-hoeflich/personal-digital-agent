@@ -1,6 +1,6 @@
 <template>
   <v-theme-provider theme="dark">
-    <v-form v-model="valid" @submit.prevent>
+    <v-form v-model="valid" fast-fail @submit.prevent>
       <v-container fluid class="d-flex flex-lg-row flex-column justify-center">
         <v-card class="ma-2" style="flex: 1">
 
@@ -12,14 +12,14 @@
 
           <v-card-text>
               <v-text-field
-                v-model="name"
+                v-model="settingsJSON.goodMorning.name"
                 :rules="basicRules"
                 :counter="50"
                 label="Name"
                 required
               ></v-text-field>
               <v-text-field
-                v-model="homeAddress"
+                v-model="settingsJSON.goodMorning.homeAddress"
                 :rules="basicRules"
                 :counter="50"
                 label="Home Adress"
@@ -39,7 +39,7 @@
 
           <v-card-text>
               <v-text-field
-                v-model="workAddress"
+                v-model="settingsJSON.goodMorning.workAddress"
                 :rules="basicRules"
                 :counter="50"
                 label="Work Address"
@@ -47,8 +47,15 @@
               ></v-text-field>
               <v-select
               label="Mode of Transporation"
-              v-model="modeOfTP"
+              v-model="settingsJSON.goodMorning.modeOfTransportation"
               :items="['Car', 'Bike', 'Walking']"
+              :rules="[v => !!v || 'Item is required']"
+              >
+              </v-select>
+              <v-select
+              label="Fuel Type"
+              v-model="settingsJSON.sparen.sprit.typ"
+              :items="['e5', 'e10', 'diesel']"
               :rules="[v => !!v || 'Item is required']"
               >
               </v-select>            
@@ -66,14 +73,14 @@
 
           <v-card-text>
               <v-text-field
-                v-model="emergencyEmail"
+                v-model="settingsJSON.depressionHandler.emergencyEmail"
                 :rules="emailRules"
                 :counter="50"
                 label="Emergency Email"
                 required
               ></v-text-field>
               <v-text-field
-                v-model="friendEmail"
+                v-model="settingsJSON.depressionHandler.friendEmail"
                 :rules="emailRules"
                 :counter="50"
                 label="Personal Friend Email"
@@ -83,33 +90,107 @@
 
         </v-card>
 
+        </v-container>
+        <v-container fluid class="d-flex flex-lg-row flex-column justify-center">
         <v-card class="ma-2" style="flex: 1">
 
           <v-card-item>
             <v-card-title class="float-left">
-              Financial Settings
+              Stock 1
             </v-card-title>
           </v-card-item>
 
           <v-card-text>
               <v-text-field
-                v-model="stockSymbol
-                "
-                :rules="stockRules"
-                :counter="12"
-                label="Security ISIN"
-                required
-              ></v-text-field>
-              <v-select
-              label="Fuel Type"
-              v-model="fuelType"
-              :items="['Diesel', 'Gasoline']"
-              :rules="[v => !!v || 'Item is required']"
-              >
-              </v-select>
+              v-model="settingsJSON.sparen.stocks.favorites[0].symbol"
+              :rules="stockRules"
+              :counter="12"
+              label="Stock Symbol"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="settingsJSON.sparen.stocks.favorites[0].priceHigh"
+              :rules="numberRules"
+              :counter="12"
+              label="Maximum Price"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="settingsJSON.sparen.stocks.favorites[0].priceLow"
+              :rules="numberRules"
+              :counter="12"
+              label="Minimum Price"
+              required
+            ></v-text-field>
           </v-card-text>
 
         </v-card>
+        <v-card class="ma-2" style="flex: 1">
+
+          <v-card-item>
+            <v-card-title class="float-left">
+              Stock 2
+            </v-card-title>
+          </v-card-item>
+
+          <v-card-text>
+            <v-text-field
+              v-model="settingsJSON.sparen.stocks.favorites[1].symbol"
+              :rules="stockRules"
+              :counter="12"
+              label="Stock Symbol"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="settingsJSON.sparen.stocks.favorites[1].priceHigh"
+              :rules="numberRules"
+              :counter="12"
+              label="Maximum Price"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="settingsJSON.sparen.stocks.favorites[1].priceLow"
+              :rules="numberRules"
+              :counter="12"
+              label="Minimum Price"
+              required
+            ></v-text-field>
+          </v-card-text>
+
+        </v-card>
+        <v-card class="ma-2" style="flex: 1">
+
+          <v-card-item>
+            <v-card-title class="float-left">
+              Stock 3
+            </v-card-title>
+          </v-card-item>
+
+          <v-card-text>
+            <v-text-field
+              v-model="settingsJSON.sparen.stocks.favorites[2].symbol"
+              :rules="stockRules"
+              :counter="12"
+              label="Stock Symbol"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="settingsJSON.sparen.stocks.favorites[2].priceHigh"
+              :rules="numberRules"
+              :counter="12"
+              label="Maximum Price"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="settingsJSON.sparen.stocks.favorites[2].priceLow"
+              :rules="numberRules"
+              :counter="12"
+              label="Minimum Price"
+              required
+            ></v-text-field>
+          </v-card-text>
+
+      </v-card>
       </v-container>
       <v-btn type="submit" size="large" color="success" class="mt-2" @click="submit">Submit</v-btn>
     </v-form>
@@ -122,18 +203,6 @@ export default {
   data() {
     return {
       valid: false,
-
-      // Text field input variables 
-      name: '',
-      homeAddress: '',
-      workAddress: '',
-      emergencyEmail: '',
-      friendEmail: '',
-      stockSymbol: '',
-
-      // Selector input variables
-      modeOfTP: '',
-      fuelType: '',
 
       // Input rules
       basicRules: [
@@ -164,41 +233,78 @@ export default {
       value => {
           if (value) return true
 
+          return 'Stock Symbol is required.'
+        },
+        value => {
+          if (/^[A-Z]+/.test(value)) return true
+
+          return 'Input may only Contain Capital letters'
+        },
+      ],
+      numberRules: [
+      value => {
+          if (value) return true
+
           return 'Number is required.'
         },
         value => {
-          if (/^[A-Z]+\:[A-Z]+/.test(value)) return true
+          if (/[0-9]+/.test(value)) return true
 
-          return 'Input must be of shape XXX:XXX'
+          return 'You can only input numbers!'
         },
       ],
 
       // JSON Document Variable
-      settingsJSON: {},
+      settingsJSON: {
+        "example": {
+          "name": "How to use settings.json"
+        },
+        "goodMorning": {
+          "name": '',
+          "homeAddress": '',
+          "workAddress": '',
+          "modeOfTransportation": '',
+        },
+        "depressionHandler": {
+          "emergencyEmail": '',
+          "friendEmail": '',
+        },
+        "sparen": {
+          "sprit": {
+            "typ": '',
+            "lat": 48.83421132375812,
+            "lng":  9.152560823835184,
+            "radius": 5,
+            "preisschwelle": 1.299
+          },
+          "stocks": {
+            "favorites": [
+              {
+                "symbol": '',
+                "priceHigh": '',
+                "priceLow": ''
+              },
+              {
+                "symbol": '',
+                "priceHigh": '',
+                "priceLow": ''
+              },
+              {
+                "symbol": '',
+                "priceHigh": '',
+                "priceLow": ''
+              }
+            ]
+          }
+        }
+      },
     };
   },
   methods: {
     async submit () {
       if(this.valid) {
-        // Create JSON Doc
-        this.settingsJSON = {
-          "goodMorning": {
-            "name": this.name,
-            "homeAddress": this.homeAddress,
-            "workAddress": this.workAddress,
-            "modeOfTransportation": this.modeOfTP,
-          },
-          "depressionHandler": {
-            "emergencyEmail": this.emergencyEmail,
-            "friendEmail": this.friendEmail,
-          },
-          "savingSupport": {
-            "stockSymbol": this.stockSymbol,
-            "fueTtype": this.fuelType
-          }
-        }
         console.log("sumbitting settings...", JSON.stringify(this.settingsJSON))
-        axios.post("http://127.0.0.1:8000/setPreferences", this.settingsJSON)
+        axios.post("http://127.0.0.1:8000/settings", this.settingsJSON)
         .then((response) => {
           console.log(response)
         })
@@ -209,18 +315,10 @@ export default {
     },
     async getPreferences () {
       console.log("getting settings... ")
-      axios.get("http://127.0.0.1:8000/getPreferences")
+      axios.get("http://127.0.0.1:8000/settings")
         .then((response) => {
           console.log(response)
-          let userSettings = response.data
-          this.name = userSettings.goodMorning.name
-          this.homeAddress = userSettings.goodMorning.homeAddress
-          this.workAddress = userSettings.goodMorning.workAddress
-          this.modeOfTP = userSettings.goodMorning.modeOfTransportation
-          this.emergencyEmail = userSettings.depressionHandler.emergencyEmail
-          this.friendEmail = userSettings.depressionHandler.friendEmail
-          this.stockSymbol = userSettings.savingSupport.stockSymbol
-          this.fuelType = userSettings.savingSupport.fuelType
+          this.settingsJSON = response.data
         })
     }
   },

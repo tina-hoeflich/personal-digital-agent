@@ -1,12 +1,15 @@
 from flask import request, Blueprint
-import settings_manager
+from flask_cors import CORS
+from settings_manager import SettingsManager
+
+set_man = SettingsManager('settings.json')
 
 settings_blueprint = Blueprint('settings_api', __name__, template_folder='templates')
 @settings_blueprint.route('/settings', methods=['GET'])
 def get_settings():
-	return settings_manager.get_all_settings()
+	return set_man.get_all_settings()
 
 @settings_blueprint.route('/settings', methods=['POST'])
 def set_settings():
 	body = request.get_json()
-	return settings_manager.set_settings(body)
+	return set_man.save_settings(body)
