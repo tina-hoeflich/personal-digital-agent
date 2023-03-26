@@ -103,6 +103,8 @@
               <v-select
               label="Fuel Type"
               v-model="fuelType"
+              item-text="Gasoline"
+              item-value="Gasoline"
               :items="['Diesel', 'Gasoline']"
               :rules="[v => !!v || 'Item is required']"
               >
@@ -133,8 +135,8 @@ export default {
       : '',
 
       // Selector input variables
-      modeOfTP: '',
-      fuelType: '',
+      modeOfTP: 'Car',
+      fuelType: 'Gasoline',
 
       // Input rules
       basicRules: [
@@ -198,7 +200,7 @@ export default {
             "fueTtype": this.fuelType
           }
         }
-        console.log("sumbitting data...", JSON.stringify(this.settingsJSON))
+        console.log("sumbitting settings...", JSON.stringify(this.settingsJSON))
         axios.post("http://127.0.0.1:8000/setPreferences", this.settingsJSON)
         .then((response) => {
           console.log(response)
@@ -208,7 +210,25 @@ export default {
         console.log("Error: Input fields not properly filled in")
       }
     },
-
+    async getPreferences () {
+      console.log("getting settings... ")
+      axios.get("http://127.0.0.1:8000/getPreferences")
+        .then((response) => {
+          console.log(response)
+          let userSettings = response.data
+          this.name = userSettings.goodMorning.name
+          this.homeAddress = userSettings.goodMorning.homeAddress
+          this.workAddress = userSettings.goodMorning.workAddress
+          this.modeOfTP = userSettings.goodMorning.modeOfTP
+          this.emergencyEmail = userSettings.depressionHandler.emergencyEmail
+          this.friendEmail = userSettings.depressionHandler.friendEmail
+          this.stockSymbol = userSettings.savingSupport.stockSymbol
+          this.fuelType = userSettings.savingSupport.fuelType
+        })
+    }
+  },
+  mounted: function() {
+    this.getPreferences()
   }
 };
 </script>
