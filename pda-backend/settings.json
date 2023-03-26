@@ -1,6 +1,6 @@
 {
 	"example": {
-		"name": "How to use settings.json",
+		"name": "How to use settings.json"
 	},
 	"sparen": {
 		"sprit": {
@@ -8,7 +8,7 @@
 			"lat": 48.83421132375812,
 			"lng":  9.152560823835184,
 			"radius": 5,
-			"preisschwelle": 1.299,
+			"preisschwelle": 1.299
 		},
 		"stocks": {
 			"favorites": [

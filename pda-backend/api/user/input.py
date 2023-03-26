@@ -1,11 +1,11 @@
 from usecases.example import ExampleUseCase
 from usecases.usecase import UseCase
 from usecases.sparsupport import SparenUseCase
-from app import app
+from __main__ import app
 from flask import request
 import random
 
-USECASES: list[UseCase] = [ExampleUseCase()]
+USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase()]
 
 @app.route('/input', methods=['POST'])
 def text_input():
