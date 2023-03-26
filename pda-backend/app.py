@@ -8,7 +8,7 @@ from proaktiv_sender import ProaktivSender
 
 app = Flask(__name__)
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins='*')
 
 # Dependency injection setup
 set_man = SettingsManager('settings.json')
