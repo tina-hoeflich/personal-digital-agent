@@ -23,6 +23,7 @@ class SettingsManager():
 		self.CACHE = settings
 		with open(self.FILENAME, 'w') as f:
 			json.dump(settings, f, indent=4)
+		return "Success"
 
 	def save_setting_by_name(self, name: str, value: object):
 		"""Save a setting by its name
