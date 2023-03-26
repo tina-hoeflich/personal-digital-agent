@@ -1,5 +1,7 @@
 connexion[swagger-ui]==2.14.2
 Flask==2.2.3
+flask-socketio
+simple-websocket
 flask-cors
 alpha_vantage
 pytankerkoenig
