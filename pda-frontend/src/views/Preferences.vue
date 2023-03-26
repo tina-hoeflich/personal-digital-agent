@@ -103,8 +103,6 @@
               <v-select
               label="Fuel Type"
               v-model="fuelType"
-              item-text="Gasoline"
-              item-value="Gasoline"
               :items="['Diesel', 'Gasoline']"
               :rules="[v => !!v || 'Item is required']"
               >
@@ -131,12 +129,11 @@ export default {
       workAddress: '',
       emergencyEmail: '',
       friendEmail: '',
-      stockSymbol
-      : '',
+      stockSymbol: '',
 
       // Selector input variables
-      modeOfTP: 'Car',
-      fuelType: 'Gasoline',
+      modeOfTP: '',
+      fuelType: '',
 
       // Input rules
       basicRules: [
@@ -219,7 +216,7 @@ export default {
           this.name = userSettings.goodMorning.name
           this.homeAddress = userSettings.goodMorning.homeAddress
           this.workAddress = userSettings.goodMorning.workAddress
-          this.modeOfTP = userSettings.goodMorning.modeOfTP
+          this.modeOfTP = userSettings.goodMorning.modeOfTransportation
           this.emergencyEmail = userSettings.depressionHandler.emergencyEmail
           this.friendEmail = userSettings.depressionHandler.friendEmail
           this.stockSymbol = userSettings.savingSupport.stockSymbol
