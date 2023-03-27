@@ -238,7 +238,12 @@ export default {
         value => {
           if (/^[A-Z]+/.test(value)) return true
 
-          return 'Input may only Contain Capital letters'
+          return 'Input must start with Capital letter'
+        },
+        value => {
+          if (/^[A-Z0-9\.\:]+$/.test(value)) return true
+
+          return 'Input may only contain Capital letters and Numbers'
         },
       ],
       numberRules: [
@@ -248,7 +253,7 @@ export default {
           return 'Number is required.'
         },
         value => {
-          if (/[0-9]+/.test(value)) return true
+          if (/^[0-9]+$/.test(value)) return true
 
           return 'You can only input numbers!'
         },
