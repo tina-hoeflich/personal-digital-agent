@@ -135,13 +135,6 @@
 						Remove
       			</v-btn>
     			</v-card-actions>
-
-        </v-card>
-				<v-card>
-					<v-card-text>
-
-					</v-card-text>
-				</v-card>
       </v-container>
 			<v-btn
 				prepend-icon="mdi-plus"
