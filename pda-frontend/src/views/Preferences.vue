@@ -58,7 +58,7 @@
               :items="['e5', 'e10', 'diesel']"
               :rules="[v => !!v || 'Item is required']"
               >
-              </v-select>            
+              </v-select>
           </v-card-text>
 
         </v-card>
@@ -90,113 +90,70 @@
 
         </v-card>
 
-        </v-container>
-        <v-container fluid class="d-flex flex-lg-row flex-column justify-center">
-        <v-card class="ma-2" style="flex: 1">
+      </v-container>
+			<v-divider></v-divider>
+			<h2>Favorite Stocks</h2>
+      <v-container fluid class="d-flex flex-lg-row flex-column justify-center">
+        <v-card class="ma-2" style="flex: 1" v-for="(stock, index) in settingsJSON.sparen.stocks.favorites">
 
           <v-card-item>
             <v-card-title class="float-left">
-              Stock 1
+              {{stock.symbol != "" ? stock.symbol : "--" }}
             </v-card-title>
           </v-card-item>
 
           <v-card-text>
               <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[0].symbol"
+              v-model="stock.symbol"
               :rules="stockRules"
               :counter="12"
               label="Stock Symbol"
               required
             ></v-text-field>
             <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[0].priceHigh"
+              v-model="stock.priceHigh"
               :rules="numberRules"
               :counter="12"
               label="Maximum Price"
               required
             ></v-text-field>
             <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[0].priceLow"
+              v-model="stock.priceLow"
               :rules="numberRules"
               :counter="12"
               label="Minimum Price"
               required
             ></v-text-field>
           </v-card-text>
+
+					<v-card-actions>
+      			<v-btn
+        			variant="text"
+        			color="red-lighten-1"
+							@click="settingsJSON.sparen.stocks.favorites.splice(index, 1)"
+      			>
+						Remove
+      			</v-btn>
+    			</v-card-actions>
 
         </v-card>
-        <v-card class="ma-2" style="flex: 1">
+				<v-card>
+					<v-card-text>
 
-          <v-card-item>
-            <v-card-title class="float-left">
-              Stock 2
-            </v-card-title>
-          </v-card-item>
-
-          <v-card-text>
-            <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[1].symbol"
-              :rules="stockRules"
-              :counter="12"
-              label="Stock Symbol"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[1].priceHigh"
-              :rules="numberRules"
-              :counter="12"
-              label="Maximum Price"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[1].priceLow"
-              :rules="numberRules"
-              :counter="12"
-              label="Minimum Price"
-              required
-            ></v-text-field>
-          </v-card-text>
-
-        </v-card>
-        <v-card class="ma-2" style="flex: 1">
-
-          <v-card-item>
-            <v-card-title class="float-left">
-              Stock 3
-            </v-card-title>
-          </v-card-item>
-
-          <v-card-text>
-            <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[2].symbol"
-              :rules="stockRules"
-              :counter="12"
-              label="Stock Symbol"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[2].priceHigh"
-              :rules="numberRules"
-              :counter="12"
-              label="Maximum Price"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="settingsJSON.sparen.stocks.favorites[2].priceLow"
-              :rules="numberRules"
-              :counter="12"
-              label="Minimum Price"
-              required
-            ></v-text-field>
-          </v-card-text>
-
-      </v-card>
+					</v-card-text>
+				</v-card>
       </v-container>
-      <v-btn type="submit" size="large" color="success" class="mt-2" @click="submit">Submit</v-btn>
+			<v-btn
+				prepend-icon="mdi-plus"
+				@click="settingsJSON.sparen.stocks.favorites.push({symbol: '', priceHigh: '', priceLow: ''})"
+			> Add Stock
+			</v-btn>
+			<v-divider></v-divider>
+      <v-btn type="submit" size="large" color="success" class="mt-2" @click="submit">Submit settings</v-btn>
     </v-form>
   </v-theme-provider>
 </template>
-  
+
 <script>
 import axios from "axios";
 export default {
@@ -289,16 +246,6 @@ export default {
                 "priceHigh": '',
                 "priceLow": ''
               },
-              {
-                "symbol": '',
-                "priceHigh": '',
-                "priceLow": ''
-              },
-              {
-                "symbol": '',
-                "priceHigh": '',
-                "priceLow": ''
-              }
             ]
           }
         }
