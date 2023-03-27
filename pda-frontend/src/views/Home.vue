@@ -62,7 +62,8 @@ export default {
 			console.log('socket connected')
 		},
 		proaktiv(data) {
-			console.log('proaktiv', data.text)
+			console.log('Proaktiv data received', data.text)
+			this.setJarvisText(data.text)
 		}
 	},
 
@@ -77,18 +78,22 @@ export default {
               "; Jarvis response: " +
               response.data
           );
-          this.jarvisText = response.data;
-					this.speaking = true;
-          this.speakString(this.jarvisText, () => {
-            console.log("Finished speaking");
-						this.speaking = false;
-          });
+					this.setJarvisText(response.data)
         })
 				.catch((error) => {
 					console.log(error)
 					alert(error)
 				})
     },
+
+		setJarvisText(text) {
+			this.jarvisText = text
+			this.speaking = true
+			this.speakString(this.jarvisText, () => {
+				console.log("Finished speaking");
+				this.speaking = false;
+			});
+		},
 
     startStopListening() {
       this.listening = !this.listening;
