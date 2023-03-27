@@ -29,5 +29,5 @@ class ExampleUseCase(UseCase):
 		name = self.settings.get_setting_by_name("example")["name"]
 		return f"{name} said: " + input
 
-	def get_settings() -> object:
+	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("example")
