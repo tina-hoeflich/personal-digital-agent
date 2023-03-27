@@ -13,7 +13,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+     working-directory: ./pda-frontend
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
@@ -26,6 +27,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        working-directory: ./pda-frontend
     - run: npm ci
     - run: npm run test
