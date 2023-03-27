@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
      working-directory: ./pda-frontend
+    defaults:
+      run:
+        working-directory: ${{ env.working-directory }}
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
