@@ -11,3 +11,4 @@ pytest-mock
 pytest-func-cov
 apscheduler
 kink
+jokeapi
