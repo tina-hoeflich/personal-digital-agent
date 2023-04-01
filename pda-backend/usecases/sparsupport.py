@@ -1,5 +1,5 @@
 from usecases.usecase import UseCase
-from services.tankerkoenig import get_fuelprice
+import services.tankerkoenig as tankerkoenig
 from services.stocks import get_stock_price
 from scheduler import Scheduler
 from settings_manager import SettingsManager
@@ -24,7 +24,7 @@ class SparenUseCase(UseCase):
 		return GENERAL_TRIGGERS + FUEL_TRIGGERS + STOCK_TRIGGERS
 
 	def trigger(self) -> str:
-		self.scheduler.schedule_job(trigger, datetime.now() + timedelta(minutes=10))
+		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=10))
 
 		text = ""
 
@@ -47,7 +47,7 @@ class SparenUseCase(UseCase):
 		home_address = self.settings.get_setting_by_name("goodMorning")["homeAddress"]
 		lat, lng = geolocation.get_location_from_address(home_address)
 
-		location, price = get_fuelprice(settings["typ"], lat, lng, settings["radius"])
+		location, price = tankerkoenig.get_fuelprice(settings["typ"], lat, lng, settings["radius"])
 		if always or price < settings["limit"]:
 			text = "The currently lowest {} fuel price is {:.3f}€ at {}.".format(settings["typ"], price, location)
 
