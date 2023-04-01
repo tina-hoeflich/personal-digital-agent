@@ -1,6 +1,6 @@
 from usecases.usecase import UseCase
 import services.tankerkoenig as tankerkoenig
-from services.stocks import get_stock_price
+import services.stocks as stocks_service
 from scheduler import Scheduler
 from settings_manager import SettingsManager
 import services.geolocation as geolocation
@@ -11,6 +11,7 @@ from proaktiv_sender import ProaktivSender
 GENERAL_TRIGGERS = ["save", "money", "cheap", "cheaply"]
 FUEL_TRIGGERS = ["fuel", "gas", "car", "fuel", "petrol", "diesel", "e5", "e10"]
 STOCK_TRIGGERS = ["stock", "share", "shares", "stock", "stocks", "stockmarket", "stockmarket", "stockexchange"]
+
 
 @inject
 class SparenUseCase(UseCase):
@@ -87,7 +88,7 @@ class SparenUseCase(UseCase):
 		Returns:
 			tuple[bool, str]: whether the price is outside the limits and the text to say
 		"""
-		price = get_stock_price(stock)
+		price = stocks_service.get_stock_price(stock)
 		if price > top_limit:
 			return True, "The stock price of {} is {:.2f}€. This is above your set limit of {:.2f}€. This is looking great! You will be rich soon!".format(stock, price, top_limit)
 		if price < bottom_limit:

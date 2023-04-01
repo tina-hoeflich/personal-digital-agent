@@ -1,3 +1,4 @@
+from proaktiv_sender import ProaktivSender
 from settings_manager import SettingsManager
 from usecases.sparsupport import SparenUseCase
 from unittest.mock import Mock, patch, MagicMock
@@ -27,3 +28,54 @@ def test_fuelprice_text_above(mock_settings, mock_geolockation, mock_fuelprice):
 	mock_geolockation.assert_called_once_with("Segelfalterstrasse 2, 70439, Stuttgart")
 	assert text == "The currently lowest e10 fuel price is 3.000€ at LOCATION. This is above your set limit of " \
 				   "1.500€. Maybe you should wait fueling your car until it is cheaper!"
+
+
+@patch("services.stocks.get_stock_price", return_value=10000)
+@patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
+def test_stockprice_text_above(mock_settings, mock_stocks):
+	usecase = SparenUseCase(MagicMock(), SettingsManager(""), MagicMock())
+	text = usecase.get_stockprice_text(True)
+	assert text == "The stock price of AAPL is 10000.00€. This is above your set limit of 100.00€. This is looking great! You will be rich soon!\n"
+	mock_stocks.assert_called_once_with("AAPL")
+	mock_settings.assert_called_once()
+
+@patch("services.stocks.get_stock_price", return_value=10)
+@patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
+def test_stockprice_text_below(mock_settings, mock_stocks):
+	usecase = SparenUseCase(MagicMock(), SettingsManager(""), MagicMock())
+	text = usecase.get_stockprice_text(True)
+	assert text == "The stock price of AAPL is 10.00€. This is below your set limit of 50.00€. Maybe you should sell all your stocks now!\n"
+	mock_stocks.assert_called_once_with("AAPL")
+	mock_settings.assert_called_once()
+
+
+@patch("services.stocks.get_stock_price", return_value=75)
+@patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
+def test_stockprice_text_inside(mock_settings, mock_stocks):
+	usecase = SparenUseCase(MagicMock(), SettingsManager(""), MagicMock())
+	text = usecase.get_stockprice_text(True)
+	assert text == "The stock price of AAPL is 75.00€. This is not above or below your limits\n"
+	mock_stocks.assert_called_once_with("AAPL")
+	mock_settings.assert_called_once()
+
+
+@patch.object(SparenUseCase, "get_stockprice_text", return_value="Stock_return")
+@patch.object(SparenUseCase, "get_fuelprice_text", return_value="Fuel_return")
+@patch.object(ProaktivSender, "send_text")
+def test_trigger(mock_proaktiv, mock_fuel, mock_stock):
+	usecase = SparenUseCase(MagicMock(), MagicMock(), ProaktivSender(MagicMock()))
+	usecase.trigger()
+	mock_fuel.assert_called_once()
+	mock_stock.assert_called_once()
+	assert any("Stock_return" in argument for argument in mock_proaktiv.call_args.args)
+	assert any("Fuel_return" in argument for argument in mock_proaktiv.call_args.args)
+
+@patch.object(SparenUseCase, "get_stockprice_text", return_value="Stock_return")
+@patch.object(SparenUseCase, "get_fuelprice_text", return_value="Fuel_return")
+def test_asked(mock_fuelprice, mock_stockprice):
+	usecase = SparenUseCase(MagicMock(), MagicMock(), MagicMock())
+	output = usecase.asked("")
+	assert "Stock_return" in output
+	assert "Fuel_return" in output
+	mock_stockprice.assert_called_once()
+	mock_fuelprice.assert_called_once()
