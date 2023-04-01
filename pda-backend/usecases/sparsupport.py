@@ -3,6 +3,7 @@ from services.tankerkoenig import get_fuelprice
 from services.stocks import get_stock_price
 from scheduler import Scheduler
 from settings_manager import SettingsManager
+import services.geolocation as geolocation
 from kink import inject
 from datetime import datetime, timedelta
 from proaktiv_sender import ProaktivSender
@@ -42,7 +43,11 @@ class SparenUseCase(UseCase):
 
 	def get_fuelprice_text(self, always: bool) -> str:
 		settings = self.get_settings()["sprit"]
-		location, price = get_fuelprice(settings["typ"], settings["lat"], settings["lng"], settings["radius"])
+
+		home_address = self.settings.get_setting_by_name("goodMorning")["homeAddress"]
+		lat, lng = geolocation.get_location_from_address(home_address)
+
+		location, price = get_fuelprice(settings["typ"], lat, lng, settings["radius"])
 		if always or price < settings["limit"]:
 			text = "The currently lowest {} fuel price is {:.3f}€ at {}.".format(settings["typ"], price, location)
 

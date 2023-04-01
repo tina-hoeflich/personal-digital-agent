@@ -14,9 +14,7 @@
     },
     "sparen": {
         "sprit": {
-            "lat": 48.83421132375812,
-            "lng": 9.152560823835184,
-            "limit": 1.299,
+            "preisschwelle": 1.299,
             "radius": 5,
             "typ": "e10"
         },
