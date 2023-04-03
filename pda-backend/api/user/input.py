@@ -1,10 +1,11 @@
 from usecases.example import ExampleUseCase
 from usecases.usecase import UseCase
 from usecases.sparsupport import SparenUseCase
+from usecases.gutenmorgen import GutenMorgenUseCase
 from flask import request, Blueprint, current_app as app
 import random
 
-USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase()]
+USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase(), GutenMorgenUseCase()]
 
 input_blueprint = Blueprint('input_api', __name__, template_folder='templates')
 @input_blueprint.route('/input', methods=['POST'])
