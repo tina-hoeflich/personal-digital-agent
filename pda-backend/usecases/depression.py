@@ -7,7 +7,7 @@ import services.jokes
 import services.email_service as email_service
 
 EMAIL_TRIGGER = ["sad", "depressed", "anxious", "lonely", "empty", "worthless", "hopeless", "suicidal"]
-JOKE_TRIGGERS = ["homework", "exam", "boring", "bored"]
+JOKE_TRIGGERS = ["homework", "exam", "boring", "bored", "joke"]
 
 @inject
 class DepressionUseCase(UseCase):
@@ -17,7 +17,7 @@ class DepressionUseCase(UseCase):
 		self.settings = settings
 
 	def get_triggerwords(self) -> list[str]:
-		return ["joke", "sad"]
+		return EMAIL_TRIGGER + JOKE_TRIGGERS
 
 	def trigger(self) -> str:
 		
@@ -35,7 +35,7 @@ class DepressionUseCase(UseCase):
 		if any(trigger in input for trigger in EMAIL_TRIGGER):
 			email_service.send_email()
 			return "I am sorry to hear that. I will send you an email to get someone to cheer you up."
-		if any(trigger in input for trigger in JOKE_TRIGGERS):
+		elif any(trigger in input for trigger in JOKE_TRIGGERS):
 			return await services.jokes.print_joke()
 		
 
