@@ -4,6 +4,10 @@ from datetime import datetime, timedelta
 from settings_manager import SettingsManager
 from kink import inject
 import services.jokes 
+import services.email_service as email_service
+
+EMAIL_TRIGGER = ["sad", "depressed", "anxious", "lonely", "empty", "worthless", "hopeless", "suicidal"]
+JOKE_TRIGGERS = ["homework", "exam", "boring", "bored"]
 
 @inject
 class DepressionUseCase(UseCase):
@@ -28,7 +32,12 @@ class DepressionUseCase(UseCase):
 		:param input: the input of the user
 		:return: the answer of the usecase
 	    """
-		return await services.jokes.print_joke()
+		if any(trigger in input for trigger in EMAIL_TRIGGER):
+			email_service.send_email()
+			return "I am sorry to hear that. I will send you an email to get someone to cheer you up."
+		if any(trigger in input for trigger in JOKE_TRIGGERS):
+			return await services.jokes.print_joke()
+		
 
 	def get_settings(self) -> object:
 		"""
