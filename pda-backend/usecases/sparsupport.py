@@ -12,11 +12,14 @@ from proaktiv_sender import ProaktivSender
 
 GENERAL_TRIGGERS = ["save", "money", "cheap", "cheaply"]
 FUEL_TRIGGERS = ["fuel", "gas", "car", "fuel", "petrol", "diesel", "e5", "e10"]
-STOCK_TRIGGERS = ["stock", "share", "shares", "stock", "stocks", "stockmarket", "stockmarket", "stockexchange"]
+STOCK_TRIGGERS = ["stock", "share", "shares", "stock", "stocks", "stockmarket", "stockmarket"]
 
 
 @inject
 class SparenUseCase(UseCase):
+	talk_fuelprice = False
+	talk_stockprice = False
+
 	def __init__(self, scheduler: Scheduler, settings: SettingsManager, proaktive: ProaktivSender):
 		self.scheduler = scheduler
 		self.settings = settings
@@ -36,21 +39,53 @@ class SparenUseCase(UseCase):
 
 		if text != "":
 			text = "Hey! I have some tips for saving some money for you! " + text
-			text = self.proaktive.send_text(text)
+			self.proaktive.send_text(text)
 
-	def asked(self, input: str) -> tuple[str, Callable]:
-		return self.get_fuelprice_text(True) + self.get_stockprice_text(True), None
+	async def asked(self, input: str) -> tuple[str, Callable]:
+		text, talk_fuelprice, talk_stockprice = self.get_general_text()
+		self.talk_stockprice = talk_stockprice
+		self.talk_fuelprice = talk_fuelprice
+		if self.talk_fuelprice or self.talk_stockprice:
+			print("TEEST")
+			return text, self.conversation
+		return text, None
+
+	def conversation(self, input: str) -> tuple[str, Callable]:
+		# TODO: check if "no" or similar words are in input
+		text = ""
+		if self.talk_fuelprice:
+			text += self.get_fuelprice_text(False)
+		if self.talk_stockprice:
+			text += self.get_stockprice_text(False)
+		return text, None
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("sparen")
 
-	def get_fuelprice_text(self, always: bool) -> str:
+	def get_general_text(self) -> tuple[str, bool, bool]:
+		_, fuelprice = self.get_fuelprice()
+		fuel_good = fuelprice < self.get_settings()["sprit"]["preisschwelle"]
+		stock_good = self.get_stock_yes_no()
+
+		text = ""
+		if fuel_good:
+			text += "I have news for saving money at the gas station. Do you want to hear it? \n"
+		if stock_good:
+			text += "I have news for gaining some fast money at the stock market. Do you want to hear it?"
+		return text, fuel_good, stock_good
+
+	def get_fuelprice(self) -> tuple[str, float]:
 		settings = self.get_settings()["sprit"]
 
 		home_address = self.settings.get_setting_by_name("goodMorning")["homeAddress"]
 		lat, lng = geolocation.get_location_from_address(home_address)
 
-		location, price = tankerkoenig.get_fuelprice(settings["typ"], lat, lng, settings["radius"])
+		return tankerkoenig.get_fuelprice(settings["typ"], lat, lng, settings["radius"])
+
+	def get_fuelprice_text(self, always: bool) -> str:
+		settings = self.get_settings()["sprit"]
+
+		location, price = self.get_fuelprice()
 		if always or price < settings["limit"]:
 			text = "The currently lowest {} fuel price is {:.3f}€ at {}.".format(settings["typ"], price, location)
 
@@ -60,6 +95,15 @@ class SparenUseCase(UseCase):
 				text += " This is above your set limit of {:.3f}€. Maybe you should wait fueling your car until it is cheaper!".format(settings["limit"])
 
 		return text
+
+	def get_stock_yes_no(self) -> bool:
+		good = False
+		for stock in self.get_settings()["stocks"]["favorites"]:
+			price = stocks_service.get_stock_price(stock["symbol"])
+			if price > stock["priceHigh"] or price < stock["priceLow"]:
+				good = True
+
+		return good
 
 	def get_stockprice_text(self, always: bool) -> str:
 		"""Get the text for the stock prices

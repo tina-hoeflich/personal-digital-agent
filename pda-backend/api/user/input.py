@@ -22,6 +22,7 @@ async def text_input():
 	conversation_manager: ConversationManager = di[ConversationManager]
 
 	selected_usecase = None
+	new_usecase = None
 
 	if not conversation_manager.has_next_method():
 		# no next usecase from conversation

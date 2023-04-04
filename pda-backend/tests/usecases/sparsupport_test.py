@@ -1,3 +1,5 @@
+import pytest
+
 from proaktiv_sender import ProaktivSender
 from settings_manager import SettingsManager
 from usecases.sparsupport import SparenUseCase
@@ -70,12 +72,12 @@ def test_trigger(mock_proaktiv, mock_fuel, mock_stock):
 	assert any("Stock_return" in argument for argument in mock_proaktiv.call_args.args)
 	assert any("Fuel_return" in argument for argument in mock_proaktiv.call_args.args)
 
-@patch.object(SparenUseCase, "get_stockprice_text", return_value="Stock_return")
-@patch.object(SparenUseCase, "get_fuelprice_text", return_value="Fuel_return")
-def test_asked(mock_fuelprice, mock_stockprice):
-	usecase = SparenUseCase(MagicMock(), MagicMock(), MagicMock())
-	output = usecase.asked("")
-	assert "Stock_return" in output
-	assert "Fuel_return" in output
-	mock_stockprice.assert_called_once()
+@pytest.mark.asyncio
+@patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
+@patch.object(SparenUseCase, "get_fuelprice", return_value=["unused", 2.0])
+async def test_asked(mock_fuelprice, _):
+	usecase = SparenUseCase(MagicMock(), SettingsManager(""), MagicMock())
+	output, _ = await usecase.asked("")
+	assert "Do you want to hear it?" in output
+	assert "stock" in output
 	mock_fuelprice.assert_called_once()
