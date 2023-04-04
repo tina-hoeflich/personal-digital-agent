@@ -20,13 +20,10 @@ class DepressionUseCase(UseCase):
 	def get_triggerwords(self) -> list[str]:
 		return EMAIL_TRIGGER + JOKE_TRIGGERS
 
-	def trigger(self) -> str:
+	def trigger(self):
 
 		print("Periodic trigger of the example usecase")
 		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(seconds=60))
-
-		# hier kommt der text der an den user gelesen wird hin
-		return
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
 		"""

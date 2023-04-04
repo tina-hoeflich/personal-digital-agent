@@ -14,11 +14,8 @@ class UseCase(ABC):
 		pass
 
 	@abstractmethod
-	def trigger(self) -> str:
-		"""This method gets called by the scheduler when
-
-		Returns:
-			str: output text read to the user
+	def trigger(self):
+		"""This method gets called by the scheduler when the next scheduled time is hit
 		"""
 		pass
 

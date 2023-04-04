@@ -18,13 +18,11 @@ class GutenMorgenUseCase(UseCase):
 	def get_triggerwords(self) -> list[str]:
 		return TRIGGERS
 
-	def trigger(self) -> str:
-	# hier kommt das periodische checken für proaktive Dinge rein.
+	def trigger(self):
+		# hier kommt das periodische checken für proaktive Dinge rein.
 
-	# hier muss jeder trigger noch den nächsten run schedulen. Aktuell geht das nicht, wir haben ja noch keinen scheduler.
-
-	# hier kommt der text der an den user gelesen wird hin
-		return "Periodic trigger of the example usecase"
+		# hier muss jeder trigger noch den nächsten run schedulen
+		return
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
 		return f"{self.greeting()} {self.weather()}", None

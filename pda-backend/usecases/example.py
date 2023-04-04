@@ -15,16 +15,13 @@ class ExampleUseCase(UseCase):
 	def get_triggerwords(self) -> list[str]:
 		return ["example"]
 
-	def trigger(self) -> str:
+	def trigger(self):
 		# hier kommt das periodische checken für proaktive Dinge rein.
 
 		# hier muss jeder trigger noch den nächsten run schedulen. Aktuell geht das nicht, wir haben ja noch keinen scheduler.
 
 		print("Periodic trigger of the example usecase")
 		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(seconds=60))
-
-		# hier kommt der text der an den user gelesen wird hin
-		return
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
 		name = self.settings.get_setting_by_name("example")["name"]
