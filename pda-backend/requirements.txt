@@ -16,3 +16,6 @@ jokeapi
 sendgrid
 spotipy
 requests
+icalendar
+tmdbv3api
+JustWatch
