@@ -1,5 +1,6 @@
 from usecases.usecase import UseCase
 from scheduler import Scheduler
+from services.weather import get_weather
 from settings_manager import SettingsManager
 import random
 from kink import inject
@@ -23,8 +24,8 @@ class GutenMorgenUseCase(UseCase):
 	# hier kommt der text der an den user gelesen wird hin
 		return "Periodic trigger of the example usecase"
 
-	def asked(self, input: str) -> str:
-		return self.greeting()
+	async def asked(self, input: str) -> str:
+		return f"{self.greeting()} {self.weather()}"
 	
 	def greeting(self) -> str:
 		name = self.get_settings()["name"]
@@ -36,6 +37,12 @@ class GutenMorgenUseCase(UseCase):
 			f"Welcome back {name}. Let me know if I can be of service.",\
 			f"Rise and shine {name}! I'm here and ready to help."]
 		return random.choice(greetings)
+
+	def weather(self) -> str:
+		settings = self.get_settings()
+		lat = 44.34
+		lon = 10.99
+		return get_weather(lat, lon)
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("goodMorning")
