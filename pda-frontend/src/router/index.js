@@ -11,6 +11,11 @@ const routes = [
     name: 'Developer',
     component: () => import('@/views/Developer.vue'),
   },
+  {
+    path: '/preferences',
+    name: 'Preferences',
+    component: () => import('@/views/Preferences.vue'),
+  },
 ]
 
 const router = createRouter({

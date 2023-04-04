@@ -5,20 +5,24 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
     "axios": "^1.3.4",
     "roboto-fontface": "*",
     "vue": "^3.2.38",
+    "vue-3-socket.io": "github:GizmoTjaz/Vue-3-Socket.io#socketio-bump",
     "vue-router": "^4.0.0",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/test-utils": "^2.0.0-rc.18",
     "vite": "^4.1.4",
-    "vite-plugin-vuetify": "^1.0.0-alpha.12"
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vitest": "^0.29.7"
   }
 }
