@@ -3,6 +3,7 @@ from scheduler import Scheduler
 from services.weather import get_weather
 import services.geolocation as geolocation
 from settings_manager import SettingsManager
+from typing import Callable
 import random
 from kink import inject
 
@@ -25,9 +26,9 @@ class GutenMorgenUseCase(UseCase):
 	# hier kommt der text der an den user gelesen wird hin
 		return "Periodic trigger of the example usecase"
 
-	async def asked(self, input: str) -> str:
-		return f"{self.greeting()} {self.weather()}"
-	
+	async def asked(self, input: str) -> tuple[str, Callable]:
+		return f"{self.greeting()} {self.weather()}", None
+
 	def greeting(self) -> str:
 		name = self.get_settings()["name"]
 		greetings = [

@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Callable
 import types
 
 class UseCase(ABC):
@@ -22,7 +23,7 @@ class UseCase(ABC):
 		pass
 
 	@abstractmethod
-	def asked(self, input: str) -> str:
+	def asked(self, input: str) -> tuple[str, Callable]:
 		"""Method getting called when the user mentioned one of the triggerwords
 
 		Args:
@@ -30,6 +31,7 @@ class UseCase(ABC):
 
 		Returns:
 			str: text to read back to the user
+			Callable: the method to call for the next user input. This manages the conversation logic
 		"""
 		pass
 

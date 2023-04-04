@@ -2,6 +2,7 @@ from usecases.usecase import UseCase
 from scheduler import Scheduler
 from datetime import datetime, timedelta
 from settings_manager import SettingsManager
+from typing import Callable
 from kink import inject
 
 @inject
@@ -25,7 +26,7 @@ class ExampleUseCase(UseCase):
 		# hier kommt der text der an den user gelesen wird hin
 		return
 
-	async def asked(self, input: str) -> str:
+	async def asked(self, input: str) -> tuple[str, Callable]:
 		name = self.settings.get_setting_by_name("example")["name"]
 		return f"{name} said: " + input
 
