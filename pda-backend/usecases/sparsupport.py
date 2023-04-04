@@ -4,6 +4,7 @@ from services.stocks import get_stock_price
 from scheduler import Scheduler
 from settings_manager import SettingsManager
 import services.geolocation as geolocation
+from typing import Callable
 from kink import inject
 
 GENERAL_TRIGGERS = ["save", "money", "cheap", "cheaply"]
@@ -19,19 +20,17 @@ class SparenUseCase(UseCase):
 	def get_triggerwords(self) -> list[str]:
 		return GENERAL_TRIGGERS + FUEL_TRIGGERS + STOCK_TRIGGERS
 
-	def trigger(self) -> str:
+	def trigger(self):
 		# hier kommt das periodische checken für proaktive Dinge rein.
 
-		# hier muss jeder trigger noch den nächsten run schedulen. Aktuell geht das nicht, wir haben ja noch keinen scheduler.
+		# hier muss jeder trigger noch den nächsten run schedulen
+		return
 
-		# hier kommt der text der an den user gelesen wird hin
-		return "Periodic trigger of the example usecase"
-
-	async def asked(self, input: str) -> str:
+	async def asked(self, input: str) -> tuple[str, Callable]:
 		if any(trigger in input for trigger in FUEL_TRIGGERS):
-			return self.current_fuelprice()
+			return self.current_fuelprice(), None
 		if any(trigger in input for trigger in STOCK_TRIGGERS):
-			return self.current_stockprice()
+			return self.current_stockprice(), None
 
 	def current_fuelprice(self) -> str:
 		settings = self.get_settings()["sprit"]
