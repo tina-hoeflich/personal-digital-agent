@@ -1,5 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
+
+from conversation_manager import ConversationManager
 from settings_manager import SettingsManager
 from scheduler import Scheduler
 from kink import di
@@ -14,11 +16,13 @@ socketio = SocketIO(app, cors_allowed_origins='*')
 set_man = SettingsManager('settings.json')
 sched = Scheduler()
 proaktiv = ProaktivSender(socketio)
+conv_man = ConversationManager()
 
 # Core services
 di[SettingsManager] = set_man
 di[Scheduler] = sched
 di[ProaktivSender] = proaktiv
+di[ConversationManager] = conv_man
 
 
 # das sagt, dass die api routes aus api/user/input.py und api/user/settings.py geladen werden sollen

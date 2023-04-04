@@ -105,10 +105,22 @@ export default {
   },
   methods: {
     callGoodMorning() {
-      this.goodMorningResponse = "Good Morning!"
+      let input = "morning"
+      console.log("calling good morning usecase with input", input)
+      axios.post("http://127.0.0.1:8000/input", input)
+      .then((response) => {
+        console.log(response)
+        this.goodMorningResponse = response.data
+      })
     },
     callDepressionHandler() {
-      this.depressionHandlerResponse = "Y U sad? :("
+      let input = "joke"
+      console.log("calling depression handler with input", input)
+      axios.post("http://127.0.0.1:8000/input", input)
+      .then((response) => {
+        console.log(response)
+        this.depressionHandlerResponse = response.data
+      })
     },
     callSavingsSupport(type) {
       let input = "save " + type
@@ -118,7 +130,6 @@ export default {
         console.log(response)
         this.savingsSupportResponse = response.data
       })
-      
     },
     callNetflixAndChill() {
       this.netflixAndChillResposne = "U up? ^^"

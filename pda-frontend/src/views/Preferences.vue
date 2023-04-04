@@ -14,14 +14,12 @@
               <v-text-field
                 v-model="settingsJSON.goodMorning.name"
                 :rules="basicRules"
-                :counter="50"
                 label="Name"
                 required
               ></v-text-field>
               <v-text-field
                 v-model="settingsJSON.goodMorning.homeAddress"
                 :rules="basicRules"
-                :counter="50"
                 label="Home Adress"
                 required
               ></v-text-field>
@@ -41,7 +39,6 @@
               <v-text-field
                 v-model="settingsJSON.goodMorning.workAddress"
                 :rules="basicRules"
-                :counter="50"
                 label="Work Address"
                 required
               ></v-text-field>
@@ -49,13 +46,6 @@
               label="Mode of Transporation"
               v-model="settingsJSON.goodMorning.modeOfTransportation"
               :items="['Car', 'Bike', 'Walking']"
-              :rules="[v => !!v || 'Item is required']"
-              >
-              </v-select>
-              <v-select
-              label="Fuel Type"
-              v-model="settingsJSON.sparen.sprit.typ"
-              :items="['e5', 'e10', 'diesel']"
               :rules="[v => !!v || 'Item is required']"
               >
               </v-select>
@@ -75,20 +65,51 @@
               <v-text-field
                 v-model="settingsJSON.depressionHandler.emergencyEmail"
                 :rules="emailRules"
-                :counter="50"
                 label="Emergency Email"
                 required
               ></v-text-field>
               <v-text-field
                 v-model="settingsJSON.depressionHandler.friendEmail"
                 :rules="emailRules"
-                :counter="50"
                 label="Personal Friend Email"
                 required
               ></v-text-field>
           </v-card-text>
 
         </v-card>
+
+      <v-card class="ma-2" style="flex: 1">
+
+        <v-card-item>
+          <v-card-title class="float-left">
+            Fuel Settings
+          </v-card-title>
+        </v-card-item>
+
+        <v-card-text>
+          <v-select
+              label="Fuel Type"
+              v-model="settingsJSON.sparen.sprit.typ"
+              :items="['e5', 'e10', 'diesel']"
+              :rules="[v => !!v || 'Item is required']"
+              >
+            </v-select>
+            <v-text-field
+              v-model.number="settingsJSON.sparen.sprit.radius"
+              :rules="numberRules"
+              label="Gas station radius (km)"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model.number="settingsJSON.sparen.sprit.preisschwelle"
+              :rules="numberRules"
+              append-inner-icon="mdi-currency-eur"
+              label="Price threshold"
+              required
+            ></v-text-field>
+        </v-card-text>
+
+      </v-card>
 
       </v-container>
 			<v-divider></v-divider>
@@ -106,21 +127,18 @@
               <v-text-field
               v-model="stock.symbol"
               :rules="stockRules"
-              :counter="12"
               label="Stock Symbol"
               required
             ></v-text-field>
             <v-text-field
-              v-model="stock.priceHigh"
+              v-model.number="stock.priceHigh"
               :rules="numberRules"
-              :counter="12"
               label="Maximum Price"
               required
             ></v-text-field>
             <v-text-field
-              v-model="stock.priceLow"
+              v-model.number="stock.priceLow"
               :rules="numberRules"
-              :counter="12"
               label="Minimum Price"
               required
             ></v-text-field>
@@ -144,7 +162,23 @@
 			> Add Stock
 			</v-btn>
 			<v-divider></v-divider>
-      <v-btn type="submit" size="large" color="success" class="mt-2" @click="submit">Submit settings</v-btn>
+      <v-btn 
+        type="submit" 
+        size="large" 
+        color="success" 
+        class="mt-2" 
+        @click="submit"
+      >
+      Submit settings</v-btn>
+      <v-scroll-x-transition>
+        <v-icon
+          v-if="submitted"
+          class="ma-2 pa-2 pt-4"
+          color="success"
+        >
+        mdi-check-circle-outline
+        </v-icon>
+    </v-scroll-x-transition>
     </v-form>
   </v-theme-provider>
 </template>
@@ -155,6 +189,8 @@ export default {
   data() {
     return {
       valid: false,
+
+      submitted: false,
 
       // Input rules
       basicRules: [
@@ -205,7 +241,7 @@ export default {
           return 'Number is required.'
         },
         value => {
-          if (/^[0-9]+$/.test(value)) return true
+          if (/^[0-9]+(\.[0-9]+)?$/.test(value)) return true
 
           return 'You can only input numbers!'
         },
@@ -229,17 +265,15 @@ export default {
         "sparen": {
           "sprit": {
             "typ": '',
-            "lat": 48.83421132375812,
-            "lng":  9.152560823835184,
-            "radius": 5,
-            "preisschwelle": 1.299
+            "radius": 0,
+            "preisschwelle": 0,
           },
           "stocks": {
             "favorites": [
               {
                 "symbol": '',
-                "priceHigh": '',
-                "priceLow": ''
+                "priceHigh": 0,
+                "priceLow": 0
               },
             ]
           }
@@ -253,7 +287,11 @@ export default {
         console.log("sumbitting settings...", JSON.stringify(this.settingsJSON))
         axios.post("http://127.0.0.1:8000/settings", this.settingsJSON)
         .then((response) => {
-          console.log(response)
+          console.log(response);
+          this.submitted = true;
+          setTimeout(() => {
+            this.submitted = false;
+          }, 1000)
         })
       }
       else {

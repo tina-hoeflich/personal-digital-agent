@@ -1,3 +1,5 @@
+from typing import Callable
+
 from usecases.usecase import UseCase
 import services.tankerkoenig as tankerkoenig
 import services.stocks as stocks_service
@@ -36,8 +38,8 @@ class SparenUseCase(UseCase):
 			text = "Hey! I have some tips for saving some money for you! " + text
 			text = self.proaktive.send_text(text)
 
-	def asked(self, input: str) -> str:
-		return self.get_fuelprice_text(True) + self.get_stockprice_text(True)
+	def asked(self, input: str) -> tuple[str, Callable]:
+		return self.get_fuelprice_text(True) + self.get_stockprice_text(True), None
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("sparen")
