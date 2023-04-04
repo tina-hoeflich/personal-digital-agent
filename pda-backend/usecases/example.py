@@ -23,9 +23,9 @@ class ExampleUseCase(UseCase):
 		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(seconds=60))
 
 		# hier kommt der text der an den user gelesen wird hin
-		return 
+		return
 
-	def asked(self, input: str) -> str:
+	async def asked(self, input: str) -> str:
 		name = self.settings.get_setting_by_name("example")["name"]
 		return f"{name} said: " + input
 
