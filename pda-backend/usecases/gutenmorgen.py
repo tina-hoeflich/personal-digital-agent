@@ -1,6 +1,7 @@
 from usecases.usecase import UseCase
 from scheduler import Scheduler
 from services.weather import get_weather
+import services.geolocation as geolocation
 from settings_manager import SettingsManager
 import random
 from kink import inject
@@ -40,9 +41,9 @@ class GutenMorgenUseCase(UseCase):
 
 	def weather(self) -> str:
 		settings = self.get_settings()
-		lat = 44.34
-		lon = 10.99
-		return get_weather(lat, lon)
+		home_address = settings["homeAddress"]
+		lat, lng = geolocation.get_location_from_address(home_address)
+		return get_weather(lat, lng)
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("goodMorning")

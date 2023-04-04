@@ -105,7 +105,13 @@ export default {
   },
   methods: {
     callGoodMorning() {
-      this.goodMorningResponse = "Good Morning!"
+      let input = "morning"
+      console.log("calling savings support with input", input)
+      axios.post("http://127.0.0.1:8000/input", input)
+      .then((response) => {
+        console.log(response)
+        this.goodMorningResponse = response.data
+      })
     },
     callDepressionHandler() {
       this.depressionHandlerResponse = "Y U sad? :("
@@ -118,7 +124,6 @@ export default {
         console.log(response)
         this.savingsSupportResponse = response.data
       })
-      
     },
     callNetflixAndChill() {
       this.netflixAndChillResposne = "U up? ^^"
