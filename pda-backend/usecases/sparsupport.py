@@ -3,6 +3,7 @@ from services.tankerkoenig import get_fuelprice
 from services.stocks import get_stock_price
 from scheduler import Scheduler
 from settings_manager import SettingsManager
+import services.geolocation as geolocation
 from kink import inject
 
 GENERAL_TRIGGERS = ["save", "money", "cheap", "cheaply"]
@@ -34,7 +35,9 @@ class SparenUseCase(UseCase):
 
 	def current_fuelprice(self) -> str:
 		settings = self.get_settings()["sprit"]
-		location, price = get_fuelprice(settings["typ"], settings["lat"], settings["lng"], settings["radius"])
+		home_address = self.settings.get_setting_by_name("goodMorning")["homeAddress"]
+		lat, lng = geolocation.get_location_from_address(home_address)
+		location, price = get_fuelprice(settings["typ"], lat, lng, settings["radius"])
 		return "The currently lowest {} fuel price is {:.3f}€ at {}.".format(settings["typ"], price, location)
 
 	def current_stockprice(self) -> str:

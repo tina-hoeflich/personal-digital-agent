@@ -1,5 +1,5 @@
 connexion[swagger-ui]
-Flask
+Flask[async]
 flask-socketio
 simple-websocket
 flask-cors
@@ -11,3 +11,7 @@ pytest-mock
 pytest-func-cov
 apscheduler
 kink
+geopy
+jokeapi
+sendgrid
+spotipy

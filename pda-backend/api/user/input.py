@@ -1,15 +1,17 @@
 from usecases.example import ExampleUseCase
 from usecases.usecase import UseCase
-from usecases.sparsupport import SparenUseCase
+from usecases.sparsupport import SparenUseCase 
+from usecases.depression import DepressionUseCase
 from usecases.gutenmorgen import GutenMorgenUseCase
 from flask import request, Blueprint, current_app as app
 import random
 
-USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase(), GutenMorgenUseCase()]
+USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase(), DepressionUseCase(), GutenMorgenUseCase()]
+
 
 input_blueprint = Blueprint('input_api', __name__, template_folder='templates')
 @input_blueprint.route('/input', methods=['POST'])
-def text_input():
+async def text_input():
     message = request.get_data(as_text=True)
     app.logger.info("Nachricht empfangen: {}".format(message))
 
@@ -26,7 +28,7 @@ def text_input():
         response = random.choice(["I didn't understand you. Please try again"])
     else:
         app.logger.info("Using UseCase handler {}".format(selected_usecase))
-        response = selected_usecase.asked(message)
+        response = await selected_usecase.asked(message)
 
     app.logger.info("Responding with: {}".format(response))
     return response
