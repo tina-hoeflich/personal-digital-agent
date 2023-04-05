@@ -1,8 +1,9 @@
 # JARVIS Personal Digital Assistant
 
 JARVIS is a personal digital assistant designed to help manage your daily tasks and schedule. It consists of a Python Flask backend server and a Vue.js frontend.
-
-<img align="center" src="pda-frontend/src/assets/frame_0.png" alt="Image description">
+<p align="center">
+ <img align="center" src="pda-frontend/src/assets/frame_0.png" alt="Image description">
+</p>
 
 ## Getting Started
 
