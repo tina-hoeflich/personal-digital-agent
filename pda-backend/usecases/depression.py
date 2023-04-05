@@ -34,7 +34,7 @@ class DepressionUseCase(UseCase):
 			email_service.send_email()
 			return "I am sorry to hear that. I will send you an email to get someone to cheer you up.", None
 		elif any(trigger in input for trigger in JOKE_TRIGGERS):
-			return await services.jokes.print_joke(), None
+			return await services.jokes.get_joke(), None
 
 
 	def get_settings(self) -> object:
