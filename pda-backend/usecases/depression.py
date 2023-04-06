@@ -5,10 +5,11 @@ from settings_manager import SettingsManager
 from kink import inject
 import services.jokes 
 import services.email_service as email_service
+import services.spotify_service as spotify_service
 
 EMAIL_TRIGGER = ["sad", "depressed", "anxious", "lonely", "empty", "worthless", "hopeless", "suicidal"]
 JOKE_TRIGGERS = ["homework", "exam", "boring", "bored", "joke"]
-
+MUSIC_TRIGGERS = ["music", "song", "playlist", "spotify"]
 @inject
 class DepressionUseCase(UseCase):
 	def __init__(self, scheduler: Scheduler, settings: SettingsManager):
@@ -17,7 +18,7 @@ class DepressionUseCase(UseCase):
 		self.settings = settings
 
 	def get_triggerwords(self) -> list[str]:
-		return EMAIL_TRIGGER + JOKE_TRIGGERS
+		return EMAIL_TRIGGER + JOKE_TRIGGERS + MUSIC_TRIGGERS
 
 	def trigger(self) -> str:
 		
@@ -37,7 +38,9 @@ class DepressionUseCase(UseCase):
 			return "I am sorry to hear that. I will send you an email to get someone to cheer you up."
 		elif any(trigger in input for trigger in JOKE_TRIGGERS):
 			return await services.jokes.print_joke()
-		
+		elif any(trigger in input for trigger in MUSIC_TRIGGERS):
+			spotify_service.start_music()
+			return "listen to some music, this will cheer you up"
 
 	def get_settings(self) -> object:
 		"""

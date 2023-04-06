@@ -43,7 +43,6 @@ def get_access_token():
 
     response = requests.request("POST", url, headers=headers, data=payload)
     token = str(response.json()['access_token'])
-    print(response.text)
     return token
 
 
