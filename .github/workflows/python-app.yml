@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
+        pip install flake8 pytest pytest-cov
         pip install -r requirements.txt
     - name: Lint with flake8
       run: |
@@ -47,4 +47,5 @@ jobs:
       with:
         pytest-coverage-path: ./pda-backend/pytest-coverage.txt
         junitxml-path: ./pda-backend/pytest.xml
+
 
