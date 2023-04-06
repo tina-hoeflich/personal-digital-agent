@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Callable
-import types
 
-class UseCase(ABC):
+
+class UseCase(ABC):   # pragma: no cover
 
 	@abstractmethod
 	def get_triggerwords(self) -> list[str]:

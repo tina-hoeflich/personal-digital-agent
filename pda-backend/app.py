@@ -33,5 +33,5 @@ app.register_blueprint(input_blueprint)
 app.register_blueprint(settings_blueprint)
 app.register_blueprint(trigger_blueprint)
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
 	socketio.run(app, host="0.0.0.0", port=8000)

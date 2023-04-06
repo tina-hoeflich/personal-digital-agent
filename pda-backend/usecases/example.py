@@ -5,8 +5,9 @@ from settings_manager import SettingsManager
 from typing import Callable
 from kink import inject
 
+
 @inject
-class ExampleUseCase(UseCase):
+class ExampleUseCase(UseCase):   # pragma: no cover
 	def __init__(self, scheduler: Scheduler, settings: SettingsManager):
 		self.scheduler = scheduler
 		# self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(seconds=10))

@@ -14,8 +14,3 @@ def test_input_route():
 
 	assert response.status_code == 200
 	assert test_input in response.text
-
-
-@pytest.fixture()
-def runner(app):
-	return app.test_cli_runner()
