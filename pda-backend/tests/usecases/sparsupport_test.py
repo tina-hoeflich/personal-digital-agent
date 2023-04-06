@@ -7,7 +7,7 @@ from unittest.mock import Mock, patch, MagicMock
 
 SETTINGS = {"goodMorning": {"homeAddress": "Segelfalterstrasse 2, 70439, Stuttgart"},
 			"sparen": {"stocks": {"favorites": [{"symbol": "AAPL", "priceHigh": 100, "priceLow": 50}]},
-					   "sprit": {"typ": "e10", "radius": 10, "limit": 1.500}}}
+					   "sprit": {"typ": "e10", "radius": 10, "preisschwelle": 1.500}}}
 
 
 @patch("services.tankerkoenig.get_fuelprice", return_value=("LOCATION", 1.000))

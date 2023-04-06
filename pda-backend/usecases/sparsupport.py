@@ -86,13 +86,13 @@ class SparenUseCase(UseCase):
 		settings = self.get_settings()["sprit"]
 
 		location, price = self.get_fuelprice()
-		if always or price < settings["limit"]:
+		if always or price < settings["preisschwelle"]:
 			text = "The currently lowest {} fuel price is {:.3f}€ at {}.".format(settings["typ"], price, location)
 
-			if price < settings["limit"]:
-				text += " This is below your set limit of {:.3f}€. You should go there and fill up!".format(settings["limit"])
+			if price < settings["preisschwelle"]:
+				text += " This is below your set limit of {:.3f}€. You should go there and fill up!".format(settings["preisschwelle"])
 			else:
-				text += " This is above your set limit of {:.3f}€. Maybe you should wait fueling your car until it is cheaper!".format(settings["limit"])
+				text += " This is above your set limit of {:.3f}€. Maybe you should wait fueling your car until it is cheaper!".format(settings["preisschwelle"])
 
 		return text
 
