@@ -61,16 +61,15 @@ def test_stockprice_text_inside(mock_settings, mock_stocks):
 	mock_settings.assert_called_once()
 
 
-@patch.object(SparenUseCase, "get_stockprice_text", return_value="Stock_return")
-@patch.object(SparenUseCase, "get_fuelprice_text", return_value="Fuel_return")
+@patch.object(SparenUseCase, "get_general_text", return_value=["", True, False])
 @patch.object(ProaktivSender, "send_text")
-def test_trigger(mock_proaktiv, mock_fuel, mock_stock):
+def test_trigger(mock_proaktiv, mock_general_text):
 	usecase = SparenUseCase(MagicMock(), MagicMock(), ProaktivSender(MagicMock()))
 	usecase.trigger()
-	mock_fuel.assert_called_once()
-	mock_stock.assert_called_once()
-	assert any("Stock_return" in argument for argument in mock_proaktiv.call_args.args)
-	assert any("Fuel_return" in argument for argument in mock_proaktiv.call_args.args)
+	mock_general_text.assert_called_once()
+	assert any("Do you want to hear them?" in argument for argument in mock_proaktiv.call_args.args)
+	assert any("tips" in argument for argument in mock_proaktiv.call_args.args)
+
 
 @pytest.mark.asyncio
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)

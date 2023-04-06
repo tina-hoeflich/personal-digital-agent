@@ -29,16 +29,15 @@ class SparenUseCase(UseCase):
 	def get_triggerwords(self) -> list[str]:
 		return GENERAL_TRIGGERS + FUEL_TRIGGERS + STOCK_TRIGGERS
 
-	def trigger(self) -> str:
+	def trigger(self):
 		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=10))
 
-		text = ""
+		_, talk_fuelprice, talk_stockprice = self.get_general_text()
+		self.talk_stockprice = talk_stockprice
+		self.talk_fuelprice = talk_fuelprice
 
-		text += self.get_stockprice_text(False)
-		text += self.get_fuelprice_text(False)
-
-		if text != "":
-			text = "Hey! I have some tips for saving some money for you! " + text
+		if self.talk_fuelprice or self.talk_stockprice:
+			text = "Hey! I have some tips for saving some money for you! Do you want to hear them?"
 			self.proaktive.send_text(text)
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
@@ -46,7 +45,6 @@ class SparenUseCase(UseCase):
 		self.talk_stockprice = talk_stockprice
 		self.talk_fuelprice = talk_fuelprice
 		if self.talk_fuelprice or self.talk_stockprice:
-			print("TEEST")
 			return text, self.conversation
 		return text, None
 
@@ -102,6 +100,7 @@ class SparenUseCase(UseCase):
 			price = stocks_service.get_stock_price(stock["symbol"])
 			if price > stock["priceHigh"] or price < stock["priceLow"]:
 				good = True
+				break
 
 		return good
 
