@@ -16,11 +16,7 @@ const routes = [
     name: 'Preferences',
     component: () => import('@/views/Preferences.vue'),
   },
-  {
-    path: '/musicPlayer',
-    name: 'MusicPlayer',
-    component: () => import('@/views/MusicPlayer.vue'),
-  },
+  
 ]
 
 const router = createRouter({

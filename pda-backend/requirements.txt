@@ -14,4 +14,3 @@ kink
 geopy
 jokeapi
 sendgrid
-spotipy
