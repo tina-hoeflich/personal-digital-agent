@@ -20,8 +20,3 @@ requests
 icalendar
 tmdbv3api
 JustWatch
-spotipy
-requests
-icalendar
-tmdbv3api
-JustWatch
