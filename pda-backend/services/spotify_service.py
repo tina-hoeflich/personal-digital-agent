@@ -1,11 +1,6 @@
 import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
-import os
-from spotipy.oauth2 import SpotifyOAuth
-import tekore as tk
 import os
 import requests
-import spotipy
 
 def start_player(token):
     """Starts the music player with the given access token and resumes playback"""
