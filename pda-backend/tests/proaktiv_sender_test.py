@@ -1,4 +1,4 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from proaktiv_sender import ProaktivSender
 from flask_socketio import SocketIO
 
