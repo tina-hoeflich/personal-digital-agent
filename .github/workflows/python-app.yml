@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   build:
@@ -40,14 +41,12 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        python -m pytest
-    - name: Build coverage file
-      run: |
-        pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=app tests/ | tee pytest-coverage.txt
-
+        set -o pipefail # set failing tests to fail the action as well
+        python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=. tests | tee pytest-coverage.txt
     - name: Pytest coverage comment
       uses: MishaKav/pytest-coverage-comment@main
       with:
-        pytest-coverage-path: ./pytest-coverage.txt
-        junitxml-path: ./pytest.xml
+        pytest-coverage-path: ./pda-backend/pytest-coverage.txt
+        junitxml-path: ./pda-backend/pytest.xml
+
 

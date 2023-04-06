@@ -32,7 +32,7 @@ class SettingsManager():
 			name (str): name of the setting
 			value (object): value of the setting
 		"""
-		settings = self.get_all_settings()
+		settings = self.CACHE
 		settings[name] = value
 		self.save_settings(settings)
 
@@ -45,7 +45,9 @@ class SettingsManager():
 		if self.CACHE:
 			return self.CACHE
 		with open(self.FILENAME, 'r') as f:
-			return json.load(f)
+			data =  json.load(f)
+			self.CACHE = data
+			return data
 
 	def get_setting_by_name(self, name: str) -> object:
 		"""Get a setting by its name

@@ -1,6 +1,7 @@
 import spotipy
 import requests
 
+
 def start_player(token):
     """Starts the music player with the given access token and resumes playback"""
     sp = spotipy.Spotify(auth=token)
@@ -27,7 +28,8 @@ def start_player(token):
     sp.start_playback()
     return("Just play some music")
     # Call the resume_spotify function with the access token
- 
+
+
 def pause_player(token):
     """Pauses the music player with the given access token"""
 
@@ -37,9 +39,10 @@ def pause_player(token):
     if 'is_playing' not in track_info:
         print("No track currently playing.")
         return
-   
+
     sp.pause_playback()
-        
+
+
 def get_access_token():
     """Gets the access token for the Spotify API"""
     url = "https://accounts.spotify.com/api/token"
@@ -60,6 +63,7 @@ def get_access_token():
 def start_music():
     """Starts the music player"""
     start_player(get_access_token())
+
 
 def stop_music():
     """Stops the music player"""

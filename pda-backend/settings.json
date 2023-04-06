@@ -14,7 +14,7 @@
     },
     "sparen": {
         "sprit": {
-            "preisschwelle": 1.299,
+            "preisschwelle": 1.609,
             "radius": 5,
             "typ": "e10"
         },
@@ -29,11 +29,6 @@
                     "priceHigh": 200,
                     "priceLow": 100,
                     "symbol": "MSFT"
-                },
-                {
-                    "priceHigh": 150,
-                    "priceLow": 50,
-                    "symbol": "P911.DEX"
                 }
             ]
         }

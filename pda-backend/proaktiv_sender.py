@@ -1,5 +1,5 @@
-from flask import request, Blueprint, current_app as app
 from flask_socketio import SocketIO
+
 
 class ProaktivSender:
 	def __init__(self, socketio: SocketIO):
