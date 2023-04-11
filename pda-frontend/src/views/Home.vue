@@ -19,6 +19,7 @@
         rows="2"
         v-model="userText"
         :readonly="listening"
+				@keydown.enter.prevent="send2Jarvis"
       ></v-textarea>
     </v-col>
     <v-col cols="1">

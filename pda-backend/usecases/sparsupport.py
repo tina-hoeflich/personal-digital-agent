@@ -49,7 +49,9 @@ class SparenUseCase(UseCase):
 		return text, None
 
 	def conversation(self, input: str) -> tuple[str, Callable]:
-		# TODO: check if "no" or similar words are in input
+		if " no " in " " + input.lower() + " ":
+			return "Can I do something else for you?", None
+
 		text = ""
 		if self.talk_fuelprice:
 			text += self.get_fuelprice_text(False)
