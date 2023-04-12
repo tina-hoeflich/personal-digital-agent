@@ -1,6 +1,7 @@
 from usecases.usecase import UseCase
 from scheduler import Scheduler
 from services.weather import get_weather
+from services.news import get_news
 import services.geolocation as geolocation
 from settings_manager import SettingsManager
 from typing import Callable
@@ -10,6 +11,7 @@ from kink import inject
 GENERAL_TRIGGERS = ["morning", "day", "rise", "alarm"]
 HELP_TRIGGERS = ["help", "know", "how"]
 WEATHER_TRIGGERS = ["weather", "temperature", "warm", "cold", "rain", "rainy", "sunny", "sun", "cloud", "clouds", "cloudy"]
+NEWS_TRIGGERS = ["news", "update", "updates", "story", "stories", "message", "messages"]
 
 CANCEL_TRIGGERS = ["no", "nothing", "bye", "leave", "stop", "usecase"]
 
@@ -38,9 +40,11 @@ class GutenMorgenUseCase(UseCase):
 		if any(trigger in input for trigger in HELP_TRIGGERS):
 			return "I can tell you about the weather, or you can try another usecase by saying bye!", self.conversation
 		if any(trigger in input for trigger in WEATHER_TRIGGERS):
-			return self.weather() + " " + self.repeat_question(), self.conversation 
+			return self.weather() + " " + self.repeat_question(), self.conversation
+		if any(trigger in input for trigger in NEWS_TRIGGERS):
+			return self.news() + " " + self.repeat_question(), self.conversation
 		
-		return "I didn't understand you, please try again", self.conversation
+		return "I didn't understand you" + self.repeat_question(), self.conversation
 
 	def greeting(self) -> str:
 		name = self.get_settings()["name"]
@@ -76,6 +80,9 @@ class GutenMorgenUseCase(UseCase):
 		home_address = settings["homeAddress"]
 		lat, lng = geolocation.get_location_from_address(home_address)
 		return get_weather(lat, lng)
+	
+	def news(self) -> str:
+		return get_news()
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("goodMorning")
