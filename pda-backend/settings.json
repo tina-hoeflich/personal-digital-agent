@@ -1,0 +1,36 @@
+{
+    "depressionHandler": {
+        "emergencyEmail": "daullmer@gmail.com",
+        "friendEmail": "test@mail.com"
+    },
+    "example": {
+        "name": "How to use settings.json"
+    },
+    "goodMorning": {
+        "homeAddress": "Segelfalterstrasse 2, 70439, Stuttgart",
+        "modeOfTransportation": "Car",
+        "name": "Max Mustermann",
+        "workAddress": "work"
+    },
+    "sparen": {
+        "sprit": {
+            "preisschwelle": 1.609,
+            "radius": 5,
+            "typ": "e10"
+        },
+        "stocks": {
+            "favorites": [
+                {
+                    "priceHigh": 200,
+                    "priceLow": 100,
+                    "symbol": "AAPL"
+                },
+                {
+                    "priceHigh": 200,
+                    "priceLow": 100,
+                    "symbol": "MSFT"
+                }
+            ]
+        }
+    }
+}
