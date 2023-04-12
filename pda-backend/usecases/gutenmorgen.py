@@ -14,7 +14,7 @@ WEATHER_TRIGGERS = ["weather", "temperature", "warm", "cold", "rain", "rainy", "
 NEWS_TRIGGERS = ["news", "update", "updates", "story", "stories", "message", "messages"]
 
 AFFIRM_TRIGGERS = ["yes", "sure", "okay", "fine", "gladly"]
-CANCEL_TRIGGERS = ["no", "nothing", "bye", "leave", "stop", "usecase"]
+CANCEL_TRIGGERS = ["no", "nothing", "bye", "leave", "stop", "usecase", "never"]
 
 @inject
 class GutenMorgenUseCase(UseCase):
@@ -37,7 +37,7 @@ class GutenMorgenUseCase(UseCase):
 	def conversation(self, input: str) -> tuple[str, Callable]:
 		input = input.split(" ")
 		if any(trigger in input for trigger in CANCEL_TRIGGERS):
-			return "Good bye!", None
+			return "Okay!", None
 		if any(trigger in input for trigger in HELP_TRIGGERS):
 			return "I can tell you about the weather or the news, or you can try another usecase by saying bye!", self.conversation
 		if any(trigger in input for trigger in WEATHER_TRIGGERS):
@@ -99,13 +99,13 @@ class GutenMorgenUseCase(UseCase):
 			"Would you like to know more?",\
 			"Would you like more information?"
 		]
-		return f"{random.choice(intros)} {get_news_title()} {random.choice(outros)}", self.news_conversation
-
+		return f"{random.choice(intros)} {get_news_title()}. {random.choice(outros)}"
+	
 	def news_conversation(self, input: str) -> tuple[str, Callable]:
 		if any(trigger in input for trigger in AFFIRM_TRIGGERS):
-			return get_news_content, self.conversation
+			return f"{get_news_content()} {self.repeat_question()}", self.conversation
 		
-		return "Okay. " + self.repeat_question(), self.conversation
+		return f"Okay. {self.repeat_question()}", self.conversation
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("goodMorning")

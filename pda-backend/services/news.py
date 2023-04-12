@@ -18,8 +18,6 @@ def get_news_title() -> str:
         response = requests.get(url)
         news_cache = response.json()
     
-    print(url)
-    print(news_cache)
     story_num = random.randint(0, 9)
     return news_cache["results"][story_num]["title"]
 
