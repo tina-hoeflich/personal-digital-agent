@@ -9,8 +9,8 @@ import services.email_service as email_service
 import services.spotify_service as spotify_service
 
 EMAIL_TRIGGER = ["sad", "depressed", "anxious", "lonely", "empty", "worthless", "hopeless", "suicidal"]
-JOKE_TRIGGERS = ["homework", "exam", "boring", "bored", "joke"]
-MUSIC_TRIGGERS = ["music", "song", "playlist", "spotify"]
+JOKE_TRIGGERS = ["homework", "boring", "bored", "joke"]
+MUSIC_TRIGGERS = ["music", "song", "playlist", "spotify", "exam"]
 @inject
 class DepressionUseCase(UseCase):
 	def __init__(self, scheduler: Scheduler, settings: SettingsManager):
