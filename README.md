@@ -9,7 +9,7 @@ JARVIS is a personal digital assistant designed to help manage your daily tasks 
 
 To run JARVIS on your local machine, follow the instructions below.
 <!-- Pytest Coverage Comment:Begin -->
-<!-- Pytest Coverage Comment:End -->
+\n<!-- Pytest Coverage Comment:End -->
 
 ### Prerequisites
  - Python 3.x
