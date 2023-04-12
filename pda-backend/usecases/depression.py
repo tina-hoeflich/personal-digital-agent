@@ -33,7 +33,7 @@ class DepressionUseCase(UseCase):
 	    """
 		if any(trigger in input for trigger in EMAIL_TRIGGER):
 			email_service.send_email("jarvis@tinahoeflich.com",
-									 "tina.h.hoeflich@gmail.com",
+									 self.get_settings()["emergencyEmail"],
 									 "Jarvis asking for your support",
 									 "Hi there, \n \nyour friend may need someone to cheer him up :) \nCan you help me out with this? \n \nThanks, \n Jarvis")
 			return "I am sorry to hear that. I will send an email to get someone to cheer you up.", None
@@ -48,4 +48,4 @@ class DepressionUseCase(UseCase):
 		"""
 
 	"""
-		return self.settings.get_setting_by_name("example")
+		return self.settings.get_setting_by_name("depressionHandler")
