@@ -48,3 +48,5 @@ jobs:
       with:
         pytest-coverage-path: ./pda-backend/pytest-coverage.txt
         junitxml-path: ./pda-backend/pytest.xml
+      if: github.event_name == 'pull_request'
+

@@ -1,5 +1,6 @@
 from typing import Callable
 
+from conversation_manager import ConversationManager
 from usecases.usecase import UseCase
 import services.tankerkoenig as tankerkoenig
 import services.stocks as stocks_service
@@ -20,17 +21,18 @@ class SparenUseCase(UseCase):
 	talk_fuelprice = False
 	talk_stockprice = False
 
-	def __init__(self, scheduler: Scheduler, settings: SettingsManager, proaktive: ProaktivSender):
+	def __init__(self, scheduler: Scheduler, settings: SettingsManager, proaktive: ProaktivSender, conv_man: ConversationManager):
 		self.scheduler = scheduler
 		self.settings = settings
 		self.proaktive = proaktive
-		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=10))
+		self.conv_man = conv_man
+		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=4))
 
 	def get_triggerwords(self) -> list[str]:
 		return GENERAL_TRIGGERS + FUEL_TRIGGERS + STOCK_TRIGGERS
 
 	def trigger(self):
-		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=10))
+		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=4))
 
 		_, talk_fuelprice, talk_stockprice = self.get_general_text()
 		self.talk_stockprice = talk_stockprice
@@ -39,8 +41,9 @@ class SparenUseCase(UseCase):
 		if self.talk_fuelprice or self.talk_stockprice:
 			text = "Hey! I have some tips for saving some money for you! Do you want to hear them?"
 			self.proaktive.send_text(text)
+			self.conv_man.set_net_method(self.conversation)
 
-	async def asked(self, input: str) -> tuple[str, Callable]:
+	async def asked(self, input: str) -> tuple[str, Callable | None]:
 		text, talk_fuelprice, talk_stockprice = self.get_general_text()
 		self.talk_stockprice = talk_stockprice
 		self.talk_fuelprice = talk_fuelprice
@@ -48,7 +51,7 @@ class SparenUseCase(UseCase):
 			return text, self.conversation
 		return text, None
 
-	def conversation(self, input: str) -> tuple[str, Callable]:
+	def conversation(self, input: str) -> tuple[str, Callable | None]:
 		if " no " in " " + input.lower() + " ":
 			return "Can I do something else for you?", None
 
