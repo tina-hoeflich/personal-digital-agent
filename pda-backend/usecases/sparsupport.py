@@ -27,7 +27,7 @@ class SparenUseCase(UseCase):
 		# hier kommt der text der an den user gelesen wird hin
 		return "Periodic trigger of the example usecase"
 
-	def asked(self, input: str) -> str:
+	async def asked(self, input: str) -> str:
 		if any(trigger in input for trigger in FUEL_TRIGGERS):
 			return self.current_fuelprice()
 		if any(trigger in input for trigger in STOCK_TRIGGERS):
