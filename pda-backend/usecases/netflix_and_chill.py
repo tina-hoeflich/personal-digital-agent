@@ -1,70 +1,45 @@
-import icalendar
-import requests
-from PIL import Image
-from io import BytesIO
-from tmdbv3api import TMDb, Movie
-from datetime import datetime, date
-from justwatch import JustWatch
+import services.tmdb as tmdb
+import services.justwatch as justwatch
+import services.calender as calender
 
-tmdb = TMDb()
-tmdb.api_key = 'b3e56fddd812de48269710ffd2f749e4'
-tmdb.language = 'en'
-tmdb.debug = True
+from usecases.usecase import UseCase
+from scheduler import Scheduler
+from settings_manager import SettingsManager
+from kink import inject
+from typing import Callable
 
-just_watch = JustWatch(country='DE')
+TRIGGERS = ["movie", "netflix", "chill", "watch", "stream", "streaming", "cinema", "film"]
 
-movie = Movie()
-popular = movie.popular()
+@inject
+class NetflixAndChillUseCase(UseCase):
+    def __init__(self, scheduler: Scheduler, settings: SettingsManager):
+        self.scheduler = scheduler
+        self.settings = settings
 
-for p in popular:
-#     print(p.poster_path)
+    def get_triggerwords(self) -> list[str]:
+        return TRIGGERS
+    
+    def trigger(self):
+		# hier kommt das periodische checken für proaktive Dinge rein.
 
-    results = just_watch.search_for_item(query=p.title, content_types=['movie'])
-
-    results = results['items']
-    if len(results) > 0:
-        title = results[0]['title']
-        if 'offers' in results[0]:
-            netflix_available = any(provider['provider_id'] == 8 for provider in results[0]['offers'])
-            if netflix_available:
-                netflix_link = next(provider['urls']['standard_web'] for provider in results[0]['offers'] if provider['provider_id'] == 8)
-                print(f"{title} is available on Netflix! Watch it here: {netflix_link}")
-                response = requests.get(f"https://image.tmdb.org/t/p/w500/{p.poster_path}")
-                with Image.open(BytesIO(response.content)) as im:
-                    im.show()
-            else:
-                print(f"{title} is not available on Netflix.")
-        else:
-            print(f"{title} is not available on Netflix.")
-    else:
-        print("No results found.")
-
-
-
-# # Get today's date
-# today = date.today()
-
-# # Open the iCalendar file
-# with open(r'pda-backend\resources\student_calender.ics', 'rb') as f:
-#     calendar = icalendar.Calendar.from_ical(f.read())
-
-# # Iterate over each event in the calendar
-# for component in calendar.walk():
-#     if component.name == "VEVENT":
-#         event = {}
-#         # Extract the event information
-#         event["summary"] = str(component.get('summary'))
-#         event["location"] = str(component.get('location'))
-#         event["description"] = str(component.get('description'))
-#         event["start_time"] = component.get('dtstart').dt
-#         event["end_time"] = component.get('dtend').dt
-
-#         # Check if the event occurs today
-#         if event["start_time"].date() == today or event["end_time"].date() == today:
-
-#             # Print the event information
-#             print("Event: " + event["summary"])
-#             print("Location: " + event["location"])
-#             print("Description: " + event["description"])
-#             print("Start Time: " + str(event["start_time"]))
-#             print("End Time: " + str(event["end_time"]))
+		# hier muss jeder trigger noch den nächsten run schedulen
+        return
+    
+    async def asked(self, input: str) -> tuple[str, Callable]:
+        return self.get_movie_recommendation(), None
+    
+    def get_movie_recommendation(self) -> str:
+        last_event_name, last_event_end_time, new_time = calender.get_last_event()
+        #print(f"Your last class today is {last_event_name} and it ends at {last_event_end_time}. Do you want to watch a movie at {new_time}")
+        popular_movies = tmdb.get_popular_movies()
+        movies_on_netflix, movies_not_on_netflix = justwatch.find_on_netflix(popular_movies)
+        print(f"I found the following Movies on Netflix:{movies_on_netflix}")
+        for movie in movies_on_netflix:
+            print(f"{movie} is available on Netflix! Watch it here: {movies_on_netflix[movie][0]}")
+            tmdb.get_movie_poster(movies_on_netflix[movie][1])
+            print(f"Your last class today is {last_event_name} and it ends at {last_event_end_time}. {movie} is available on Netflix! Watch it here: {movies_on_netflix[movie][0]}")
+            return f"Your last class today is {last_event_name} and it ends at {last_event_end_time}. {movie} is available on Netflix! Watch it here: {movies_on_netflix[movie][0]}"   
+        return "no movies found"    
+        
+    def get_settings(self) -> object:
+        return self.settings.get_setting_by_name("example")

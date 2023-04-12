@@ -4,12 +4,13 @@ from usecases.usecase import UseCase
 from usecases.sparsupport import SparenUseCase
 from usecases.depression import DepressionUseCase
 from usecases.gutenmorgen import GutenMorgenUseCase
+from usecases.netflix_and_chill import NetflixAndChillUseCase
 from flask import request, Blueprint, current_app as app
 from kink import di
 import inspect
 import random
 
-USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase(), DepressionUseCase(), GutenMorgenUseCase()]
+USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase(), DepressionUseCase(), GutenMorgenUseCase(), NetflixAndChillUseCase()]
 
 input_blueprint = Blueprint('input_api', __name__, template_folder='templates')
 
