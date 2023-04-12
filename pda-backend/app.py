@@ -7,6 +7,9 @@ from scheduler import Scheduler
 from kink import di
 from flask_socketio import SocketIO
 from proaktiv_sender import ProaktivSender
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
