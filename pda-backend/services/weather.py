@@ -8,13 +8,17 @@ base_url = "https://api.openweathermap.org/data/2.5"
 
 
 def get_weather(lat: float, lng:float) -> str:
+    
     return get_current_weather(lat, lng) + " " + get_weather_forecast(lat, lng)
 
-def get_current_weather(lat: float, lng:float) -> str:
+def get_current_weather(lat: float, lng: float) -> str:
     url = f"{base_url}/weather?lat={lat}&lon={lng}&units=metric&appid={APIKEY}"
     response = requests.get(url)
     data = response.json()
-    print(lat, lng)
+    print(data["cod"])
+    if(data["cod"] != 200):
+        raise Exception(data["message"])
+
     city = data["name"]
     weather = data["weather"][0]["description"]
     if weather == "clear sky":
@@ -22,10 +26,11 @@ def get_current_weather(lat: float, lng:float) -> str:
     temp = int(round(data["main"]["temp"], 0))
     return f"It is currently {temp} degrees celsius in {city} with {weather}."
 
-def get_weather_forecast(lat: float, lng:float) -> str:
-    url = f"{base_url}/forecast?lat={lat}&lon={lng}&units=metric&cnt=8&appid={APIKEY}"
+def get_weather_forecast(lat: float, lng: float) -> str:
+    url = f"{base_url}/forecast?lat={lat}&lon={lng}&units=metric&appid={APIKEY}"
     response = requests.get(url)
     data = response.json()
+
     temps = []
     descriptions = []
     date = data["list"][0]["dt_txt"].split(' ')[0]

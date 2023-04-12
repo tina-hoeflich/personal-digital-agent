@@ -7,7 +7,11 @@ from typing import Callable
 import random
 from kink import inject
 
-TRIGGERS = ["morning", "day", "weather", "traffic", "alarm"]
+GENERAL_TRIGGERS = ["morning", "day", "rise", "alarm"]
+HELP_TRIGGERS = ["help", "know", "how"]
+WEATHER_TRIGGERS = ["weather", "temperature", "warm", "cold", "rain", "rainy", "sunny", "sun", "cloud", "clouds", "cloudy"]
+
+CANCEL_TRIGGERS = ["no", "nothing", "bye", "leave", "stop", "usecase"]
 
 @inject
 class GutenMorgenUseCase(UseCase):
@@ -16,7 +20,7 @@ class GutenMorgenUseCase(UseCase):
 		self.settings = settings
 
 	def get_triggerwords(self) -> list[str]:
-		return TRIGGERS
+		return GENERAL_TRIGGERS
 
 	def trigger(self):
 		# hier kommt das periodische checken für proaktive Dinge rein.
@@ -25,22 +29,47 @@ class GutenMorgenUseCase(UseCase):
 		return
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
-		return f"{self.greeting()} {self.weather()}", None
+		return self.greeting() + " " + self.start_question(), self.conversation
+	
+	def conversation(self, input: str) -> tuple[str, Callable]:
+		input = input.split(" ")
+		if any(trigger in input for trigger in CANCEL_TRIGGERS):
+			return "Good bye!", None
+		if any(trigger in input for trigger in HELP_TRIGGERS):
+			return "I can tell you about the weather, or you can try another usecase by saying bye!", self.conversation
+		if any(trigger in input for trigger in WEATHER_TRIGGERS):
+			return self.weather() + " " + self.repeat_question(), self.conversation 
+		
+		return "I didn't understand you, please try again", self.conversation
 
 	def greeting(self) -> str:
 		name = self.get_settings()["name"]
 		greetings = [
-			f"Good Morning {name}, let's get your day started! What would you like to do?",\
-			f"Welcome back {name}, how may i help you today?",\
-			f"Good Morning {name}, let me know how I can assist you today.",\
-			f"Good Morning {name}. Let me know what I can do for you.",\
-			f"Welcome back {name}. Let me know how I can be of service.",\
-			f"Rise and shine {name}! I'm here and ready to help. What would you like to know about?"]
+			f"Good Morning {name}, let's get your day started!",\
+			f"Welcome back {name}.",\
+			f"Good Morning {name}.",\
+			f"Rise and shine {name}! I'm here and ready to help."]
 		return random.choice(greetings)
 	
-	def conversation(self) -> str:
-		text = ""
-		return text, None
+	def start_question(self) -> str:
+		questions = [
+			"What would you like to do?",\
+			"How may i help you today?",\
+			"Please let me know how I can assist you today.",\
+			"What can I do for you?",\
+			"How can I be of service tody?.",\
+			"What would you like to know about?"]
+		return random.choice(questions)
+	
+	def repeat_question(self) -> str:
+		questions = [
+			"Would you like to know anything else?",\
+			"What else can I help you with?",\
+			"Can I help you with anything else?",\
+			"What else can I do for you?",\
+			"How else can I be of service?.",\
+			"Would you like to know anything else?"]
+		return random.choice(questions)
 
 	def weather(self) -> str:
 		settings = self.get_settings()
