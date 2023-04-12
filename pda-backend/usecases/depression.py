@@ -32,17 +32,30 @@ class DepressionUseCase(UseCase):
 		:return: the answer of the usecase
 	    """
 		if any(trigger in input for trigger in EMAIL_TRIGGER):
+			
+			return "Should I get someone to cheer you up?", self.emailConversation
+		elif any(trigger in input for trigger in JOKE_TRIGGERS):
+			return await services.jokes.get_joke(), None
+		elif any(trigger in input for trigger in MUSIC_TRIGGERS):
+			
+			return "Should I play some music, to brighten up your day", self.musicConversation
+
+	def emailConversation(self, input: str) -> tuple[str, Callable]:
+		if "yes" in input:
 			email_service.send_email("jarvis@tinahoeflich.com",
 									 self.get_settings()["emergencyEmail"],
 									 "Jarvis asking for your support",
 									 "Hi there, \n \nyour friend may need someone to cheer him up :) \nCan you help me out with this? \n \nThanks, \n Jarvis")
 			return "I am sorry to hear that. I will send an email to get someone to cheer you up.", None
-		elif any(trigger in input for trigger in JOKE_TRIGGERS):
-			return await services.jokes.get_joke(), None
-		elif any(trigger in input for trigger in MUSIC_TRIGGERS):
-			spotify_service.start_music()
-			return "Let me play some music, to brighten up your day", None
 
+	def musicConversation(self, input: str) -> tuple[str, Callable]:
+		# TODO: check if "no" or similar words are in input
+		if "yes" in input:
+			spotify_service.start_music()
+			return "Okay, music started ", None
+		else:
+			return "Okay, Can I do anything else for you? ", None
+		
 
 	def get_settings(self) -> object:
 		"""
