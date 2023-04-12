@@ -1,7 +1,7 @@
 from usecases.usecase import UseCase
 from scheduler import Scheduler
 from services.weather import get_weather
-from services.news import get_news
+from services.news import get_news_title, get_news_content
 import services.geolocation as geolocation
 from settings_manager import SettingsManager
 from typing import Callable
@@ -13,6 +13,7 @@ HELP_TRIGGERS = ["help", "know", "how"]
 WEATHER_TRIGGERS = ["weather", "temperature", "warm", "cold", "rain", "rainy", "sunny", "sun", "cloud", "clouds", "cloudy"]
 NEWS_TRIGGERS = ["news", "update", "updates", "story", "stories", "message", "messages"]
 
+AFFIRM_TRIGGERS = ["yes", "sure", "okay", "fine", "gladly"]
 CANCEL_TRIGGERS = ["no", "nothing", "bye", "leave", "stop", "usecase"]
 
 @inject
@@ -38,13 +39,13 @@ class GutenMorgenUseCase(UseCase):
 		if any(trigger in input for trigger in CANCEL_TRIGGERS):
 			return "Good bye!", None
 		if any(trigger in input for trigger in HELP_TRIGGERS):
-			return "I can tell you about the weather, or you can try another usecase by saying bye!", self.conversation
+			return "I can tell you about the weather or the news, or you can try another usecase by saying bye!", self.conversation
 		if any(trigger in input for trigger in WEATHER_TRIGGERS):
 			return self.weather() + " " + self.repeat_question(), self.conversation
 		if any(trigger in input for trigger in NEWS_TRIGGERS):
-			return self.news() + " " + self.repeat_question(), self.conversation
+			return self.news_title(), self.news_conversation
 		
-		return "I didn't understand you" + self.repeat_question(), self.conversation
+		return "I didn't understand you. " + self.repeat_question(), self.conversation
 
 	def greeting(self) -> str:
 		name = self.get_settings()["name"]
@@ -80,9 +81,31 @@ class GutenMorgenUseCase(UseCase):
 		home_address = settings["homeAddress"]
 		lat, lng = geolocation.get_location_from_address(home_address)
 		return get_weather(lat, lng)
-	
-	def news(self) -> str:
-		return get_news()
+
+	def news_title(self) -> str:
+		intros = [
+			"Sure, here's the latest story: ",\
+			"Sure, here's the latest scoop: ",\
+			"Okay, here's a story I found: ",\
+			"I found this story for you: ",\
+			"This might be interesting: ",\
+			"Sure, I found this story for you: ",\
+		]
+		outros = [
+			"Would you like more information on this story?",\
+			"Would you like to know more about this story?",\
+			"Would you like to hear more?",\
+			"Should I tell you more about this article?",\
+			"Would you like to know more?",\
+			"Would you like more information?"
+		]
+		return f"{random.choice(intros)} {get_news_title()} {random.choice(outros)}", self.news_conversation
+
+	def news_conversation(self, input: str) -> tuple[str, Callable]:
+		if any(trigger in input for trigger in AFFIRM_TRIGGERS):
+			return get_news_content, self.conversation
+		
+		return "Okay. " + self.repeat_question(), self.conversation
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("goodMorning")
