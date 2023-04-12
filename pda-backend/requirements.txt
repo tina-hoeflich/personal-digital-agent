@@ -9,6 +9,7 @@ pytest
 pytest-cov
 pytest-mock
 pytest-func-cov
+pytest-asyncio
 apscheduler
 kink
 geopy
@@ -19,3 +20,4 @@ requests
 icalendar
 tmdbv3api
 JustWatch
+python-dotenv

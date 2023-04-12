@@ -1,6 +1,8 @@
+import os
+
 from alpha_vantage.timeseries import TimeSeries
 
-APIKEY = "5MECCCPWG3K5D69X"
+APIKEY = os.environ.get("ALPHAVANTAGE_API_KEY")
 
 
 def get_stock_price(symbol: str) -> float:

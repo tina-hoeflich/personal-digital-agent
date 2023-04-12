@@ -3,6 +3,7 @@ from scheduler import Scheduler
 from services.weather import get_weather
 import services.geolocation as geolocation
 from settings_manager import SettingsManager
+from typing import Callable
 import random
 from kink import inject
 
@@ -17,17 +18,15 @@ class GutenMorgenUseCase(UseCase):
 	def get_triggerwords(self) -> list[str]:
 		return TRIGGERS
 
-	def trigger(self) -> str:
-	# hier kommt das periodische checken für proaktive Dinge rein.
+	def trigger(self):
+		# hier kommt das periodische checken für proaktive Dinge rein.
 
-	# hier muss jeder trigger noch den nächsten run schedulen. Aktuell geht das nicht, wir haben ja noch keinen scheduler.
+		# hier muss jeder trigger noch den nächsten run schedulen
+		return
 
-	# hier kommt der text der an den user gelesen wird hin
-		return "Periodic trigger of the example usecase"
+	async def asked(self, input: str) -> tuple[str, Callable]:
+		return f"{self.greeting()} {self.weather()}", None
 
-	async def asked(self, input: str) -> str:
-		return f"{self.greeting()} {self.weather()}"
-	
 	def greeting(self) -> str:
 		name = self.get_settings()["name"]
 		greetings = [

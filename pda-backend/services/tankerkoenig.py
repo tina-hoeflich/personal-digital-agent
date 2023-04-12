@@ -1,6 +1,8 @@
+import os
+
 import pytankerkoenig as tankerkoenig
 
-APIKEY = "5764c28e-6601-cf68-01ec-c81ccc04eec4"
+APIKEY = os.environ.get("TANKERKOENIG_API_KEY")
 
 
 def get_fuelprice(fuel_type: str, lat: float, long: float, radius: int) -> tuple[str, float]:

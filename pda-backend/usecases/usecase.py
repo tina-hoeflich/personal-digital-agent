@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
-import types
+from typing import Callable
 
-class UseCase(ABC):
+
+class UseCase(ABC):   # pragma: no cover
 
 	@abstractmethod
 	def get_triggerwords(self) -> list[str]:
@@ -13,16 +14,13 @@ class UseCase(ABC):
 		pass
 
 	@abstractmethod
-	def trigger(self) -> str:
-		"""This method gets called by the scheduler when
-
-		Returns:
-			str: output text read to the user
+	def trigger(self):
+		"""This method gets called by the scheduler when the next scheduled time is hit
 		"""
 		pass
 
 	@abstractmethod
-	def asked(self, input: str) -> str:
+	def asked(self, input: str) -> tuple[str, Callable]:
 		"""Method getting called when the user mentioned one of the triggerwords
 
 		Args:
@@ -30,6 +28,7 @@ class UseCase(ABC):
 
 		Returns:
 			str: text to read back to the user
+			Callable: the method to call for the next user input. This manages the conversation logic
 		"""
 		pass
 

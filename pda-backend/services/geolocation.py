@@ -1,5 +1,6 @@
 import geopy
 
+
 def get_location_from_address(address: str) -> tuple[float, float]:
 	"""Get the location of a given address
 
