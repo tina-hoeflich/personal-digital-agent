@@ -30,13 +30,17 @@ class GutenMorgenUseCase(UseCase):
 	def greeting(self) -> str:
 		name = self.get_settings()["name"]
 		greetings = [
-			f"Good Morning {name}, let's get your day started!",\
+			f"Good Morning {name}, let's get your day started! What would you like to do?",\
 			f"Welcome back {name}, how may i help you today?",\
 			f"Good Morning {name}, let me know how I can assist you today.",\
-			f"Good Morning {name}, another day, another opportunity to assist you.",\
-			f"Welcome back {name}. Let me know if I can be of service.",\
-			f"Rise and shine {name}! I'm here and ready to help."]
+			f"Good Morning {name}. Let me know what I can do for you.",\
+			f"Welcome back {name}. Let me know how I can be of service.",\
+			f"Rise and shine {name}! I'm here and ready to help. What would you like to know about?"]
 		return random.choice(greetings)
+	
+	def conversation(self) -> str:
+		text = ""
+		return text, None
 
 	def weather(self) -> str:
 		settings = self.get_settings()
