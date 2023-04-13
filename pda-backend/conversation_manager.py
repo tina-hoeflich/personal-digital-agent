@@ -6,9 +6,9 @@ class ConversationManager:
 	def has_next_method(self) -> bool:
 		return self.next_usecase is not None
 
-	def set_net_method(self, method: Callable or None):
+	def set_net_method(self, method: Callable | None):
 		print(f"Setting next usecase method to {method}")
 		self.next_usecase = method
 
-	def get_next_method(self) -> Callable or None:
+	def get_next_method(self) -> Callable | None:
 		return self.next_usecase

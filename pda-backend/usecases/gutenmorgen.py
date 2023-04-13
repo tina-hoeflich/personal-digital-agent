@@ -37,7 +37,7 @@ class GutenMorgenUseCase(UseCase):
 	def conversation(self, input: str) -> tuple[str, Callable]:
 		input = input.split(" ")
 		if any(trigger in input for trigger in CANCEL_TRIGGERS):
-			return "Okay!", None
+			return "Okay. See you later!", None
 		if any(trigger in input for trigger in HELP_TRIGGERS):
 			return "I can tell you about the weather or the news, or you can try another usecase by saying bye!", self.conversation
 		if any(trigger in input for trigger in WEATHER_TRIGGERS):
@@ -62,7 +62,7 @@ class GutenMorgenUseCase(UseCase):
 			"How may i help you today?",\
 			"Please let me know how I can assist you today.",\
 			"What can I do for you?",\
-			"How can I be of service tody?.",\
+			"How can I be of service today?.",\
 			"What would you like to know about?"]
 		return random.choice(questions)
 	
