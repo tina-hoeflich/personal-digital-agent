@@ -113,9 +113,19 @@ class SparenUseCase(UseCase):
 			text = random.choice(text_possible)
 
 			if price < settings["preisschwelle"]:
-				text += " This is below your set limit of {:.3f}€. You should go there and fill up!".format(settings["preisschwelle"])
+				text_possible = [f"This is below your set limit of {settings['preisschwelle']:.3f}€",
+								 f"Your limit is {settings['preisschwelle']:.3f}€"]
+				text += " " + random.choice(text_possible)
+				text_possible = ["You should go there and fill up!",
+								 "Go there and bring a canister with you!"]
+				text += " " + random.choice(text_possible)
 			else:
-				text += " This is above your set limit of {:.3f}€. Maybe you should wait fueling your car until it is cheaper!".format(settings["preisschwelle"])
+				text_possible = [f"This is above your set limit of {settings['preisschwelle']:.3f}€",
+								 f"Your limit is {settings['preisschwelle']:.3f}€"]
+				text += " " + random.choice(text_possible)
+				text_possible = ["Maybe you should wait fueling your car until it is cheaper!",
+								 "Use public transport until fuel is cheaper again"]
+				text += " " + random.choice(text_possible)
 
 		return text
 
@@ -159,11 +169,29 @@ class SparenUseCase(UseCase):
 			tuple[bool, str]: whether the price is outside the limits and the text to say
 		"""
 		price = self.get_stock_price(stock)
+		text_possible = [f"The stock price of {stock} is {price:.2f}€.",
+						 f"The stock '{stock}' is currently trading for a price of {price:.2f}€",
+						 f"You can buy or sell '{stock}' for about {price:.2f}€ right now"]
+		text = random.choice(text_possible)
 		if price > top_limit:
-			return True, "The stock price of {} is {:.2f}€. This is above your set limit of {:.2f}€. This is looking great! You will be rich soon!".format(stock, price, top_limit)
+			text_possible = [f"Your limit is {top_limit:.2f}€",
+							 f"This is above your set limit of {top_limit:.2f}€"]
+			text = text + " " + random.choice(text_possible)
+			text_possible = ["Stocks only go up!",
+							 "This is looking great! You will be rich soon!"]
+			text = text + " " + random.choice(text_possible)
+			return True, text
 		if price < bottom_limit:
-			return True, "The stock price of {} is {:.2f}€. This is below your set limit of {:.2f}€. Maybe you should sell all your stocks now!".format(stock, price, bottom_limit)
-		return False, "The stock price of {} is {:.2f}€. This is not above or below your limits".format(stock, price)
+			text_possible = [f"Your limit is {bottom_limit:.2f}€",
+							 f"This is below your set limit of {bottom_limit:.2f}€"]
+			text = text + " " + random.choice(text_possible)
+			text_possible = ["Maybe you should sell all your stocks now!",
+							 "Maybe this stock is the next Wirecard stock?"]
+			text = text + " " + random.choice(text_possible)
+			return True, text
+		text_possible = ["This is not above or below your limits",
+						 "Nothing really interesting"]
+		return False, text + random.choice(text_possible)
 
 	@cached(stockprice_cache)
 	def get_stock_price(self, stock: str) -> float:
