@@ -1,3 +1,4 @@
+from cachetools import cached, TTLCache
 from typing import Callable
 
 from conversation_manager import ConversationManager
@@ -10,10 +11,13 @@ import services.geolocation as geolocation
 from kink import inject
 from datetime import datetime, timedelta
 from proaktiv_sender import ProaktivSender
+import random
 
 GENERAL_TRIGGERS = ["save", "money", "cheap", "cheaply"]
 FUEL_TRIGGERS = ["fuel", "gas", "car", "fuel", "petrol", "diesel", "e5", "e10"]
 STOCK_TRIGGERS = ["stock", "share", "shares", "stock", "stocks", "stockmarket", "stockmarket"]
+
+stockprice_cache = TTLCache(maxsize=10, ttl=120)
 
 
 @inject
@@ -32,18 +36,22 @@ class SparenUseCase(UseCase):
 		return GENERAL_TRIGGERS + FUEL_TRIGGERS + STOCK_TRIGGERS
 
 	def trigger(self):
-		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=4))
+		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=10))
 
 		_, talk_fuelprice, talk_stockprice = self.get_general_text()
 		self.talk_stockprice = talk_stockprice
 		self.talk_fuelprice = talk_fuelprice
 
 		if self.talk_fuelprice or self.talk_stockprice:
-			text = "Hey! I have some tips for saving some money for you! Do you want to hear them?"
+			text_possibilities = ["Hey! I have some tips for saving some money for you! Do you want to hear them?",
+								  "Are you here? I have tips for saving money. Wanna hear them?",
+								  "Excuse me, do you have a moment? I could share with you some great tips on saving money.",
+								  "Hi there! I've got some tips on how to save money that I'd love to share with you. Are you interested?"]
+			text = random.choice(text_possibilities)
 			self.proaktive.send_text(text)
 			self.conv_man.set_net_method(self.conversation)
 
-	async def asked(self, input: str) -> tuple[str, Callable | None]:
+	async def asked(self, input: str) -> tuple[str, Callable or None]:
 		text, talk_fuelprice, talk_stockprice = self.get_general_text()
 		self.talk_stockprice = talk_stockprice
 		self.talk_fuelprice = talk_fuelprice
@@ -51,14 +59,17 @@ class SparenUseCase(UseCase):
 			return text, self.conversation
 		return text, None
 
-	def conversation(self, input: str) -> tuple[str, Callable | None]:
+	def conversation(self, input: str) -> tuple[str, Callable or None]:
 		if " no " in " " + input.lower() + " ":
-			return "Can I do something else for you?", None
+			text_possibilities = ["Can I do something else for you?",
+								  "That's okay. Want anything else.",
+								  "No problem. I'm here if you need me"]
+			return random.choice(text_possibilities), None
 
 		text = ""
-		if self.talk_fuelprice:
+		if self.talk_fuelprice or any(word in input for word in FUEL_TRIGGERS):
 			text += self.get_fuelprice_text(False)
-		if self.talk_stockprice:
+		if self.talk_stockprice or any(word in input for word in STOCK_TRIGGERS):
 			text += self.get_stockprice_text(False)
 		return text, None
 
@@ -72,9 +83,15 @@ class SparenUseCase(UseCase):
 
 		text = ""
 		if fuel_good:
-			text += "I have news for saving money at the gas station. Do you want to hear it? \n"
+			text_possible = ["Good news! I've got some money-saving tips for the gas station that you might want to hear about. Would you like me to share them with you? \n",
+							 "I have news for saving money at the gas station. Do you want to hear it? \n",
+							 "Sure. There are news about the fule prices"]
+			text += random.choice(text_possible)
 		if stock_good:
-			text += "I have news for gaining some fast money at the stock market. Do you want to hear it?"
+			text_possible = ["I have news for gaining some fast money at the stock market. Do you want to hear it?",
+							 "I have information about your favorite stocks. Do you have some time for them?",
+							 "Do you want to hear the stock price news I have?"]
+			text += random.choice(text_possible)
 		return text, fuel_good, stock_good
 
 	def get_fuelprice(self) -> tuple[str, float]:
@@ -89,8 +106,11 @@ class SparenUseCase(UseCase):
 		settings = self.get_settings()["sprit"]
 
 		location, price = self.get_fuelprice()
+		text = ""
 		if always or price < settings["preisschwelle"]:
-			text = "The currently lowest {} fuel price is {:.3f}€ at {}.".format(settings["typ"], price, location)
+			text_possible = ["The currently lowest {} fuel price is {:.3f}€ at {}.".format(settings["typ"], price, location),
+							 f"The cheapest {settings['typ']} gas station is at {location} with a price of {price:.3f}€"]
+			text = random.choice(text_possible)
 
 			if price < settings["preisschwelle"]:
 				text += " This is below your set limit of {:.3f}€. You should go there and fill up!".format(settings["preisschwelle"])
@@ -102,7 +122,7 @@ class SparenUseCase(UseCase):
 	def get_stock_yes_no(self) -> bool:
 		good = False
 		for stock in self.get_settings()["stocks"]["favorites"]:
-			price = stocks_service.get_stock_price(stock["symbol"])
+			price = self.get_stock_price(stock["symbol"])
 			if price > stock["priceHigh"] or price < stock["priceLow"]:
 				good = True
 				break
@@ -138,9 +158,21 @@ class SparenUseCase(UseCase):
 		Returns:
 			tuple[bool, str]: whether the price is outside the limits and the text to say
 		"""
-		price = stocks_service.get_stock_price(stock)
+		price = self.get_stock_price(stock)
 		if price > top_limit:
 			return True, "The stock price of {} is {:.2f}€. This is above your set limit of {:.2f}€. This is looking great! You will be rich soon!".format(stock, price, top_limit)
 		if price < bottom_limit:
 			return True, "The stock price of {} is {:.2f}€. This is below your set limit of {:.2f}€. Maybe you should sell all your stocks now!".format(stock, price, bottom_limit)
 		return False, "The stock price of {} is {:.2f}€. This is not above or below your limits".format(stock, price)
+
+	@cached(stockprice_cache)
+	def get_stock_price(self, stock: str) -> float:
+		"""
+		Get the price of a stock symbol. This function uses a cache
+		Args:
+			stock: the stock symbol to get the price for
+
+		Returns:
+		the stock price in euros
+		"""
+		return stocks_service.get_stock_price(stock)
