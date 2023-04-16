@@ -90,7 +90,7 @@ export default {
 		setJarvisText(text) {
 			this.jarvisText = text
 			this.speaking = true
-			this.speakString(this.jarvisText, () => {
+			this.speakString(text, () => {
 				console.log("Finished speaking");
 				this.speaking = false;
 			});
