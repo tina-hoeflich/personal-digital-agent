@@ -35,7 +35,7 @@ class UseCase(ABC):   # pragma: no cover
 		pass
 
 	@abstractmethod
-	def get_settings() -> object:
+	def get_settings(self) -> object:
 		"""Get the settings of the usecase
 
 		Returns:
