@@ -22,3 +22,4 @@ tmdbv3api
 JustWatch
 python-dotenv
 pillow
+cachetools
