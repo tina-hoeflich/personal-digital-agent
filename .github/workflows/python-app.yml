@@ -43,11 +43,11 @@ jobs:
       run: |
         set -o pipefail # set failing tests to fail the action as well
         coverage run -m pytest --junitxml=pytest.xml
-        coverage report -m | tee pytest-coverage.txt
+        coverage xml
     - name: Pytest coverage comment
       uses: MishaKav/pytest-coverage-comment@main
       with:
-        pytest-coverage-path: ./pda-backend/pytest-coverage.txt
+        pytest-xml-coverage-path: ./pda-backend/coverage.xml
         junitxml-path: ./pda-backend/pytest.xml
       if: github.event_name == 'pull_request'
 
