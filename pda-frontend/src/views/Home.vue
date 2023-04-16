@@ -88,9 +88,11 @@ export default {
     },
 
 		setJarvisText(text) {
-			this.jarvisText = text
+			this.jarvisText = text.text
+			var imageUrl = text.image
+			var linkUrl = text.link
 			this.speaking = true
-			this.speakString(text, () => {
+			this.speakString(text.text, () => {
 				console.log("Finished speaking");
 				this.speaking = false;
 			});
