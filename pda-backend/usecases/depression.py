@@ -32,13 +32,13 @@ class DepressionUseCase(UseCase):
 		:return: the answer of the usecase
 	    """
 		if any(trigger in input for trigger in EMAIL_TRIGGER):
-
+			
 			return "Should I get someone to cheer you up?", self.emailConversation
 		elif any(trigger in input for trigger in JOKE_TRIGGERS):
-			return await services.jokes.get_joke(), None, None, None
+			return await services.jokes.get_joke(), None
 		elif any(trigger in input for trigger in MUSIC_TRIGGERS):
-
-			return "Should I play some music, to brighten up your day", self.musicConversation, None, None
+			
+			return "Should I play some music, to brighten up your day", self.musicConversation
 
 	def emailConversation(self, input: str) -> tuple[str, Callable]:
 		"""Method that listens for the user input and sends an email if the user says yes"""
@@ -47,22 +47,22 @@ class DepressionUseCase(UseCase):
 									 self.get_settings()["emergencyEmail"],
 									 "Jarvis asking for your support",
 									 "Hi there, \n \nyour friend may need someone to cheer him up :) \nCan you help me out with this? \n \nThanks, \n Jarvis")
-			return "I am sorry to hear that. I will send an email to get someone to cheer you up.", None, None, None
+			return "I am sorry to hear that. I will send an email to get someone to cheer you up.", None
 
 	def musicConversation(self, input: str) -> tuple[str, Callable]:
 		if "yes" in input:
 			spotify_service.start_music()
 			return "Okay, music started ", self.musicConversation2
 		else:
-			return "Okay, Can I do anything else for you? ", None, None, None
-
+			return "Okay, Can I do anything else for you? ", None
+	
 	def musicConversation2(self, input: str) -> tuple[str, Callable]:
 		if "stop" in input:
 			spotify_service.stop_music()
 			return "Music stopped ", None
 		else:
-			return "Okay, Can I do anything else for you? ", None, None, None
-
+			return "Okay, Can I do anything else for you? ", None
+		
 	def get_settings(self) -> object:
 		"""
 

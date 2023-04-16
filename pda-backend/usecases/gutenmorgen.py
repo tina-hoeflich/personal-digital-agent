@@ -25,7 +25,7 @@ class GutenMorgenUseCase(UseCase):
 		return
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
-		return f"{self.greeting()} {self.weather()}", None, None, None
+		return f"{self.greeting()} {self.weather()}", None
 
 	def greeting(self) -> str:
 		name = self.get_settings()["name"]

@@ -48,19 +48,19 @@ class SparenUseCase(UseCase):
 		self.talk_stockprice = talk_stockprice
 		self.talk_fuelprice = talk_fuelprice
 		if self.talk_fuelprice or self.talk_stockprice:
-			return text, self.conversation, None, None
-		return text, None, None, None
+			return text, self.conversation
+		return text, None
 
 	def conversation(self, input: str) -> tuple[str, Callable | None]:
 		if " no " in " " + input.lower() + " ":
-			return "Can I do something else for you?", None, None, None
+			return "Can I do something else for you?", None
 
 		text = ""
 		if self.talk_fuelprice:
 			text += self.get_fuelprice_text(False)
 		if self.talk_stockprice:
 			text += self.get_stockprice_text(False)
-		return text, None, None, None
+		return text, None
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("sparen")
@@ -75,7 +75,7 @@ class SparenUseCase(UseCase):
 			text += "I have news for saving money at the gas station. Do you want to hear it? \n"
 		if stock_good:
 			text += "I have news for gaining some fast money at the stock market. Do you want to hear it?"
-		return text, fuel_good, stock_good, None, None
+		return text, fuel_good, stock_good
 
 	def get_fuelprice(self) -> tuple[str, float]:
 		settings = self.get_settings()["sprit"]
