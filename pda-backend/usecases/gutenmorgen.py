@@ -1,35 +1,61 @@
 from usecases.usecase import UseCase
 from scheduler import Scheduler
-from services.weather import get_weather
+from services.weather import get_weather, get_weather_code
 from services.news import get_news_title, get_news_content
+from services.maps import get_cached_travel_time, get_current_travel_time
 import services.geolocation as geolocation
 from settings_manager import SettingsManager
+from proaktiv_sender import ProaktivSender
 from typing import Callable
+from datetime import datetime, timedelta
 import random
+import math
 from kink import inject
 
 GENERAL_TRIGGERS = ["morning", "day", "rise", "alarm"]
 HELP_TRIGGERS = ["help", "know", "how"]
 WEATHER_TRIGGERS = ["weather", "temperature", "warm", "cold", "rain", "rainy", "sunny", "sun", "cloud", "clouds", "cloudy"]
 NEWS_TRIGGERS = ["news", "update", "updates", "story", "stories", "message", "messages"]
+MAPS_TRIGGERS = ["directions", "car", "walk", "bike", "drive", "leave", "work"]
 
-AFFIRM_TRIGGERS = ["yes", "sure", "okay", "fine", "gladly"]
-CANCEL_TRIGGERS = ["no", "nothing", "bye", "leave", "stop", "usecase", "never"]
+AFFIRM_TRIGGERS = ["yes", "sure", "okay", "ok", "fine", "gladly"]
+CANCEL_TRIGGERS = ["no", "nothing", "bye", "stop", "usecase", "never"]
 
 @inject
 class GutenMorgenUseCase(UseCase):
-	def __init__(self, scheduler: Scheduler, settings: SettingsManager):
+	alternate_travel_mode = None
+	def __init__(self, scheduler: Scheduler, settings: SettingsManager, proaktive: ProaktivSender):
 		self.scheduler = scheduler
 		self.settings = settings
+		self.proaktive = proaktive
+		self.trigger()
 
 	def get_triggerwords(self) -> list[str]:
 		return GENERAL_TRIGGERS
 
 	def trigger(self):
-		# hier kommt das periodische checken für proaktive Dinge rein.
+		cached_travel_time = self.get_cached_travel_time()
+		time_to_get_ready = 30
+		self.scheduler.schedule_job(self.alarm, self.get_work_time() - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
+	
+	def alarm(self):
+		self.scheduler.schedule_job(self.trigger, self.get_work_time() + timedelta(hours=1))
 
-		# hier muss jeder trigger noch den nächsten run schedulen
-		return
+		cached_travel_time = self.get_cached_travel_time()
+		work_time = self.get_work_time()
+		leave_time = work_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=5)
+		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to work at {work_time.strftime('%H:%M')} on time!"
+		self.proaktive.send_text(text)
+	
+	def get_work_time(self) -> datetime:
+		now = datetime.now()
+		work_time = now
+		hour = now.hour
+		if hour < 9:
+			work_time = now.replace(hour=9, minute=0, second=0, microsecond=0)
+		else:
+			work_time = now.replace(day=now.day+1, hour=9, minute=0, second=0, microsecond=0)
+		return work_time
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
 		return self.greeting() + " " + self.start_question(), self.conversation
@@ -39,11 +65,17 @@ class GutenMorgenUseCase(UseCase):
 		if any(trigger in input for trigger in CANCEL_TRIGGERS):
 			return "Okay. See you later!", None
 		if any(trigger in input for trigger in HELP_TRIGGERS):
-			return "I can tell you about the weather or the news, or you can try another usecase by saying bye!", self.conversation
+			return "I can tell you about the weather, the news nad your commute, or you can try another usecase by saying bye!", self.conversation
 		if any(trigger in input for trigger in WEATHER_TRIGGERS):
 			return self.weather() + " " + self.repeat_question(), self.conversation
 		if any(trigger in input for trigger in NEWS_TRIGGERS):
 			return self.news_title(), self.news_conversation
+		if any(trigger in input for trigger in MAPS_TRIGGERS):
+			text, self.alternate_travel_mode = self.travel_helper()
+			if self.alternate_travel_mode:
+				return text, self.travel_alternate_conversation
+			else:
+				return f"{text} {self.repeat_question()}", self.conversation
 		
 		return "I didn't understand you. " + self.repeat_question(), self.conversation
 
@@ -106,6 +138,59 @@ class GutenMorgenUseCase(UseCase):
 			return f"{get_news_content()} {self.repeat_question()}", self.conversation
 		
 		return f"Okay. {self.repeat_question()}", self.conversation
+	
+	def travel_helper(self) -> tuple[str, str]:
+		settings = self.get_settings()
+		mode = settings["modeOfTransportation"]
+		text = self.travel_time_format(mode)
+
+		home_address = settings["homeAddress"]
+		lat, lng = geolocation.get_location_from_address(home_address)
+		weather = get_weather_code(lat, lng)
+		
+		if(weather < 800 and mode in ["bicycling", "walking"]):
+			text += " But the weather today seems pretty bad, maybe you'd like to drive instead?"
+			return text, "driving"
+		elif(weather >= 800 and mode == "driving"):
+			text += " The weather today looks great! Maybe you'd like to cycle instead?"
+			return text, "bicycling"
+		else:
+			return text, None
+		
+	def travel_alternate_conversation(self, input: str) -> tuple[str, Callable]:
+		if any(trigger in input for trigger in AFFIRM_TRIGGERS):
+			return f"Okay. {self.travel_time_format(self.alternate_travel_mode)} {self.repeat_question()}", self.conversation
+		
+		return f"Okay. {self.repeat_question()}", self.conversation
+	
+	def travel_time_format(self, mode: str) -> str:
+		# time = self.get_travel_time(mode)
+		time = self.get_cached_travel_time()
+		intros = [
+			"If you leave now, you will need",
+			"Leaving now, it will take",
+			"Based on current traffic, it will take",
+			"Currently, you'll need",
+			"At the moment, you will need",
+			"Right now, you'll need"
+		]
+		return f"{random.choice(intros)} {time} minutes to get to work by {mode}."
+
+	def get_cached_travel_time(self) -> int:
+		settings = self.get_settings()
+		origin = settings["homeAddress"]
+		destination = settings["workAddress"]
+		transportation = settings["modeOfTransportation"]
+		time = get_cached_travel_time(origin, destination, transportation)
+		return int(round(time/60, 0))
+
+	def get_travel_time(self, transportation: str) -> int:
+		settings = self.get_settings()
+		origin = settings["homeAddress"]
+		destination = settings["workAddress"]
+		
+		time = get_current_travel_time(origin, destination, transportation)
+		return int(round(time/60, 0))
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("goodMorning")

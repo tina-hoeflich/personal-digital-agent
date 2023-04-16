@@ -9,11 +9,21 @@ def get_weather(lat: float, lng:float) -> str:
     
     return get_current_weather(lat, lng) + " " + get_weather_forecast(lat, lng)
 
+def get_weather_code(lat: float, lng: float) -> str:
+    url = f"{base_url}/weather?lat={lat}&lon={lng}&units=metric&appid={APIKEY}"
+    response = requests.get(url)
+    data = response.json()
+    if(data["cod"] != 200):
+        raise Exception(data["message"])
+
+    weather = data["weather"][0]["id"]
+    return weather
+
 def get_current_weather(lat: float, lng: float) -> str:
     url = f"{base_url}/weather?lat={lat}&lon={lng}&units=metric&appid={APIKEY}"
     response = requests.get(url)
     data = response.json()
-    print(data["cod"])
+    # print(data["cod"])
     if(data["cod"] != 200):
         raise Exception(data["message"])
 

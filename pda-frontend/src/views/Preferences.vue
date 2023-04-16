@@ -45,7 +45,7 @@
               <v-select
               label="Mode of Transporation"
               v-model="settingsJSON.goodMorning.modeOfTransportation"
-              :items="['Car', 'Bike', 'Walking']"
+              :items="['driving', 'transit', 'bicycling', 'walking']"
               :rules="[v => !!v || 'Item is required']"
               >
               </v-select>
@@ -200,9 +200,9 @@ export default {
           return '*Required'
         },
         value => {
-          if (value?.length <= 50) return true
+          if (/^[a-zA-Z0-9\ \,]+$/.test(value)) return true
 
-          return 'Input must be less than 50 characters.'
+          return 'Input may not contain special characters'
         },
       ],
       emailRules: [
