@@ -33,21 +33,22 @@ async def text_input():
 				selected_usecase = usecase
 				break
 
-		response = None
+		text_response = None
 		if selected_usecase is None:
-			response = random.choice(["I didn't understand you. Please try again"])
+			text_response = random.choice(["I didn't understand you. Please try again"])
 		else:
 			app.logger.info("Using UseCase handler {}".format(selected_usecase))
-			response, new_usecase = await selected_usecase.asked(message)
+			text_response, new_usecase, image_response, link_response = await selected_usecase.asked(message)
 	else:
 		next_method = conversation_manager.get_next_method()
 		app.logger.info(f"Found next method from conversation history. Using method {next_method}")
 		if inspect.iscoroutine(next_method):
-			response, new_usecase = await next_method(message)
+			text_response, new_usecase, image_response, link_response = await next_method(message)
 		else:
-			response, new_usecase = next_method(message)
+			text_response, new_usecase, image_response, link_response = next_method(message)
 
 	conversation_manager.set_net_method(new_usecase)
 
-	app.logger.info("Responding with: {}".format(response))
-	return response
+	app.logger.info("Responding with: {}".format(text_response))
+	return {"text": text_response, "image": image_response, "link": link_response}
+

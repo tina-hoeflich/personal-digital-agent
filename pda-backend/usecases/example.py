@@ -26,7 +26,7 @@ class ExampleUseCase(UseCase):   # pragma: no cover
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
 		name = self.settings.get_setting_by_name("example")["name"]
-		return f"{name} said: " + input, None
+		return f"{name} said: " + input, None, None, "https://example.org"
 
 	def get_settings(self) -> object:
 		return self.settings.get_setting_by_name("example")
