@@ -1,3 +1,5 @@
+import random
+
 import services.tmdb as tmdb
 import services.justwatch as justwatch
 import services.calender as calender
@@ -30,16 +32,14 @@ class NetflixAndChillUseCase(UseCase):
     
     def get_movie_recommendation(self) -> str:
         last_event_name, last_event_end_time, new_time = calender.get_last_event()
-        #print(f"Your last class today is {last_event_name} and it ends at {last_event_end_time}. Do you want to watch a movie at {new_time}")
         popular_movies = tmdb.get_popular_movies()
         movies_on_netflix, movies_not_on_netflix = justwatch.find_on_netflix(popular_movies)
-        print(f"I found the following Movies on Netflix:{movies_on_netflix}")
-        for movie in movies_on_netflix:
-            print(f"{movie} is available on Netflix! Watch it here: {movies_on_netflix[movie][0]}")
-            tmdb.get_movie_poster(movies_on_netflix[movie][1])
-            print(f"Your last class today is {last_event_name} and it ends at {last_event_end_time}. {movie} is available on Netflix! Watch it here: {movies_on_netflix[movie][0]}")
-            return f"Your last class today is {last_event_name} and it ends at {last_event_end_time}. {movie} is available on Netflix! Watch it here: {movies_on_netflix[movie][0]}"   
-        return "no movies found"    
+        movie, link = random.choice(list(movies_on_netflix.items()))
+        tmdb.get_movie_poster(movies_on_netflix[movie][1])
+        if last_event_name == None:
+            return f"You have no classes today. {movie} is available on Netflix! Watch it here: {link[0]}"
+        else:
+            return f"Your last class today is {last_event_name} and it ends at {last_event_end_time}. So you have time to watch a movie at {new_time}. {movie} is available on Netflix! Watch it here: {link[0]}", None,  link[0]
         
     def get_settings(self) -> object:
         return self.settings.get_setting_by_name("example")

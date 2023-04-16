@@ -39,4 +39,4 @@ def get_last_event():
         # return the name and the time of the updated end time
         return last_event_name, last_event_end_time, new_time
     else:
-        return "No events today.",None, None
+        return None, None, None
