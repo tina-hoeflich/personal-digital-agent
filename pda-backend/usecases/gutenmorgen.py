@@ -60,7 +60,7 @@ class GutenMorgenUseCase(UseCase):
 		cached_travel_time = self.get_travel_time(mode)
 		work_time = self.get_work_time()
 		leave_time = work_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=5)
-		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to work at {work_time.strftime('%H:%M')} on time!"
+		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to work at {work_time.strftime('%H:%M')} on time by {mode}!"
 		return text
 	
 	def get_work_time(self) -> datetime:

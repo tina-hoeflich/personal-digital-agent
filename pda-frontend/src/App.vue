@@ -45,7 +45,7 @@ export default {
     return {
       navItems: [
         { title: "Assistant", icon: "mdi-google-assistant", link: "/" },
-        { title: "Developer", icon: "mdi-laptop", link: "/developer" },
+        // { title: "Developer", icon: "mdi-laptop", link: "/developer" },
         { title: "Preferences", icon: "mdi-cog", link: "/preferences" },
       ],
     };
