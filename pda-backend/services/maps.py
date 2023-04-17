@@ -8,6 +8,17 @@ GOOGLE_MAPS_API_KEY=os.environ.get("GOOGLE_MAPS_API_KEY")
 gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
 
 def get_and_refresh_cache(frm: str, to:str, mode:str) -> dict:
+    """
+    get_and_refresh_cache gets the maps directions data from the cache (maps_cache.json). If the input parameters have changed or the cache is more than 3 hours old, refreshes the cache
+
+    Args:
+        frm (str): travel origin
+        to (str): travel destination
+        mode (str): mode of transportation
+
+    Returns:
+        dict: data from maps_cache
+    """
     current_date = datetime.today().strftime('%Y-%m-%d')
     current_hour = datetime.now().hour
 
@@ -40,12 +51,29 @@ def get_and_refresh_cache(frm: str, to:str, mode:str) -> dict:
     return cache_data
 
 def refresh_cache(data: dict) -> None:
+    """
+    refresh_cache overwrites the cache with a new dictionary object
+
+    Args:
+        data (dict): new maps directions data
+    """
     print("refreshing maps_cache...")
     json_data = json.dumps(data, indent=4)
     cache = open(f"{os.getcwd()}{os.sep}maps_cache.json", "w")
     cache.write(json_data) 
 
 def get_current_data(frm: str, to: str, mode:str) -> dict:
+    """
+    get_current_data calls the google maps direction api and returns the direction data
+
+    Args:
+        frm (str): travel origin
+        to (str): travel destination
+        mode (str): mode of transportation
+
+    Returns:
+        dict: maps direction data
+    """
     print("calling maps api...")
     current_date = datetime.today().strftime('%Y-%m-%d')
     current_hour = datetime.now().hour
@@ -63,12 +91,34 @@ def get_current_data(frm: str, to: str, mode:str) -> dict:
     return data
 
 def get_cached_travel_time(origin: str, destination: str, mode_of_transportation: str) -> int:
+    """
+    get_cached_travel_time gets the travel time from the maps cache (maps_cache.json)
+
+    Args:
+        origin (str): travel origin
+        destination (str): travel destination
+        mode_of_transportation (str): mode of transportation
+
+    Returns:
+        int: travel time in seconds
+    """
     cache = get_and_refresh_cache(origin, destination, mode_of_transportation)
     if(mode_of_transportation == "driving"):
         return cache["data"][0]["legs"][0]["duration_in_traffic"]["value"]
     return cache["data"][0]["legs"][0]["duration"]["value"]
 
 def get_current_travel_time(origin: str, destination: str, mode_of_transportation: str) -> int:
+    """
+    get_current_travel_time gets the travel time from a new google maps directions api call. Refreshes the cache with that data
+
+    Args:
+        origin (str): travel origin
+        destination (str): travel destination
+        mode_of_transportation (str): mode of transportation
+
+    Returns:
+        int: travel time in seconds
+    """
     data = get_current_data(origin, destination, mode_of_transportation)
     refresh_cache(data)
     if(mode_of_transportation == "driving"):
