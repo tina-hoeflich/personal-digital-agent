@@ -95,7 +95,7 @@ class GutenMorgenUseCase(UseCase):
 		if any(trigger in input for trigger in CANCEL_TRIGGERS):
 			return "Okay. See you later!", None
 		if any(trigger in input for trigger in HELP_TRIGGERS):
-			return "I can tell you about the weather, the news nad your commute, or you can try another usecase by saying bye!", self.conversation
+			return "I can tell you about the weather, the news and your commute, or you can try another usecase by saying bye!", self.conversation
 		if any(trigger in input for trigger in WEATHER_TRIGGERS):
 			return self.weather() + " " + self.repeat_question(), self.conversation
 		if any(trigger in input for trigger in NEWS_TRIGGERS):
