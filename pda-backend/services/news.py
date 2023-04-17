@@ -4,7 +4,7 @@ import requests
 import random
 
 APIKEY = os.environ.get("NEWS_API_KEY")
-news_sources = "insider,cnn,wired,nbcnews"
+news_sources = "insider,cnn,wired,nbcnews,wsj"
 url = f"https://newsdata.io/api/1/news?language=en&country=us&domain={news_sources}&apikey={APIKEY}"
 story_num = 0
 

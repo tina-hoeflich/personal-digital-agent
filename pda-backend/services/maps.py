@@ -1,6 +1,5 @@
 import os
 import json
-import requests
 import googlemaps
 from datetime import datetime
 
@@ -47,6 +46,7 @@ def refresh_cache(data: dict) -> None:
     cache.write(json_data) 
 
 def get_current_data(frm: str, to: str, mode:str) -> dict:
+    print("calling maps api...")
     current_date = datetime.today().strftime('%Y-%m-%d')
     current_hour = datetime.now().hour
     res = gmaps.directions(origin=frm, destination=to, mode=mode, departure_time=datetime.now())

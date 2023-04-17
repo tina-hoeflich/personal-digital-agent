@@ -4,12 +4,7 @@ import requests
 APIKEY = os.environ.get("WEATHER_API_KEY")
 base_url = "https://api.openweathermap.org/data/2.5"
 
-
-def get_weather(lat: float, lng:float) -> str:
-    
-    return get_current_weather(lat, lng) + " " + get_weather_forecast(lat, lng)
-
-def get_weather_code(lat: float, lng: float) -> str:
+def get_weather_code(lat: float, lng: float) -> int:
     url = f"{base_url}/weather?lat={lat}&lon={lng}&units=metric&appid={APIKEY}"
     response = requests.get(url)
     data = response.json()
@@ -19,7 +14,7 @@ def get_weather_code(lat: float, lng: float) -> str:
     weather = data["weather"][0]["id"]
     return weather
 
-def get_current_weather(lat: float, lng: float) -> str:
+def get_current_weather(lat: float, lng: float) -> tuple[int, str, str]:
     url = f"{base_url}/weather?lat={lat}&lon={lng}&units=metric&appid={APIKEY}"
     response = requests.get(url)
     data = response.json()
@@ -32,9 +27,10 @@ def get_current_weather(lat: float, lng: float) -> str:
     if weather == "clear sky":
         weather = "clear skies"
     temp = int(round(data["main"]["temp"], 0))
-    return f"It is currently {temp} degrees celsius in {city} with {weather}."
+    return temp, city, weather
+    return f""
 
-def get_weather_forecast(lat: float, lng: float) -> str:
+def get_weather_forecast(lat: float, lng: float) -> tuple[int, int, str]:
     url = f"{base_url}/forecast?lat={lat}&lon={lng}&units=metric&appid={APIKEY}"
     response = requests.get(url)
     data = response.json()
@@ -53,4 +49,4 @@ def get_weather_forecast(lat: float, lng: float) -> str:
     afternoon_weather = descriptions[-2] if len(descriptions)>2 else descriptions[-1]
     if afternoon_weather == "clear sky":
         afternoon_weather = "clear skies"
-    return f"Today, the forecast calls for a low of {min_temp} and a high of {max_temp} degrees, with {afternoon_weather} in the afternoon."
+    return min_temp, max_temp, afternoon_weather
