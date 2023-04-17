@@ -1,5 +1,4 @@
 from flask import request, Blueprint
-from flask_cors import CORS
 from settings_manager import SettingsManager
 
 set_man = SettingsManager('settings.json')

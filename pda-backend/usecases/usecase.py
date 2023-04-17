@@ -20,7 +20,7 @@ class UseCase(ABC):   # pragma: no cover
 		pass
 
 	@abstractmethod
-	def asked(self, input: str) -> tuple[str, Callable]:
+	def asked(self, input: str) -> tuple[str, Callable, str, str]:
 		"""Method getting called when the user mentioned one of the triggerwords
 
 		Args:
@@ -29,11 +29,13 @@ class UseCase(ABC):   # pragma: no cover
 		Returns:
 			str: text to read back to the user
 			Callable: the method to call for the next user input. This manages the conversation logic
+			str: the link of the image url
+			str: the link url for a webpage
 		"""
 		pass
 
 	@abstractmethod
-	def get_settings() -> object:
+	def get_settings(self) -> object:
 		"""Get the settings of the usecase
 
 		Returns:

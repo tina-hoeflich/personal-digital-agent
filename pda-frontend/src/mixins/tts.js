@@ -35,6 +35,7 @@ export default {
      * @param onEnd methode die ausgeführt wird nach Ende des Vorlesens
      */
     speakString(text, onEnd) {
+			console.log("speakString", text)
       const utterThis = new SpeechSynthesisUtterance(text);
       utterThis.pitch = 1;
       utterThis.rate = 0.8;

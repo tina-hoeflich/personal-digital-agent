@@ -33,6 +33,23 @@
     </v-col>
   </v-row>
   <v-btn size="large" color="success" @click="send2Jarvis">Senden</v-btn>
+
+  <v-theme-provider theme="dark">
+    <v-container fluid class="d-flex flex-lg-row flex-column justify-center" style="max-width: 50%;">
+			<v-expansion-panels>
+        <v-expansion-panel class="bg-black">
+          <v-expansion-panel-title class="bg-black">
+            <h3 class="ma-2 font-italic" style="flex: 1">Developer Triggers</h3>
+          </v-expansion-panel-title>
+          <v-expansion-panel-text>
+            <v-btn class="ma-2" @click="triggerGuMo">Guten Morgen</v-btn>
+            <v-btn class="ma-2" @click="triggerSpSu">Spar Support</v-btn>
+            <v-btn class="ma-2" @click="triggerNetflix">Netflix & Chill</v-btn>
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+			</v-expansion-panels>
+    </v-container>
+  </v-theme-provider>
 </template>
 
 <script>
@@ -64,7 +81,7 @@ export default {
 		},
 		proaktiv(data) {
 			console.log('Proaktiv data received', data.text)
-			this.setJarvisText(data.text)
+			this.setJarvisText(data)
 		}
 	},
 
@@ -88,9 +105,11 @@ export default {
     },
 
 		setJarvisText(text) {
-			this.jarvisText = text
+			var imageUrl = text.image
+			var linkUrl = text.link
+      this.jarvisText = text.text
 			this.speaking = true
-			this.speakString(this.jarvisText, () => {
+			this.speakString(text.text, () => {
 				console.log("Finished speaking");
 				this.speaking = false;
 			});
@@ -127,6 +146,23 @@ export default {
       console.log("Final Transcript:", final_transcript);
       console.log("Interim Transcript:", interim_transcript);
     },
+
+    triggerGuMo() {
+			console.log("calling good morning usecase procativ")
+			axios.get("http://127.0.0.1:8000/trigger/guten_morgen")
+		},
+
+		triggerSpSu() {
+			console.log("calling savings support usecase procativ")
+			let data = axios.get("http://127.0.0.1:8000/trigger/sparsupport")
+      console.log(data)
+
+		},
+
+		triggerNetflix() {
+			console.log("calling netflix and chill usecase procativ")
+			axios.get("http://127.0.0.1:8000/trigger/netflix")
+		},
   },
 };
 </script>
