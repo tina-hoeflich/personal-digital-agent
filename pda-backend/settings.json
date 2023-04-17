@@ -7,10 +7,10 @@
         "name": "How to use settings.json"
     },
     "goodMorning": {
-        "homeAddress": "Segelfalterstrasse 2, 70439, Stuttgart",
-        "modeOfTransportation": "Car",
+        "homeAddress": "Segelfalterstrasse 2, 70439 Stuttgart",
+        "modeOfTransportation": "bicycling",
         "name": "Max Mustermann",
-        "workAddress": "work"
+        "workAddress": "Lerchenstrasse 1, 70176 Stuttgart"
     },
     "sparen": {
         "sprit": {
