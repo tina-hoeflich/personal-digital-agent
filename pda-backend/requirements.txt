@@ -22,3 +22,5 @@ tmdbv3api
 JustWatch
 python-dotenv
 googlemaps
+pillow
+cachetools

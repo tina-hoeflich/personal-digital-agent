@@ -1,7 +1,7 @@
 {
     "depressionHandler": {
-        "emergencyEmail": "daullmer@gmail.com",
-        "friendEmail": "test@mail.com"
+        "emergencyEmail": "florian.strehlke@freenet.de",
+        "friendEmail": "tina.h.hoeflich@gmail.com"
     },
     "example": {
         "name": "How to use settings.json"

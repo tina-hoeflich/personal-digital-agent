@@ -4,12 +4,13 @@ from usecases.usecase import UseCase
 from usecases.sparsupport import SparenUseCase
 from usecases.depression import DepressionUseCase
 from usecases.gutenmorgen import GutenMorgenUseCase
+from usecases.netflix_and_chill import NetflixAndChillUseCase
 from flask import request, Blueprint, current_app as app
 from kink import di
 import inspect
 import random
 
-USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase(), DepressionUseCase(), GutenMorgenUseCase()]
+USECASES: list[UseCase] = [ExampleUseCase(), SparenUseCase(), DepressionUseCase(), GutenMorgenUseCase(), NetflixAndChillUseCase()]
 
 input_blueprint = Blueprint('input_api', __name__, template_folder='templates')
 
@@ -37,16 +38,19 @@ async def text_input():
 			response = random.choice(["I didn't understand you. Please try again"])
 		else:
 			app.logger.info("Using UseCase handler {}".format(selected_usecase))
-			response, new_usecase = await selected_usecase.asked(message)
+			text_response, new_usecase, *links = await selected_usecase.asked(message)
 	else:
 		next_method = conversation_manager.get_next_method()
 		app.logger.info(f"Found next method from conversation history. Using method {next_method}")
 		if inspect.iscoroutine(next_method):
-			response, new_usecase = await next_method(message)
+			text_response, new_usecase, *links = await next_method(message)
 		else:
-			response, new_usecase = next_method(message)
+			text_response, new_usecase, *links = next_method(message)
 
 	conversation_manager.set_net_method(new_usecase)
 
-	app.logger.info("Responding with: {}".format(response))
-	return response
+	app.logger.info("Responding with: {}".format(text_response))
+	img_link = links[0] if 0 < len(links) else None
+	url_link = links[1] if 0 < len(links) else None
+	return {"text": text_response, "image": img_link, "link": url_link}
+

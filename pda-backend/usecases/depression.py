@@ -9,8 +9,8 @@ import services.email_service as email_service
 import services.spotify_service as spotify_service
 
 EMAIL_TRIGGER = ["sad", "depressed", "anxious", "lonely", "empty", "worthless", "hopeless", "suicidal"]
-JOKE_TRIGGERS = ["homework", "exam", "boring", "bored", "joke"]
-MUSIC_TRIGGERS = ["music", "song", "playlist", "spotify"]
+JOKE_TRIGGERS = ["homework", "boring", "bored", "joke"]
+MUSIC_TRIGGERS = ["music", "song", "playlist", "spotify", "exam"]
 @inject
 class DepressionUseCase(UseCase):
 	def __init__(self, scheduler: Scheduler, settings: SettingsManager):
@@ -41,6 +41,7 @@ class DepressionUseCase(UseCase):
 			return "Should I play some music, to brighten up your day", self.musicConversation
 
 	def emailConversation(self, input: str) -> tuple[str, Callable]:
+		"""Method that listens for the user input and sends an email if the user says yes"""
 		if "yes" in input:
 			email_service.send_email("jarvis@tinahoeflich.com",
 									 self.get_settings()["emergencyEmail"],
@@ -49,14 +50,19 @@ class DepressionUseCase(UseCase):
 			return "I am sorry to hear that. I will send an email to get someone to cheer you up.", None
 
 	def musicConversation(self, input: str) -> tuple[str, Callable]:
-		# TODO: check if "no" or similar words are in input
 		if "yes" in input:
 			spotify_service.start_music()
-			return "Okay, music started ", None
+			return "Okay, music started ", self.musicConversation2
+		else:
+			return "Okay, Can I do anything else for you? ", None
+	
+	def musicConversation2(self, input: str) -> tuple[str, Callable]:
+		if "stop" in input:
+			spotify_service.stop_music()
+			return "Music stopped ", None
 		else:
 			return "Okay, Can I do anything else for you? ", None
 		
-
 	def get_settings(self) -> object:
 		"""
 
