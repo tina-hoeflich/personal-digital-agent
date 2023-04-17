@@ -76,7 +76,7 @@
 
       	<v-card-text>
       	  <v-textarea
-      	      v-model="netflixAndChillResposne"
+      	      v-model="netflixAndChillResponse"
       	      append-inner-icon="mdi-comment"
       	      auto-grow
       	      clearable
@@ -108,7 +108,7 @@ export default {
       goodMorningResponse: '',
       depressionHandlerResponse: '',
       savingsSupportResponse: '',
-      netflixAndChillResposne: ''
+      netflixAndChillResponse: ''
     }
   },
   methods: {

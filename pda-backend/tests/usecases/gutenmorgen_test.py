@@ -5,7 +5,7 @@ from settings_manager import SettingsManager
 from scheduler import Scheduler
 from usecases.gutenmorgen import GutenMorgenUseCase
 from unittest.mock import Mock, patch, MagicMock
-from datetime import datetime
+from datetime import datetime, timedelta
 
 SETTINGS = {"goodMorning":{
                 "homeAddress": "Segelfalterstrasse 2, 70439 Stuttgart",
@@ -17,22 +17,34 @@ SETTINGS = {"goodMorning":{
 @patch.object(GutenMorgenUseCase, "get_cached_travel_time", return_value=30)
 @patch.object(GutenMorgenUseCase, "get_work_time", return_value=datetime.now().replace(hour=9, minute=0, second=0, microsecond=0))
 @patch.object(Scheduler, "schedule_job", return_value=MagicMock())
-def test_trigger(mock_scheduler, mock_work_time, mock_travel_time):
+def test_init(mock_scheduler, mock_work_time, mock_travel_time):
     usecase = GutenMorgenUseCase(Scheduler(), MagicMock(), MagicMock())
     mock_work_time.assert_called_once()
     mock_travel_time.assert_called_once()
     schedule_time = datetime.now().replace(hour=8, minute=0, second=0, microsecond=0)
     assert schedule_time == mock_scheduler.call_args.args[1]
 
-
+@patch.object(GutenMorgenUseCase, "alarm", return_value="WAKE UP")
 @patch.object(GutenMorgenUseCase, "get_cached_travel_time", return_value=30)
 @patch.object(GutenMorgenUseCase, "get_work_time", return_value=datetime.now().replace(hour=9, minute=0, second=0, microsecond=0))
+@patch.object(Scheduler, "schedule_job", return_value=MagicMock())
 @patch.object(ProaktivSender, "send_text")
-def test_alarm(mock_proaktiv, mock_work_time, mock_travel_time):
-    usecase = GutenMorgenUseCase(MagicMock(), MagicMock(), ProaktivSender(MagicMock))
-    usecase.alarm()
-    print(mock_proaktiv.call_args.args)
-    assert any("You should leave at 08:25 to get to work at 09:00 on time!" in argument for argument in mock_proaktiv.call_args.args)
+def test_trigger(mock_proaktiv, mock_scheduler, mock_work_time, mock_travel_time, mock_alarm):
+    usecase = GutenMorgenUseCase(Scheduler(), MagicMock(), ProaktivSender(MagicMock))
+    usecase.trigger()
+    mock_alarm.assert_called_once()
+    schedule_time = datetime.now().replace(hour=8, minute=0, second=0, microsecond=0) + timedelta(days=1)
+    assert any("WAKE UP" in argument for argument in mock_proaktiv.call_args.args)
+    assert schedule_time == mock_scheduler.call_args.args[1]
+
+@patch.object(GutenMorgenUseCase, "get_travel_time", return_value=30)
+@patch.object(GutenMorgenUseCase, "get_work_time", return_value=datetime.now().replace(hour=9, minute=0, second=0, microsecond=0))
+@patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
+def test_alarm(mock_settings, mock_work_time, mock_travel_time):
+    usecase = GutenMorgenUseCase(MagicMock(), SettingsManager(""), MagicMock())
+    text = usecase.alarm()
+    mock_travel_time.assert_called_once()
+    assert "You should leave at 08:25 to get to work at 09:00 on time!" in text
 
 @patch.object(GutenMorgenUseCase, "get_cached_travel_time", return_value=30)
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)

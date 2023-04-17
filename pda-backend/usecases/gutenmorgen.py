@@ -28,30 +28,40 @@ class GutenMorgenUseCase(UseCase):
 		self.scheduler = scheduler
 		self.settings = settings
 		self.proaktive = proaktive
-		self.trigger()
+
+		cached_travel_time = self.get_cached_travel_time()
+		time_to_get_ready = 30
+		self.scheduler.schedule_job(self.trigger, self.get_work_time() - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
 
 	def get_triggerwords(self) -> list[str]:
 		return GENERAL_TRIGGERS
 
 	def trigger(self):
 		"""
-		trigger On app start, schedules self.alarm to execute 30 minutes before work_time - travel_time
+		trigger PROACTIVE USECASE, scheduled to to execute 30 minutes before work_time - travel_time
 		"""
 		cached_travel_time = self.get_cached_travel_time()
 		time_to_get_ready = 30
-		self.scheduler.schedule_job(self.alarm, self.get_work_time() - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
-	
-	def alarm(self):
-		"""
-		alarm PROACTIVE USECASE. Wakes user up and tells him when he needs to leave for work
-		"""
-		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=10))
+		text = self.alarm()
+		self.proaktive.send_text(text)
 
-		cached_travel_time = self.get_cached_travel_time()
+		self.scheduler.schedule_job(self.trigger, self.get_work_time() + timedelta(days=1) - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
+	
+	def alarm(self) -> str:
+		"""
+		alarm text to wake user up and tell them when to leave
+
+		Returns:
+			str: wake up text
+		"""
+
+		settings = self.get_settings()
+		mode = settings["modeOfTransportation"]
+		cached_travel_time = self.get_travel_time(mode)
 		work_time = self.get_work_time()
 		leave_time = work_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=5)
-		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to work at {work_time.strftime('%H:%M')} on time!"
-		self.proaktive.send_text(text)
+		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to work at {work_time.strftime('%H:%M')} on time by {mode}!"
+		return text
 	
 	def get_work_time(self) -> datetime:
 		"""
