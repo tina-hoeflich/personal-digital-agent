@@ -35,7 +35,9 @@ async def text_input():
 
 		response = None
 		if selected_usecase is None:
-			response = random.choice(["I didn't understand you. Please try again"])
+			text_response = random.choice(["I didn't understand you. Please try again"])
+			new_usecase = None
+			links = []
 		else:
 			app.logger.info("Using UseCase handler {}".format(selected_usecase))
 			text_response, new_usecase, *links = await selected_usecase.asked(message)
