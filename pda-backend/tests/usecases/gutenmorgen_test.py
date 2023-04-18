@@ -44,7 +44,7 @@ def test_alarm(mock_settings, mock_work_time, mock_travel_time):
     usecase = GutenMorgenUseCase(MagicMock(), SettingsManager(""), MagicMock())
     text = usecase.alarm()
     mock_travel_time.assert_called_once()
-    assert "You should leave at 08:25 to get to work at 09:00 on time!" in text
+    assert "You should leave at 08:25 to get to work at 09:00 on time" in text
 
 @patch.object(GutenMorgenUseCase, "get_cached_travel_time", return_value=30)
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
