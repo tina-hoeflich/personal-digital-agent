@@ -6,6 +6,7 @@
       src="@/assets/circles_spinning.gif"
       max-height="400px"
     />
+    <v-img v-else-if="imageUrl" contain :src="imageUrl" max-height="400px" />
     <v-img v-else contain src="@/assets/frame_0.png" max-height="400px" />
   </div>
   <h1 v-html="jarvisText"></h1>
@@ -64,6 +65,7 @@ export default {
       userText: "",
       speaking: false,
       listening: false,
+      imageUrl: "",
     };
   },
   mixins: [tts, stt],
@@ -112,6 +114,8 @@ export default {
       if (linkUrl) {
         this.jarvisText += ` <a href="${linkUrl}" target="_blank">${linkUrl}</a>`;
       }
+
+      this.imageUrl = imageUrl;
 
 			this.speaking = true
 			this.speakString(text.text, () => {
