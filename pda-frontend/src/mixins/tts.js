@@ -24,8 +24,8 @@ export default {
         (voice) => voice.voiceURI == "Nathan (erweitert)"
       )[0];
       var firstDefaultVoice = voices.filter(
-        (voice) => voice.lang == "en-US" && voice.default
-      )[0];
+        (voice) => voice.lang == "en-US"
+      ).sort(voice => voice.default)[0];
       this.voice = nathan ?? firstDefaultVoice;
       console.log("Using voice:", this.voice);
     },
@@ -35,6 +35,7 @@ export default {
      * @param onEnd methode die ausgeführt wird nach Ende des Vorlesens
      */
     speakString(text, onEnd) {
+			console.log("speakString", text)
       const utterThis = new SpeechSynthesisUtterance(text);
       utterThis.pitch = 1;
       utterThis.rate = 0.8;

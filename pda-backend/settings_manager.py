@@ -3,7 +3,7 @@ import json
 class SettingsManager():
 	"""Settings manager for managing all user settings"""
 
-	CACHE = {}
+	CACHE: dict = {}
 	FILENAME = ''
 
 	def __init__(self, filename: str):
@@ -20,7 +20,8 @@ class SettingsManager():
 		Args:
 			settings (dict): settings to save
 		"""
-		self.CACHE = settings
+		self.CACHE.clear()
+		self.CACHE.update(settings)
 		with open(self.FILENAME, 'w') as f:
 			json.dump(settings, f, indent=4)
 		return "Success"
@@ -32,9 +33,9 @@ class SettingsManager():
 			name (str): name of the setting
 			value (object): value of the setting
 		"""
-		settings = self.CACHE
-		settings[name] = value
-		self.save_settings(settings)
+		temp = self.CACHE.copy()
+		temp.update({name: value})
+		self.save_settings(temp)
 
 	def get_all_settings(self) -> dict:
 		"""Get the settings from a file
@@ -45,8 +46,8 @@ class SettingsManager():
 		if self.CACHE:
 			return self.CACHE
 		with open(self.FILENAME, 'r') as f:
-			data =  json.load(f)
-			self.CACHE = data
+			data = json.load(f)
+			self.CACHE.update(data)
 			return data
 
 	def get_setting_by_name(self, name: str) -> object:

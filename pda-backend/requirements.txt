@@ -10,6 +10,7 @@ pytest-cov
 pytest-mock
 pytest-func-cov
 pytest-asyncio
+pytest-dotenv
 apscheduler
 kink
 geopy
@@ -21,4 +22,6 @@ icalendar
 tmdbv3api
 JustWatch
 python-dotenv
+googlemaps
 pillow
+cachetools
