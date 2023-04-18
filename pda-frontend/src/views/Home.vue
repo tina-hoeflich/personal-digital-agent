@@ -8,7 +8,7 @@
     />
     <v-img v-else contain src="@/assets/frame_0.png" max-height="400px" />
   </div>
-  <h1>{{ jarvisText }}</h1>
+  <h1 v-html="jarvisText"></h1>
   <v-row align="center" justify="center">
     <v-col cols="11">
       <v-textarea
@@ -108,6 +108,11 @@ export default {
 			var imageUrl = text.image
 			var linkUrl = text.link
       this.jarvisText = text.text
+
+      if (linkUrl) {
+        this.jarvisText += ` <a href="${linkUrl}" target="_blank">${linkUrl}</a>`;
+      }
+
 			this.speaking = true
 			this.speakString(text.text, () => {
 				console.log("Finished speaking");

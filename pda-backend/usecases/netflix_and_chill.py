@@ -92,10 +92,10 @@ class NetflixAndChillUseCase(UseCase):
         movie_title, movie_link = random.choice(list(movies_on_netflix.items()))
         poster_link = tmdb.get_movie_poster(movies_on_netflix[movie_title][1])
 
-        text_possibilities = [f"Great! {movie_title} is available on Netflix! Watch it here: {movie_link[0]}",
-                                    f"Awesome news! {movie_title} is now streaming on Netflix. Catch it here: {movie_link[0]}",
-                                    f"Exciting update! {movie_title} is now accessible on Netflix. Don't miss it! Watch it here: {movie_link[0]}",
-                                    f"Good news! {movie_title} is now playing on Netflix. Don't wait, click here to watch it: {movie_link[0]}"]
+        text_possibilities = [f"Great! {movie_title} is available on Netflix! Watch it here: ",
+                                    f"Awesome news! {movie_title} is now streaming on Netflix. Catch it here: ",
+                                    f"Exciting update! {movie_title} is now accessible on Netflix. Don't miss it! Watch it here: ",
+                                    f"Good news! {movie_title} is now playing on Netflix. Don't wait, click here to watch it: "]
         text = random.choice(text_possibilities)
 
         return text, poster_link, movie_link[0]
