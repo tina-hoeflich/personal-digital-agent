@@ -12,7 +12,7 @@
 			:src="imageUrl"
 		></v-img>
 	</v-row>
-  <h1>{{ jarvisText }}</h1>
+  <h1 style="white-space: pre;">{{ jarvisText }}</h1>
   <v-btn
     v-if="linkUrl"
     :href="linkUrl"

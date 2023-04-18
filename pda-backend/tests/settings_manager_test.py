@@ -7,6 +7,7 @@ SETTINGS_JSON = '{"example": {"name": "test"} }'
 @patch("builtins.open", new_callable=mock_open, read_data=SETTINGS_JSON)
 def test_readsettings(mock_file):
 	settings_manager = SettingsManager("settings.json")
+	settings_manager.CACHE = {}
 	settings = settings_manager.get_all_settings()
 	assert settings["example"]["name"] == "test"
 	named_settings = settings_manager.get_setting_by_name("example")
@@ -22,4 +23,4 @@ def test_writesettings(mock_file):
 	settings = settings_manager.get_setting_by_name("example")
 	assert settings["name"] == "test2"
 
-	assert mock_file.call_count == 2
+	assert mock_file.call_count == 1
