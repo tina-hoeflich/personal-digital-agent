@@ -29,6 +29,6 @@ def get_last_event() -> tuple[str, str, str]:
     if last_event_end_time is not None:
         last_event_end_time = last_event_end_time.time()
         new_time = (datetime.combine(date_today, last_event_end_time) + timedelta(hours=1, minutes=30)).time()
-        return last_event_name, last_event_end_time, new_time
+        return last_event_name, str(last_event_end_time), str(new_time)
     else:
         return None, None, None
