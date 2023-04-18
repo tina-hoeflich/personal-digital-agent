@@ -162,11 +162,11 @@
 			> Add Stock
 			</v-btn>
 			<v-divider></v-divider>
-      <v-btn 
-        type="submit" 
-        size="large" 
-        color="success" 
-        class="mt-2" 
+      <v-btn
+        type="submit"
+        size="large"
+        color="success"
+        class="mt-2"
         @click="submit"
       >
       Submit settings</v-btn>
@@ -283,7 +283,7 @@ export default {
   },
   methods: {
     async submit () {
-      if(this.valid) {
+      if(this.valid || this.valid == undefined) {
         console.log("sumbitting settings...", JSON.stringify(this.settingsJSON))
         axios.post("http://127.0.0.1:8000/settings", this.settingsJSON)
         .then((response) => {
