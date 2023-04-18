@@ -9,6 +9,11 @@
     <v-img v-else contain src="@/assets/frame_0.png" max-height="400px" />
   </div>
   <h1>{{ jarvisText }}</h1>
+	<v-btn v-if="linkUrl"
+		:href="linkUrl"
+		target="_blank"
+    color="primary"
+    size="x-large">Open Link</v-btn>
   <v-row align="center" justify="center">
     <v-col cols="11">
       <v-textarea
@@ -64,6 +69,8 @@ export default {
       userText: "",
       speaking: false,
       listening: false,
+			linkUrl: "",
+			imageUrl: ""
     };
   },
   mixins: [tts, stt],
@@ -97,6 +104,7 @@ export default {
               response.data
           );
 					this.setJarvisText(response.data)
+					this.userText = ""
         })
 				.catch((error) => {
 					console.log(error)
@@ -105,8 +113,8 @@ export default {
     },
 
 		setJarvisText(text) {
-			var imageUrl = text.image
-			var linkUrl = text.link
+			this.imageUrl = text.image
+			this.linkUrl = text.link
       this.jarvisText = text.text
 			this.speaking = true
 			this.speakString(text.text, () => {
