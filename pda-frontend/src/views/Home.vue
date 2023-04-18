@@ -1,27 +1,15 @@
 <template>
-	<v-row style="height: 400px">
-			<v-img
-				v-if="speaking || listening"
-				contain
-				src="@/assets/circles_spinning.gif"
-				max-height="400px"
-			/>
-			<v-img v-else contain src="@/assets/frame_0.png" max-height="400px" />
-		<v-img
-			v-if="imageUrl"
-			:src="imageUrl"
-		></v-img>
-	</v-row>
-  <h1 style="white-space: pre;">{{ jarvisText }}</h1>
-  <v-btn
-    v-if="linkUrl"
-    :href="linkUrl"
-    target="_blank"
-    color="primary"
-    prepend-icon="mdi-link-variant"
-    size="x-large"
-    >Open Link</v-btn
-  >
+  <div @click="animate()" style="height: 400px">
+    <v-img
+      v-if="speaking || listening"
+      contain
+      src="@/assets/circles_spinning.gif"
+      max-height="400px"
+    />
+    <v-img v-else-if="imageUrl" contain :src="imageUrl" max-height="400px" />
+    <v-img v-else contain src="@/assets/frame_0.png" max-height="400px" />
+  </div>
+  <h1 style="white-space: pre;" v-html="jarvisText"></h1>
   <v-row align="center" justify="center">
     <v-col cols="11">
       <v-textarea
@@ -32,7 +20,7 @@
         rows="2"
         v-model="userText"
         :readonly="listening"
-        @keydown.enter.prevent="send2Jarvis"
+				@keydown.enter.prevent="send2Jarvis"
       ></v-textarea>
     </v-col>
     <v-col cols="1">
@@ -48,12 +36,8 @@
   <v-btn size="large" color="success" @click="send2Jarvis">Senden</v-btn>
 
   <v-theme-provider theme="dark">
-    <v-container
-      fluid
-      class="d-flex flex-lg-row flex-column justify-center"
-      style="max-width: 50%"
-    >
-      <v-expansion-panels>
+    <v-container fluid class="d-flex flex-lg-row flex-column justify-center" style="max-width: 50%;">
+			<v-expansion-panels>
         <v-expansion-panel class="bg-black">
           <v-expansion-panel-title class="bg-black">
             <h3 class="ma-2 font-italic" style="flex: 1">Developer Triggers</h3>
@@ -64,7 +48,7 @@
             <v-btn class="ma-2" @click="triggerNetflix">Netflix & Chill</v-btn>
           </v-expansion-panel-text>
         </v-expansion-panel>
-      </v-expansion-panels>
+			</v-expansion-panels>
     </v-container>
   </v-theme-provider>
 </template>
@@ -81,7 +65,6 @@ export default {
       userText: "",
       speaking: false,
       listening: false,
-      linkUrl: "",
       imageUrl: "",
     };
   },
@@ -94,15 +77,15 @@ export default {
     };
   },
 
-  sockets: {
-    connect() {
-      console.log("socket connected");
-    },
-    proaktiv(data) {
-      console.log("Proaktiv data received", data.text);
-      this.setJarvisText(data);
-    },
-  },
+	sockets: {
+		connect() {
+			console.log('socket connected')
+		},
+		proaktiv(data) {
+			console.log('Proaktiv data received', data.text)
+			this.setJarvisText(data)
+		}
+	},
 
   methods: {
     send2Jarvis(event) {
@@ -115,25 +98,31 @@ export default {
               "; Jarvis response: " +
               response.data
           );
-          this.setJarvisText(response.data);
-          this.userText = "";
+					this.setJarvisText(response.data)
         })
-        .catch((error) => {
-          console.log(error);
-          alert(error);
-        });
+				.catch((error) => {
+					console.log(error)
+					alert(error)
+				})
     },
 
-    setJarvisText(text) {
-      this.imageUrl = text.image;
-      this.linkUrl = text.link;
-      this.jarvisText = text.text;
-      this.speaking = true;
-      this.speakString(text.text, () => {
-        console.log("Finished speaking");
-        this.speaking = false;
-      });
-    },
+		setJarvisText(text) {
+			var imageUrl = text.image
+			var linkUrl = text.link
+      this.jarvisText = text.text
+
+      if (linkUrl) {
+        this.jarvisText += ` <a href="${linkUrl}" target="_blank">${linkUrl}</a>`;
+      }
+
+      this.imageUrl = imageUrl;
+
+			this.speaking = true
+			this.speakString(text.text, () => {
+				console.log("Finished speaking");
+				this.speaking = false;
+			});
+		},
 
     startStopListening() {
       this.listening = !this.listening;
@@ -168,20 +157,21 @@ export default {
     },
 
     triggerGuMo() {
-      console.log("calling good morning usecase procativ");
-      axios.get("http://127.0.0.1:8000/trigger/guten_morgen");
-    },
+			console.log("calling good morning usecase procativ")
+			axios.get("http://127.0.0.1:8000/trigger/guten_morgen")
+		},
 
-    triggerSpSu() {
-      console.log("calling savings support usecase procativ");
-      let data = axios.get("http://127.0.0.1:8000/trigger/sparsupport");
-      console.log(data);
-    },
+		triggerSpSu() {
+			console.log("calling savings support usecase procativ")
+			let data = axios.get("http://127.0.0.1:8000/trigger/sparsupport")
+      console.log(data)
 
-    triggerNetflix() {
-      console.log("calling netflix and chill usecase procativ");
-      axios.get("http://127.0.0.1:8000/trigger/netflix");
-    },
+		},
+
+		triggerNetflix() {
+			console.log("calling netflix and chill usecase procativ")
+			axios.get("http://127.0.0.1:8000/trigger/netflix")
+		},
   },
 };
 </script>
