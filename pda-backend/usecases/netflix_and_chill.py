@@ -28,6 +28,8 @@ class NetflixAndChillUseCase(UseCase):
         return TRIGGERS
     
     def trigger(self):
+        """This method is called when the trigger word is detected. It schedules the next trigger and sends a message to the user.
+        """
         self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(minutes=10))
 
         last_event_name, last_event_end_time, new_time = calender.get_last_event()
@@ -49,11 +51,27 @@ class NetflixAndChillUseCase(UseCase):
 
         self.conv_man.set_net_method(self.conversation)
     
-    async def asked(self, input: str) -> tuple[str, Callable]:
+    async def asked(self, input: str) -> tuple[str, Callable, str, str]:
+        """entry function for netflix and chill usecase
+
+        Args:
+            input (str): input from user
+
+        Returns:
+            tuple[str, Callable, str, str]: frontend text, backend function, frontend image, frontend link
+        """
         text, poster_link, movie_link = self.get_movie_recommendation()
         return text, None, poster_link, movie_link
     
-    def conversation(self, input: str) -> tuple[str, Callable or None]:
+    def conversation(self, input: str) -> tuple[str, Callable or None, str or None, str or None]:
+        """This method is called when the user responds to the message sent by the trigger method.
+
+        Args:
+            input (str): input from user
+
+        Returns:
+            tuple[str, Callable or None, str or None, str or None]: frontend text, backend function, frontend image, frontend link
+        """
         if " no " in " " + input.lower() + " ":
             text_possibilities = ["Okay, maybe next time.",
                                     "That's okay. Want anything else.",
@@ -63,7 +81,12 @@ class NetflixAndChillUseCase(UseCase):
         text, poster_link, movie_link = self.get_movie_recommendation()
         return text, None, poster_link, movie_link
     
-    def get_movie_recommendation(self) -> str:
+    def get_movie_recommendation(self) -> tuple[str, str, str]:
+        """This method is called when the user responds yes to the message sent by the trigger method or if a trigger word is detected. It returns a movie recommendation on netflix.
+
+        Returns:
+            tuple[str, str, str]: frontend text, frontend image, frontend link
+        """        
         popular_movies = tmdb.get_popular_movies()
         movies_on_netflix, movies_not_on_netflix = justwatch.find_on_netflix(popular_movies)
         movie_title, movie_link = random.choice(list(movies_on_netflix.items()))

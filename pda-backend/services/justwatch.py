@@ -1,6 +1,14 @@
 from justwatch import JustWatch
 
-def find_on_netflix(popular_movies):
+def find_on_netflix(popular_movies: list) -> tuple[dict, list]:
+    """This method finds the movies from the popular list which are on netflix.
+
+    Args:
+        popular_movies (list): list of 20 popular movies
+
+    Returns:
+        tuple[dict, list]: dictionary of movies on netflix with lniks and poster links and list of movies not on netflix
+    """    
     just_watch = JustWatch(country='DE')
     movies_on_netflix = {}
     movies_not_on_netflix = []
