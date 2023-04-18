@@ -6,6 +6,7 @@ import services.maps as maps
 import services.geolocation as geolocation
 from settings_manager import SettingsManager
 from proaktiv_sender import ProaktivSender
+from conversation_manager import ConversationManager
 from typing import Callable
 from datetime import datetime, timedelta
 import random
@@ -24,10 +25,11 @@ CANCEL_TRIGGERS = ["no", "nothing", "bye", "stop", "usecase", "never"]
 @inject
 class GutenMorgenUseCase(UseCase):
 	alternate_travel_mode = None
-	def __init__(self, scheduler: Scheduler, settings: SettingsManager, proaktive: ProaktivSender):
+	def __init__(self, scheduler: Scheduler, settings: SettingsManager, proaktive: ProaktivSender, conv_man: ConversationManager):
 		self.scheduler = scheduler
 		self.settings = settings
 		self.proaktive = proaktive
+		self.conv_man = conv_man
 
 		cached_travel_time = self.get_cached_travel_time()
 		time_to_get_ready = 30
@@ -44,6 +46,7 @@ class GutenMorgenUseCase(UseCase):
 		time_to_get_ready = 30
 		text = self.alarm()
 		self.proaktive.send_text(text)
+		self.conv_man.set_net_method(self.conversation)
 
 		self.scheduler.schedule_job(self.trigger, self.get_work_time() + timedelta(days=1) - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
 	
@@ -60,7 +63,7 @@ class GutenMorgenUseCase(UseCase):
 		cached_travel_time = self.get_travel_time(mode)
 		work_time = self.get_work_time()
 		leave_time = work_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=5)
-		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to work at {work_time.strftime('%H:%M')} on time by {mode}!"
+		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to work at {work_time.strftime('%H:%M')} on time by {mode}! {self.repeat_question()}"
 		return text
 	
 	def get_work_time(self) -> datetime:
@@ -152,7 +155,7 @@ class GutenMorgenUseCase(UseCase):
 	
 	def repeat_question(self) -> str:
 		"""
-		repeat_question returns a repeat questino prompt
+		repeat_question returns a repeat question prompt
 
 		Returns:
 			str: repeat question prompt

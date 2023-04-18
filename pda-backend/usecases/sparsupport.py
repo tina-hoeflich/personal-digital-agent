@@ -17,6 +17,9 @@ GENERAL_TRIGGERS = ["save", "money", "cheap", "cheaply"]
 FUEL_TRIGGERS = ["fuel", "gas", "car", "fuel", "petrol", "diesel", "e5", "e10"]
 STOCK_TRIGGERS = ["stock", "share", "shares", "stock", "stocks", "stockmarket", "stockmarket"]
 
+CANCEL_TRIGGERS = ["no", "nothing", "bye", "stop", "usecase", "never"]
+AFFIRM_TRIGGERS = ["yes", "sure", "okay", "ok", "fine", "gladly"]
+
 stockprice_cache = TTLCache(maxsize=10, ttl=120)
 
 
@@ -52,6 +55,13 @@ class SparenUseCase(UseCase):
 			self.conv_man.set_net_method(self.conversation)
 
 	async def asked(self, input: str) -> tuple[str, Callable or None]:
+		input = input.split(" ")
+		if any(trigger in input for trigger in FUEL_TRIGGERS):
+			return self.get_fuelprice_text(True), None
+		if any(trigger in input for trigger in STOCK_TRIGGERS):
+			return self.get_stockprice_text(True), None
+
+		# converstaion only if no specific trigger was mentioned
 		text, talk_fuelprice, talk_stockprice = self.get_general_text()
 		self.talk_stockprice = talk_stockprice
 		self.talk_fuelprice = talk_fuelprice
@@ -60,17 +70,18 @@ class SparenUseCase(UseCase):
 		return text, None
 
 	def conversation(self, input: str) -> tuple[str, Callable or None]:
-		if " no " in " " + input.lower() + " ":
+		input = input.split(" ")
+		if any(trigger in input for trigger in CANCEL_TRIGGERS):
 			text_possibilities = ["Can I do something else for you?",
 								  "That's okay. Want anything else.",
-								  "No problem. I'm here if you need me"]
+								  "No problem. I'm here if you need me."]
 			return random.choice(text_possibilities), None
 
 		text = ""
-		if self.talk_fuelprice or any(word in input for word in FUEL_TRIGGERS):
-			text += self.get_fuelprice_text(False)
-		if self.talk_stockprice or any(word in input for word in STOCK_TRIGGERS):
-			text += self.get_stockprice_text(False)
+		if self.talk_fuelprice:
+			text += self.get_fuelprice_text(any(trigger in input for trigger in FUEL_TRIGGERS)) + " "
+		if self.talk_stockprice:
+			text += self.get_stockprice_text(any(trigger in input for trigger in STOCK_TRIGGERS))
 		return text, None
 
 	def get_settings(self) -> object:
@@ -85,8 +96,8 @@ class SparenUseCase(UseCase):
 		if fuel_good:
 			text_possible = ["Good news! I've got some money-saving tips for the gas station that you might want to hear about. Would you like me to share them with you? \n",
 							 "I have news for saving money at the gas station. Do you want to hear it? \n",
-							 "Sure. There are news about the fule prices"]
-			text += random.choice(text_possible)
+							 "Sure. There are news about the fule prices. Do you want to hear them?"]
+			text += random.choice(text_possible) + "\n"
 		if stock_good:
 			text_possible = ["I have news for gaining some fast money at the stock market. Do you want to hear it?",
 							 "I have information about your favorite stocks. Do you have some time for them?",
@@ -109,22 +120,22 @@ class SparenUseCase(UseCase):
 		text = ""
 		if always or price < settings["preisschwelle"]:
 			text_possible = ["The currently lowest {} fuel price is {:.3f}€ at {}.".format(settings["typ"], price, location),
-							 f"The cheapest {settings['typ']} gas station is at {location} with a price of {price:.3f}€"]
+							 f"The cheapest {settings['typ']} gas station is at {location} with a price of {price:.3f}€."]
 			text = random.choice(text_possible)
 
 			if price < settings["preisschwelle"]:
-				text_possible = [f"This is below your set limit of {settings['preisschwelle']:.3f}€",
-								 f"Your limit is {settings['preisschwelle']:.3f}€"]
+				text_possible = [f"This is below your set limit of {settings['preisschwelle']:.3f}€.",
+								 f"Your limit is {settings['preisschwelle']:.3f}€."]
 				text += " " + random.choice(text_possible)
 				text_possible = ["You should go there and fill up!",
 								 "Go there and bring a canister with you!"]
 				text += " " + random.choice(text_possible)
 			else:
-				text_possible = [f"This is above your set limit of {settings['preisschwelle']:.3f}€",
-								 f"Your limit is {settings['preisschwelle']:.3f}€"]
+				text_possible = [f"This is above your set limit of {settings['preisschwelle']:.3f}€.",
+								 f"Your limit is {settings['preisschwelle']:.3f}€."]
 				text += " " + random.choice(text_possible)
 				text_possible = ["Maybe you should wait fueling your car until it is cheaper!",
-								 "Use public transport until fuel is cheaper again"]
+								 "Use public transport until fuel is cheaper again."]
 				text += " " + random.choice(text_possible)
 
 		return text
@@ -171,7 +182,7 @@ class SparenUseCase(UseCase):
 		price = self.get_stock_price(stock)
 		text_possible = [f"The stock price of {stock} is {price:.2f}€.",
 						 f"The stock '{stock}' is currently trading for a price of {price:.2f}€",
-						 f"You can buy or sell '{stock}' for about {price:.2f}€ right now"]
+						 f"You can buy or sell '{stock}' for about {price:.2f}€ right now."]
 		text = random.choice(text_possible)
 		if price > top_limit:
 			text_possible = [f"Your limit is {top_limit:.2f}€",
@@ -189,9 +200,9 @@ class SparenUseCase(UseCase):
 							 "Maybe this stock is the next Wirecard stock?"]
 			text = text + " " + random.choice(text_possible)
 			return True, text
-		text_possible = ["This is not above or below your limits",
-						 "Nothing really interesting"]
-		return False, text + random.choice(text_possible)
+		text_possible = ["This is not above or below your limits.",
+						 "Nothing really interesting."]
+		return False, text + " " + random.choice(text_possible)
 
 	@cached(stockprice_cache)
 	def get_stock_price(self, stock: str) -> float:

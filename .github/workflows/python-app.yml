@@ -41,13 +41,13 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        set -o pipefail # set failing tests to fail the action as well
-        coverage run -m pytest --junitxml=pytest.xml
+        coverage run --source=. -m pytest --junitxml=pytest.xml
         coverage xml
     - name: Pytest coverage comment
       uses: MishaKav/pytest-coverage-comment@main
       with:
         pytest-xml-coverage-path: ./pda-backend/coverage.xml
         junitxml-path: ./pda-backend/pytest.xml
+        coverage-path-prefix: pda-backend/
       if: github.event_name == 'pull_request'
 

@@ -9,7 +9,7 @@
     <v-img v-else-if="imageUrl" contain :src="imageUrl" max-height="400px" />
     <v-img v-else contain src="@/assets/frame_0.png" max-height="400px" />
   </div>
-  <h1 v-html="jarvisText"></h1>
+  <h1 style="white-space: pre;" v-html="jarvisText"></h1>
   <v-row align="center" justify="center">
     <v-col cols="11">
       <v-textarea

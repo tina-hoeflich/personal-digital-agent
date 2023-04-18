@@ -24,8 +24,8 @@ export default {
         (voice) => voice.voiceURI == "Nathan (erweitert)"
       )[0];
       var firstDefaultVoice = voices.filter(
-        (voice) => voice.lang == "en-US" && voice.default
-      )[0];
+        (voice) => voice.lang == "en-US"
+      ).sort(voice => voice.default)[0];
       this.voice = nathan ?? firstDefaultVoice;
       console.log("Using voice:", this.voice);
     },

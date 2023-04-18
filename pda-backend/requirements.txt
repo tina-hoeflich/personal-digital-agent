@@ -10,6 +10,7 @@ pytest-cov
 pytest-mock
 pytest-func-cov
 pytest-asyncio
+pytest-dotenv
 apscheduler
 kink
 geopy
