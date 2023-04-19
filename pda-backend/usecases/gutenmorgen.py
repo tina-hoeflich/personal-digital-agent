@@ -1,5 +1,6 @@
 from usecases.usecase import UseCase
 from scheduler import Scheduler
+import services.calender as calender
 import services.weather as weather
 import services.news as news
 import services.maps as maps
@@ -33,7 +34,8 @@ class GutenMorgenUseCase(UseCase):
 
 		cached_travel_time = self.get_cached_travel_time()
 		time_to_get_ready = 30
-		self.scheduler.schedule_job(self.trigger, self.get_work_time() - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
+		_, class_time = self.get_next_class()
+		self.scheduler.schedule_job(self.trigger,  class_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
 
 	def get_triggerwords(self) -> list[str]:
 		return GENERAL_TRIGGERS
@@ -44,11 +46,13 @@ class GutenMorgenUseCase(UseCase):
 		"""
 		cached_travel_time = self.get_cached_travel_time()
 		time_to_get_ready = 30
+		_, class_time = self.get_next_class()
 		text = self.alarm()
 		self.proaktive.send_text(text)
 		self.conv_man.set_net_method(self.conversation)
+		
 
-		self.scheduler.schedule_job(self.trigger, self.get_work_time() + timedelta(days=1) - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
+		self.scheduler.schedule_job(self.trigger, class_time + timedelta(days=1) - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
 	
 	def alarm(self) -> str:
 		"""
@@ -61,26 +65,22 @@ class GutenMorgenUseCase(UseCase):
 		settings = self.get_settings()
 		mode = settings["modeOfTransportation"]
 		cached_travel_time = self.get_travel_time(mode)
-		work_time = self.get_work_time()
-		leave_time = work_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=5)
-		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to work at {work_time.strftime('%H:%M')} on time by {mode}! {self.repeat_question()}"
+		class_name, class_time = self.get_next_class()
+		leave_time = class_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=5)
+		text = f"{self.greeting()} You should leave at {leave_time.strftime('%H:%M')} to get to {class_name} at {class_time.strftime('%H:%M')} on time by {mode}! {self.repeat_question()}"
 		return text
 	
-	def get_work_time(self) -> datetime:
+	def get_next_class(self) -> tuple[str, datetime.time]:
 		"""
-		get_work_time returns the time when the user has work. Currently mock function always returns 9:00 the next day. Should integrate with rapla service
+		get_next_class returns the name and time of the next university class. Uses calender service
+
 
 		Returns:
-			datetime: Time when work starts
+			tuple[str, datetime.time]: class name, start time
 		"""
-		now = datetime.now()
-		work_time = now
-		hour = now.hour
-		if hour < 9:
-			work_time = now.replace(hour=9, minute=0, second=0, microsecond=0)
-		else:
-			work_time = now.replace(day=now.day+1, hour=9, minute=0, second=0, microsecond=0)
-		return work_time
+		class_name, class_time = calender.get_first_event_start_time()
+
+		return class_name, class_time
 
 	async def asked(self, input: str) -> tuple[str, Callable]:
 		"""
@@ -283,7 +283,7 @@ class GutenMorgenUseCase(UseCase):
 			"At the moment, you will need",
 			"Right now, you'll need"
 		]
-		return f"{random.choice(intros)} {time} minutes to get to work by {mode}."
+		return f"{random.choice(intros)} {time} minutes to get to university by {mode}."
 
 	def get_cached_travel_time(self) -> int:
 		"""

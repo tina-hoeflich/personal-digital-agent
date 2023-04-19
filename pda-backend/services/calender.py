@@ -37,7 +37,7 @@ def get_last_event() -> tuple[str, datetime.time, datetime.time]:
 from datetime import date, datetime, timedelta
 import icalendar
 
-def get_first_event_start_time() -> tuple[str, datetime.time]:
+def get_first_event_start_time() -> tuple[str, datetime]:
     """This method gets the start time of the first event of the day from the student calendar.
 
     Returns:
@@ -64,6 +64,6 @@ def get_first_event_start_time() -> tuple[str, datetime.time]:
                     first_event_name = event["summary"]
 
     if first_event_start_time is not None:
-        return first_event_name, first_event_start_time.time()
+        return first_event_name, first_event_start_time
     else:
         return None, None
