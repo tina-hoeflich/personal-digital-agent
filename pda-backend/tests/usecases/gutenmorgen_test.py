@@ -15,21 +15,21 @@ SETTINGS = {"goodMorning":{
             }}
 
 @patch.object(GutenMorgenUseCase, "get_cached_travel_time", return_value=30)
-@patch.object(GutenMorgenUseCase, "get_work_time", return_value=datetime.now().replace(hour=9, minute=0, second=0, microsecond=0))
+@patch.object(GutenMorgenUseCase, "get_next_class", return_value=('CLASS_NAME', datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) ))
 @patch.object(Scheduler, "schedule_job", return_value=MagicMock())
-def test_init(mock_scheduler, mock_work_time, mock_travel_time):
+def test_init(mock_scheduler, mock_get_class, mock_travel_time):
     usecase = GutenMorgenUseCase(Scheduler(), MagicMock(), MagicMock())
-    mock_work_time.assert_called_once()
+    mock_get_class.assert_called_once()
     mock_travel_time.assert_called_once()
     schedule_time = datetime.now().replace(hour=8, minute=0, second=0, microsecond=0)
     assert schedule_time == mock_scheduler.call_args.args[1]
 
 @patch.object(GutenMorgenUseCase, "alarm", return_value="WAKE UP")
 @patch.object(GutenMorgenUseCase, "get_cached_travel_time", return_value=30)
-@patch.object(GutenMorgenUseCase, "get_work_time", return_value=datetime.now().replace(hour=9, minute=0, second=0, microsecond=0))
+@patch.object(GutenMorgenUseCase, "get_next_class", return_value=('CLASS_NAME', datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) ))
 @patch.object(Scheduler, "schedule_job", return_value=MagicMock())
 @patch.object(ProaktivSender, "send_text")
-def test_trigger(mock_proaktiv, mock_scheduler, mock_work_time, mock_travel_time, mock_alarm):
+def test_trigger(mock_proaktiv, mock_scheduler, mock_get_class, mock_travel_time, mock_alarm):
     usecase = GutenMorgenUseCase(Scheduler(), MagicMock(), ProaktivSender(MagicMock))
     usecase.trigger()
     mock_alarm.assert_called_once()
@@ -38,13 +38,14 @@ def test_trigger(mock_proaktiv, mock_scheduler, mock_work_time, mock_travel_time
     assert schedule_time == mock_scheduler.call_args.args[1]
 
 @patch.object(GutenMorgenUseCase, "get_travel_time", return_value=30)
-@patch.object(GutenMorgenUseCase, "get_work_time", return_value=datetime.now().replace(hour=9, minute=0, second=0, microsecond=0))
+@patch.object(GutenMorgenUseCase, "class_time", return_value='CLASS_TIME')
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
-def test_alarm(mock_settings, mock_work_time, mock_travel_time):
+def test_alarm(mock_settings, mock_get_class, mock_travel_time):
     usecase = GutenMorgenUseCase(MagicMock(), SettingsManager(""), MagicMock())
     text = usecase.alarm()
     mock_travel_time.assert_called_once()
-    assert "You should leave at 08:25 to get to work at 09:00 on time" in text
+    mock_get_class.assert_called_once()
+    assert type(text) == str
 
 @patch.object(GutenMorgenUseCase, "get_cached_travel_time", return_value=30)
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
@@ -106,8 +107,17 @@ def test_travel_format(mock_cached_travel_time, mock_current_travel_time):
     usecase = GutenMorgenUseCase(MagicMock(), MagicMock(), MagicMock())
     mode = usecase.get_settings()["modeOfTransportation"]
     text = usecase.travel_time_format(mode)
-    assert "30 minutes to get to work" in text
+    assert "30 minutes to get to university" in text
     mock_current_travel_time.assert_called_once()
+
+@patch.object(GutenMorgenUseCase, "get_next_class", return_value=('CLASS_NAME', datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) ))
+@patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
+def test_class_time(mock_settings, mock_get_class):
+    usecase = GutenMorgenUseCase(MagicMock(), SettingsManager(""), MagicMock())
+    mode = usecase.get_settings()["modeOfTransportation"]
+    travel_time = 30
+    text = usecase.class_time(travel_time, mode)
+    assert "you should leave at 08:25 to get to CLASS_NAME at 09:00 on time" in text
 
 @patch("services.maps.get_current_travel_time", return_value=30*60)
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
