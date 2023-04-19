@@ -18,7 +18,7 @@ GENERAL_TRIGGERS = ["morning", "day", "rise", "alarm"]
 HELP_TRIGGERS = ["help", "know", "how"]
 WEATHER_TRIGGERS = ["weather", "temperature", "warm", "cold", "rain", "rainy", "sunny", "sun", "cloud", "clouds", "cloudy"]
 NEWS_TRIGGERS = ["news", "update", "updates", "story", "stories", "message", "messages"]
-MAPS_TRIGGERS = ["directions", "car", "walk", "bike", "drive", "leave", "work"]
+MAPS_TRIGGERS = ["directions", "car", "walk", "bike", "drive", "leave", "work", "class"]
 
 AFFIRM_TRIGGERS = ["yes", "sure", "okay", "ok", "fine", "gladly"]
 CANCEL_TRIGGERS = ["no", "nothing", "bye", "stop", "usecase", "never"]
@@ -284,6 +284,12 @@ class GutenMorgenUseCase(UseCase):
 			"Right now, you'll need"
 		]
 		return f"{random.choice(intros)} {time} minutes to get to university by {mode}."
+	
+	def class_time(self, time: int, mode: str) -> str:
+		class_name, class_time = self.get_next_class()
+		leave_time = class_time - timedelta(minutes=time) - timedelta(minutes=5)
+		text = f"You should leave at {leave_time.strftime('%H:%M')} to get to {class_name} at {class_time.strftime('%H:%M')} on time by {mode}! {self.repeat_question()}"
+		return text
 
 	def get_cached_travel_time(self) -> int:
 		"""
