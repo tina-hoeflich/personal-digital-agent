@@ -44,7 +44,7 @@ def get_first_event_start_time() -> tuple[str, datetime]:
         tuple[str, str, datetime.time]: name of first event, start time of first event
     """
     date_today = date.today()
-    time_now = (datetime.now() + timedelta(hours=5)).time()
+    time_now = datetime.now().time()
 
     with open(os.path.join('resources', 'student_calender.ics'), 'rb') as f:
         calendar = icalendar.Calendar.from_ical(f.read())

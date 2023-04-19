@@ -38,13 +38,14 @@ def test_trigger(mock_proaktiv, mock_scheduler, mock_get_class, mock_travel_time
     assert schedule_time == mock_scheduler.call_args.args[1]
 
 @patch.object(GutenMorgenUseCase, "get_travel_time", return_value=30)
-@patch.object(GutenMorgenUseCase, "get_next_class", return_value=('CLASS_NAME', datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) ))
+@patch.object(GutenMorgenUseCase, "class_time", return_value='CLASS_TIME')
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
 def test_alarm(mock_settings, mock_get_class, mock_travel_time):
     usecase = GutenMorgenUseCase(MagicMock(), SettingsManager(""), MagicMock())
     text = usecase.alarm()
     mock_travel_time.assert_called_once()
-    assert "You should leave at 08:25 to get to CLASS_NAME at 09:00 on time" in text
+    mock_get_class.assert_called_once()
+    assert type(text) == str
 
 @patch.object(GutenMorgenUseCase, "get_cached_travel_time", return_value=30)
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
@@ -108,6 +109,15 @@ def test_travel_format(mock_cached_travel_time, mock_current_travel_time):
     text = usecase.travel_time_format(mode)
     assert "30 minutes to get to university" in text
     mock_current_travel_time.assert_called_once()
+
+@patch.object(GutenMorgenUseCase, "get_next_class", return_value=('CLASS_NAME', datetime.now().replace(hour=9, minute=0, second=0, microsecond=0) ))
+@patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
+def test_class_time(mock_settings, mock_get_class):
+    usecase = GutenMorgenUseCase(MagicMock(), SettingsManager(""), MagicMock())
+    mode = usecase.get_settings()["modeOfTransportation"]
+    travel_time = 30
+    text = usecase.class_time(travel_time, mode)
+    assert "you should leave at 08:25 to get to CLASS_NAME at 09:00 on time" in text
 
 @patch("services.maps.get_current_travel_time", return_value=30*60)
 @patch.object(SettingsManager, "get_all_settings", return_value=SETTINGS)
