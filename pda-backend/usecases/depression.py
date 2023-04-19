@@ -37,12 +37,12 @@ class DepressionUseCase(UseCase):
 		:return: the answer of the usecase
 	    """
 		if any(trigger in input for trigger in EMAIL_TRIGGER):
-			
+
 			return "Should I get someone to cheer you up?", self.emailConversation
 		elif any(trigger in input for trigger in JOKE_TRIGGERS):
 			return await services.jokes.get_joke(), None
 		elif any(trigger in input for trigger in MUSIC_TRIGGERS):
-			
+
 			return "Should I play some music, to brighten up your day", self.musicConversation
 
 	def emailConversation(self, input: str) -> tuple[str, Callable]:
@@ -51,7 +51,7 @@ class DepressionUseCase(UseCase):
 		:param input: the input of the user
 		"""
 		if "yes" in input:
-			email_service.send_email("jarvis@tinahoeflich.com",
+			email_service.send_email("jarvis@tinahoeflich.de",
 									 self.get_settings()["emergencyEmail"],
 									 "Jarvis asking for your support",
 									 "Hi there, \n \nyour friend may need someone to cheer him up :) \nCan you help me out with this? \n \nThanks, \n Jarvis")
@@ -67,7 +67,7 @@ class DepressionUseCase(UseCase):
 			return "Okay, music started ", self.musicConversation2
 		else:
 			return "Okay, Can I do anything else for you? ", None
-	
+
 	def musicConversation2(self, input: str) -> tuple[str, Callable]:
 		"""
 		param input: the input of the user
@@ -78,7 +78,7 @@ class DepressionUseCase(UseCase):
 			return "Music stopped ", None
 		else:
 			return "Okay, Can I do anything else for you? ", None
-		
+
 	def get_settings(self) -> object:
 		"""
 		Method that returns the settings of the usecase
