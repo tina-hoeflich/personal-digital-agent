@@ -44,8 +44,9 @@ def get_first_event_start_time() -> tuple[str, datetime.time]:
         tuple[str, str, datetime.time]: name of first event, start time of first event
     """
     date_today = date.today()
+    time_now = (datetime.now() + timedelta(hours=5)).time()
 
-    with open(r'resources\student_calender.ics', 'rb') as f:
+    with open(os.path.join('resources', 'student_calender.ics'), 'rb') as f:
         calendar = icalendar.Calendar.from_ical(f.read())
 
     first_event_start_time = None
@@ -57,7 +58,7 @@ def get_first_event_start_time() -> tuple[str, datetime.time]:
             event["start_time"] = component.get('dtstart').dt
             event["end_time"] = component.get('dtend').dt
 
-            if event["start_time"].date() == date_today:
+            if (time_now < event["start_time"].time() and event["start_time"].date() == date_today) or event["start_time"].date() == date_today + timedelta(days=1):
                 if first_event_start_time is None or event["start_time"].time() < first_event_start_time.time():
                     first_event_start_time = event["start_time"]
                     first_event_name = event["summary"]
