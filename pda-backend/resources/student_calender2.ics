@@ -1,0 +1,2326 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:PUBLISH
+X-CALSTART:20221004T071500Z
+X-CALEND:20230502T083000Z
+X-WR-RELCALID:{0000002E-5976-21CC-71D0-DDA009DBBF47}
+X-WR-CALNAME:florian.strehlke@freenet.de
+X-PRIMARY-CALENDAR:TRUE
+X-OWNER;CN=florian.strehlke@freenet.de:mailto:florian.strehlke@freenet.de
+X-MS-OLK-WKHRSTART;TZID="W. Europe Standard Time":080000
+X-MS-OLK-WKHREND;TZID="W. Europe Standard Time":170000
+X-MS-OLK-WKHRDAYS:MO,TU,WE,TH,FR
+BEGIN:VTIMEZONE
+TZID:W. Europe Standard Time
+BEGIN:STANDARD
+DTSTART:16011028T030000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010325T020000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ATTENDEE;CN=rrietz@lehre.dhbw-stuttgart.de;RSVP=TRUE:mailto:rrietz@lehre.dh
+	bw-stuttgart.de
+ATTENDEE;CN=pypruessner@gmail.com;RSVP=TRUE;PARTSTAT=ACCEPTED:mailto:pyprue
+	ssner@gmail.com
+ATTENDEE;CN=rafael.rietz@gmail.com;ROLE=OPT-PARTICIPANT;RSVP=TRUE;PARTSTAT=
+	ACCEPTED:mailto:rafael.rietz@gmail.com
+ATTENDEE;CN="Rietz, Rafael";ROLE=OPT-PARTICIPANT;RSVP=TRUE;PARTSTAT=ACCEPTE
+	D:mailto:rafael.rietz@hpe.com
+CLASS:PUBLIC
+CREATED:20221004T062726Z
+DESCRIPTION:Sehr geehrter Herr Rietz\,\n\n \n\ngerne würden wir mit Ihnen 
+	einen Kick-Off Termin veranstalten\, bei dem wir uns kennenlernen können 
+	und über die Studienarbeit der automatisierten Dartscheiben Erkennung spr
+	echen können. Falls Ihnen der Termin nicht passt\, gerne schieben.\n\n \n
+	\nMit freundlichen Grüßen\n\nFlorian\n\n________________________________
+	________________________________________________ \n\nMicrosoft Teams-Bespr
+	echung \n\nNehmen Sie auf dem Computer oder in der mobilen App teil \n\nHi
+	er klicken\, um an der Besprechung teilzunehmen <https://teams.microsoft.c
+	om/l/meetup-join/19%3ameeting_ZjhkODM3ODYtNDU3OS00ODIzLTk5MWItNWNiYWQ5ZTU3
+	MzEy%40thread.v2/0?context=%7b%22Tid%22%3a%22e932d96a-c5aa-4f37-a68f-37220
+	71530aa%22%2c%22Oid%22%3a%22e85e81e6-f482-4a8e-83f9-f0ef9a23888d%22%7d>  \
+	n\nBesprechungs-ID: 396 570 539 64 \nPasscode: Y3qKd8 \n\nTeams herunterla
+	den <https://www.microsoft.com/en-us/microsoft-teams/download-app>  | Im W
+	eb beitreten <https://www.microsoft.com/microsoft-teams/join-a-meeting> \n
+	\n <https://www.dhbw-stuttgart.de/fileadmin/dateien/IT_Service_Center/DHBW
+	-S-Teams.png> \n\nBaden-Wuerttemberg Cooperative State University Stuttgar
+	t \n\nWeitere Infos <https://aka.ms/JoinTeamsMeeting>  | Hilfe <https://ww
+	w.dhbw-stuttgart.de/service/its/support-lehrende/>  | Besprechungsoptionen
+	 <https://teams.microsoft.com/meetingOptions/?organizerId=e85e81e6-f482-4a
+	8e-83f9-f0ef9a23888d&tenantId=e932d96a-c5aa-4f37-a68f-3722071530aa&threadI
+	d=19_meeting_ZjhkODM3ODYtNDU3OS00ODIzLTk5MWItNWNiYWQ5ZTU3MzEy@thread.v2&me
+	ssageId=0&language=de-DE>  | Rechtliche Hinweise <https://www.dhbw-stuttga
+	rt.de/datenschutz/>  \n\n_________________________________________________
+	_______________________________ \n\n \n\n
+DTEND;TZID="W. Europe Standard Time":20221006T140000
+DTSTAMP:20221004T063524Z
+DTSTART;TZID="W. Europe Standard Time":20221006T130000
+LAST-MODIFIED:20221010T091135Z
+LOCATION:Microsoft Teams-Besprechung
+ORGANIZER;CN=florian.strehlke@freenet.de:mailto:florian.strehlke@freenet.de
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=de:Kick-Off-Studienarbeit
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E0080000000090F6A622CBD7D801000000000000000
+	0100000006EC8F3B6212C5C499FC02E5CD3C58873
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv=Co
+	ntent-Type content="text/html\; charset=iso-8859-1"><meta name=Generator c
+	ontent="Microsoft Word 15 (filtered medium)"><!--[if !mso]><style>v\\:* {b
+	ehavior:url(#default#VML)\;}\no\\:* {behavior:url(#default#VML)\;}\nw\\:* 
+	{behavior:url(#default#VML)\;}\n.shape {behavior:url(#default#VML)\;}\n</s
+	tyle><![endif]--><style><!--\n/* Font Definitions */\n@font-face\n	{font-f
+	amily:"Cambria Math"\;\n	panose-1:2 4 5 3 5 4 6 3 2 4\;}\n@font-face\n	{fo
+	nt-family:Calibri\;\n	panose-1:2 15 5 2 2 2 4 3 2 4\;}\n@font-face\n	{font
+	-family:"Segoe UI"\;\n	panose-1:2 11 5 2 4 2 4 2 2 3\;}\n@font-face\n	{fon
+	t-family:"Segoe UI Semibold"\;\n	panose-1:2 11 7 2 4 2 4 2 2 3\;}\n/* Styl
+	e Definitions */\np.MsoNormal\, li.MsoNormal\, div.MsoNormal\n	{margin:0cm
+	\;\n	font-size:11.0pt\;\n	font-family:"Calibri"\,sans-serif\;\n	mso-fareas
+	t-language:EN-US\;}\na:link\, span.MsoHyperlink\n	{mso-style-priority:99\;
+	\n	color:#0563C1\;\n	text-decoration:underline\;}\nspan.E-MailFormatvorlag
+	e17\n	{mso-style-type:personal-compose\;\n	font-family:"Calibri"\,sans-ser
+	if\;\n	color:windowtext\;}\n.MsoChpDefault\n	{mso-style-type:export-only\;
+	\n	font-family:"Calibri"\,sans-serif\;\n	mso-fareast-language:EN-US\;}\n@p
+	age WordSection1\n	{size:612.0pt 792.0pt\;\n	margin:72.0pt 72.0pt 72.0pt 7
+	2.0pt\;}\ndiv.WordSection1\n	{page:WordSection1\;}\n--></style><!--[if gte
+	 mso 9]><xml>\n<o:shapedefaults v:ext="edit" spidmax="1026" />\n</xml><![e
+	ndif]--><!--[if gte mso 9]><xml>\n<o:shapelayout v:ext="edit">\n<o:idmap v
+	:ext="edit" data="1" />\n</o:shapelayout></xml><![endif]--></head><body la
+	ng=DE link="#0563C1" vlink="#954F72" style='word-wrap:break-word'><div cla
+	ss=WordSection1><p class=MsoNormal>Sehr geehrter Herr Rietz\,<o:p></o:p></
+	p><p class=MsoNormal><o:p>&nbsp\;</o:p></p><p class=MsoNormal>gerne würde
+	n wir mit Ihnen einen Kick-Off Termin veranstalten\, bei dem wir uns kenne
+	nlernen können und über die Studienarbeit der automatisierten Dartscheib
+	en Erkennung sprechen können. Falls Ihnen der Termin nicht passt\, gerne 
+	schieben.<o:p></o:p></p><p class=MsoNormal><o:p>&nbsp\;</o:p></p><p class=
+	MsoNormal>Mit freundlichen Grüßen<o:p></o:p></p><p class=MsoNormal>Flori
+	an<o:p></o:p></p><div><p class=MsoNormal><span style='color:#5F5F5F'>_____
+	__________________________________________________________________________
+	_</span> <o:p></o:p></p></div><div><div style='margin-top:18.0pt\;margin-b
+	ottom:15.0pt'><p class=MsoNormal><span style='font-size:18.0pt\;font-famil
+	y:"Segoe UI"\,sans-serif\;color:#252424'>Microsoft Teams-Besprechung</span
+	><span style='font-family:"Segoe UI"\,sans-serif\;color:#252424'> <o:p></o
+	:p></span></p></div><div style='margin-bottom:15.0pt'><div><p class=MsoNor
+	mal><b><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;
+	color:#252424'>Nehmen Sie auf dem Computer oder in der mobilen App teil</s
+	pan></b><b><span style='font-family:"Segoe UI"\,sans-serif\;color:#252424'
+	> <o:p></o:p></span></b></p></div><p class=MsoNormal><span style='font-fam
+	ily:"Segoe UI"\,sans-serif\;color:#252424'><a href="https://teams.microsof
+	t.com/l/meetup-join/19%3ameeting_ZjhkODM3ODYtNDU3OS00ODIzLTk5MWItNWNiYWQ5Z
+	TU3MzEy%40thread.v2/0?context=%7b%22Tid%22%3a%22e932d96a-c5aa-4f37-a68f-37
+	22071530aa%22%2c%22Oid%22%3a%22e85e81e6-f482-4a8e-83f9-f0ef9a23888d%22%7d"
+	 target="_blank"><span style='font-size:10.5pt\;font-family:"Segoe UI Semi
+	bold"\,sans-serif\;color:#6264A7'>Hier klicken\, um an der Besprechung tei
+	lzunehmen</span></a> <o:p></o:p></span></p></div><div style='margin-top:15
+	.0pt\;margin-bottom:15.0pt'><div style='margin-bottom:3.0pt'><p class=MsoN
+	ormal><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;c
+	olor:#252424'>Besprechungs-ID: </span><span style='font-size:12.0pt\;font-
+	family:"Segoe UI"\,sans-serif\;color:#252424'>396 570 539 64</span><span s
+	tyle='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#252424'
+	> </span><span style='font-family:"Segoe UI"\,sans-serif\;color:#252424'><
+	br></span><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-seri
+	f\;color:#252424'>Passcode: </span><span style='font-size:12.0pt\;font-fam
+	ily:"Segoe UI"\,sans-serif\;color:#252424'>Y3qKd8 </span><span style='font
+	-family:"Segoe UI"\,sans-serif\;color:#252424'><o:p></o:p></span></p><div>
+	<p class=MsoNormal><span style='font-size:10.5pt\;font-family:"Segoe UI"\,
+	sans-serif\;color:#252424'><a href="https://www.microsoft.com/en-us/micros
+	oft-teams/download-app" target="_blank"><span style='color:#6264A7'>Teams 
+	herunterladen</span></a> | <a href="https://www.microsoft.com/microsoft-te
+	ams/join-a-meeting" target="_blank"><span style='color:#6264A7'>Im Web bei
+	treten</span></a><o:p></o:p></span></p></div></div></div><div style='margi
+	n-bottom:3.0pt'><div><p class=MsoNormal><span style='font-size:10.5pt\;fon
+	t-family:"Segoe UI"\,sans-serif\;color:#252424'><img border=0 width=200 he
+	ight=99 style='width:2.0833in\;height:1.0312in' id="_x0000_i1025" src="htt
+	ps://www.dhbw-stuttgart.de/fileadmin/dateien/IT_Service_Center/DHBW-S-Team
+	s.png"></span><span style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-
+	serif\;color:#252424'><o:p></o:p></span></p></div><p class=MsoNormal><span
+	 style='font-size:10.5pt\;font-family:"Segoe UI"\,sans-serif\;color:#25242
+	4'>Baden-Wuerttemberg Cooperative State University Stuttgart <o:p></o:p></
+	span></p></div><div style='margin-top:15.0pt\;margin-bottom:18.0pt'><p cla
+	ss=MsoNormal><span style='font-family:"Segoe UI"\,sans-serif\;color:#25242
+	4'><a href="https://aka.ms/JoinTeamsMeeting" target="_blank"><span style='
+	font-size:10.5pt\;color:#6264A7'>Weitere Infos</span></a> | <a href="https
+	://www.dhbw-stuttgart.de/service/its/support-lehrende/" target="_blank"><s
+	pan style='font-size:10.5pt\;color:#6264A7'>Hilfe</span></a> | <a href="ht
+	tps://teams.microsoft.com/meetingOptions/?organizerId=e85e81e6-f482-4a8e-8
+	3f9-f0ef9a23888d&amp\;tenantId=e932d96a-c5aa-4f37-a68f-3722071530aa&amp\;t
+	hreadId=19_meeting_ZjhkODM3ODYtNDU3OS00ODIzLTk5MWItNWNiYWQ5ZTU3MzEy@thread
+	.v2&amp\;messageId=0&amp\;language=de-DE" target="_blank"><span style='fon
+	t-size:10.5pt\;color:#6264A7'>Besprechungsoptionen</span></a> | <a href="h
+	ttps://www.dhbw-stuttgart.de/datenschutz/" target="_blank"><span style='fo
+	nt-size:10.5pt\;color:#6264A7'>Rechtliche Hinweise</span></a> <o:p></o:p><
+	/span></p></div></div><div><p class=MsoNormal><span style='color:#5F5F5F'>
+	__________________________________________________________________________
+	______</span> <o:p></o:p></p></div><p class=MsoNormal><o:p>&nbsp\;</o:p></
+	p></div></body></html>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-APPTSEQTIME:20221004T063524Z
+X-MS-OLK-AUTOFILLLOCATION:FALSE
+X-MS-OLK-CONFTYPE:0
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20221011T112723Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221005T160000
+DTSTAMP:20221006T115354Z
+DTSTART;TZID="W. Europe Standard Time":20221005T133000
+LAST-MODIFIED:20221011T112723Z
+LOCATION:STG-TINF20ITA
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-ff0d65fb-bd10-4481-8b53-3733fc787f11
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20221011T112723Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221004T171500
+DTSTAMP:20221011T110638Z
+DTSTART;TZID="W. Europe Standard Time":20221004T140000
+LAST-MODIFIED:20221011T112723Z
+LOCATION:STG-TINF20ITA
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-4c8200eb-5edd-40d8-ad13-b03fc8a5b5e1
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20221011T112723Z
+DESCRIPTION:Hentze\, Andreas
+DTEND;TZID="W. Europe Standard Time":20221004T123000
+DTSTAMP:20221011T110638Z
+DTSTART;TZID="W. Europe Standard Time":20221004T091500
+LAST-MODIFIED:20221011T112723Z
+LOCATION:STG-TINF20ITA
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sicherheitstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-a89c3c6d-ad3a-4e41-9393-0b426ce4f899
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20221011T112723Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221007T124500
+DTSTAMP:20221006T115355Z
+DTSTART;TZID="W. Europe Standard Time":20221007T101500
+LAST-MODIFIED:20221011T112723Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-f9c2ace7-28fe-4213-a6be-0c4d1286fd9a
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20221011T112723Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221006T123000
+DTSTAMP:20221006T115354Z
+DTSTART;TZID="W. Europe Standard Time":20221006T100000
+LAST-MODIFIED:20221011T112723Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-11c07ff7-8fe2-429c-8625-a20df442a943
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+ATTENDEE;CN="Naegelkraemer, Jan, Dr.-Ing. (EE)";RSVP=TRUE:mailto:jan.naegel
+	kraemer@porsche.de
+ATTENDEE;CN=florian.strehlke@freenet.de;RSVP=TRUE:mailto:florian.strehlke@f
+	reenet.de
+ATTENDEE;CN="Strehlke, Florian (MMA3_ITA20)";RSVP=TRUE:mailto:florian.streh
+	lke@porsche.de
+ATTENDEE;CN="Kessler, Johannes (MMA3_MECHA20)";RSVP=TRUE:mailto:johannes.ke
+	ssler@porsche.de
+CLASS:PUBLIC
+CREATED:20230221T125412Z
+DESCRIPTION:Hallo Florian\, hallo Johannes\,\n\n \n\nJan und ich möchten e
+	uch gerne zu einem Austausch bezüglich eurer Übernahme treffen.\n\nWir w
+	ollen mit euch über eure Wünsche und die Möglichkeiten bei EE sprechen.
+	\n\n \n\nViele Grüße Damian \n\n \n\n@Florian: Bitte ggf. an Johannes Pr
+	ivatadresse weiterleiten\n\n\nDr. Ing. h.c. F.  Porsche Aktiengesellschaft
+	\nSitz der Gesellschaft: Stuttgart\nRegistergericht: Amtsgericht Stuttgart
+	 HRB-Nr. 730623\nVorsitzender des Aufsichtsrats: Dr. Wolfgang Porsche\nVor
+	stand: Oliver Blume\, Vorsitzender\nLutz Meschke\, stellvertretender Vorsi
+	tzender\nBarbara Frenkel\, Andreas Haffner\, Detlev von Platen\, Albrecht 
+	Reimold\, Michael Steiner\n\nInformationen zum Umgang mit Ihren Daten find
+	en Sie in unseren Datenschutzhinweisen <https://www.porsche.com/germany/po
+	rscheag-privacy/> .\n\nDie vorgenannten Angaben werden jeder E-Mail automa
+	tisch hinzugefügt. Dies ist kein Anerkenntnis\,\ndass es sich beim Inhalt
+	 dieser E-Mail um eine rechtsverbindliche Erklärung der Porsche AG handel
+	t.\nErklärungen\, die die Porsche AG verpflichten\, bedürfen jeweils der
+	 Unterschrift durch zwei zeichnungs-\nberechtigte Personen der AG.\n\n\n__
+	__________________________________________________________________________
+	____ \n\nMicrosoft Teams-Besprechung \n\nNehmen Sie auf dem Computer\, in 
+	der mobilen App oder im Raumgerät teil \n\nHier klicken\, um an der Bespr
+	echung teilzunehmen <https://teams.microsoft.com/l/meetup-join/19%3ameetin
+	g_NTRjN2E1ZTctN2FmNy00ZDIzLTg3MmQtM2E1YjI0YTZmZDdh%40thread.v2/0?context=%
+	7b%22Tid%22%3a%2256564e0f-83d3-4b52-92e8-a6bb9ea36564%22%2c%22Oid%22%3a%22
+	69d5bd59-7e81-45ca-b1a3-488612f325eb%22%7d>  \n\nBesprechungs-ID: 373 690 
+	041 997 \nPasscode: hkbMb7 \n\nTeams herunterladen <https://www.microsoft.
+	com/en-us/microsoft-teams/download-app>  | Im Web beitreten <https://www.m
+	icrosoft.com/microsoft-teams/join-a-meeting> \n\nMit einem Videokonferenzg
+	erät teilnehmen \n\n5555 oder teams@vc.porsche.de <mailto:teams@vc.porsch
+	e.de>  \n\nVideokonferenz-ID: 121 438 257 1 \n\nAlternative VTC-Anweisunge
+	n <https://edge01-pag.vc.porsche.de/teams/?conf=1214382571&ivr=teams&d=vc.
+	porsche.de&ip=13.95.114.191&test=testcall&w>  \n\nOder rufen Sie an (nur A
+	udio) \n\n+49 69 667781663\,\,861580040# <tel:+4969667781663\,\,861580040#
+	>    Germany\, Frankfurt am Main \n\nTelefonkonferenz-ID: 861 580 040# \n\
+	nLokale Nummer suchen <https://dialin.teams.microsoft.com/98c63ea5-e8f7-41
+	41-9209-486de1088cd9?id=861580040>  | PIN zurücksetzen <https://dialin.te
+	ams.microsoft.com/usp/pstnconferencing>  \n\n <https://cdn.ui.porsche.com/
+	porsche-design-system/marque/porsche-marque-trademark.medium.min.aa801f420
+	28b1c385a5e26ae115da598@2x.png> \n\nWeitere Infos <https://aka.ms/JoinTeam
+	sMeeting>  | Besprechungsoptionen <https://teams.microsoft.com/meetingOpti
+	ons/?organizerId=69d5bd59-7e81-45ca-b1a3-488612f325eb&tenantId=56564e0f-83
+	d3-4b52-92e8-a6bb9ea36564&threadId=19_meeting_NTRjN2E1ZTctN2FmNy00ZDIzLTg3
+	MmQtM2E1YjI0YTZmZDdh@thread.v2&messageId=0&language=de-DE>  \n\n__________
+	______________________________________________________________________ \n\
+	n \n\n
+DTEND;TZID="W. Europe Standard Time":20230302T130000
+DTSTAMP:20230302T085431Z
+DTSTART;TZID="W. Europe Standard Time":20230302T113000
+LAST-MODIFIED:20230306T081008Z
+LOCATION:In Weissach vor Ort altes Casino und Teamslink
+ORGANIZER;CN="Haida, Damian (EES3)":mailto:damian.haida@porsche.de
+PRIORITY:5
+SEQUENCE:1
+SUMMARY;LANGUAGE=de:Austausch zur Übernahme\, Kennenlernen und Möglichkei
+	ten bei EE (mit gemeinsamen Mittagessen)
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000B01A1604CD45D901000000000000000
+	010000000A9EB6FCAAE05D5449059DC0FF0B34CE3
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40">\n<head>\n\n<meta name="G
+	enerator" content="Microsoft Word 15 (filtered medium)">\n<!--[if !mso]><s
+	tyle>v\\:* {behavior:url(#default#VML)\;}\no\\:* {behavior:url(#default#VM
+	L)\;}\nw\\:* {behavior:url(#default#VML)\;}\n.shape {behavior:url(#default
+	#VML)\;}\n</style><![endif]--><style><!--\n/* Font Definitions */\n@font-f
+	ace\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5 3 5 4 6 3 2 4\;}\n@fo
+	nt-face\n	{font-family:Calibri\;\n	panose-1:2 15 5 2 2 2 4 3 2 4\;}\n@font
+	-face\n	{font-family:"Segoe UI"\;\n	panose-1:2 11 5 2 4 2 4 2 2 3\;}\n@fon
+	t-face\n	{font-family:"Segoe UI Semibold"\;\n	panose-1:2 11 7 2 4 2 4 2 2 
+	3\;}\n/* Style Definitions */\np.MsoNormal\, li.MsoNormal\, div.MsoNormal\
+	n	{margin:0cm\;\n	font-size:11.0pt\;\n	font-family:"Calibri"\,sans-serif\;
+	\n	mso-fareast-language:EN-US\;}\na:link\, span.MsoHyperlink\n	{mso-style-
+	priority:99\;\n	color:#0563C1\;\n	text-decoration:underline\;}\n.MsoChpDef
+	ault\n	{mso-style-type:export-only\;\n	font-size:10.0pt\;}\n@page WordSect
+	ion1\n	{size:612.0pt 792.0pt\;\n	margin:72.0pt 72.0pt 72.0pt 72.0pt\;}\ndi
+	v.WordSection1\n	{page:WordSection1\;}\n--></style><!--[if gte mso 9]><xml
+	>\n<o:shapedefaults v:ext="edit" spidmax="1026" />\n</xml><![endif]--><!--
+	[if gte mso 9]><xml>\n<o:shapelayout v:ext="edit">\n<o:idmap v:ext="edit" 
+	data="1" />\n</o:shapelayout></xml><![endif]-->\n</head>\n<body lang="DE" 
+	link="#0563C1" vlink="#954F72" style="word-wrap:break-word">\n<div class="
+	WordSection1">\n<p class="MsoNormal"><span style="font-size:12.0pt\;font-f
+	amily:&quot\;Arial&quot\;\,sans-serif">Hallo Florian\, hallo Johannes\,<o:
+	p></o:p></span></p>\n<p class="MsoNormal"><span style="font-size:12.0pt\;f
+	ont-family:&quot\;Arial&quot\;\,sans-serif"><o:p>&nbsp\;</o:p></span></p>\
+	n<p class="MsoNormal"><span style="font-size:12.0pt\;font-family:&quot\;Ar
+	ial&quot\;\,sans-serif">Jan und ich möchten euch gerne zu einem Austausch
+	 bezüglich eurer Übernahme treffen.<o:p></o:p></span></p>\n<p class="Mso
+	Normal"><span style="font-size:12.0pt\;font-family:&quot\;Arial&quot\;\,sa
+	ns-serif">Wir wollen mit euch über eure Wünsche und die Möglichkeiten b
+	ei EE sprechen.<o:p></o:p></span></p>\n<p class="MsoNormal"><span style="f
+	ont-size:12.0pt\;font-family:&quot\;Arial&quot\;\,sans-serif"><o:p>&nbsp\;
+	</o:p></span></p>\n<p class="MsoNormal"><span style="font-size:12.0pt\;fon
+	t-family:&quot\;Arial&quot\;\,sans-serif">Viele Grüße Damian\n<o:p></o:p
+	></span></p>\n<p class="MsoNormal"><span style="font-size:12.0pt\;font-fam
+	ily:&quot\;Arial&quot\;\,sans-serif"><o:p>&nbsp\;</o:p></span></p>\n<p cla
+	ss="MsoNormal"><span style="font-size:12.0pt\;font-family:&quot\;Arial&quo
+	t\;\,sans-serif">@Florian: Bitte ggf. an Johannes Privatadresse weiterleit
+	en<o:p></o:p></span></p>\n<div>\n<p class="MsoNormal"><span style="color:#
+	5F5F5F"><FONT face="MS Sans Serif" size="2">\n<P><BR>Dr. Ing. h.c. F.&nbsp
+	\; Porsche Aktiengesellschaft<BR>Sitz der Gesellschaft: Stuttgart<BR>Regis
+	tergericht: Amtsgericht Stuttgart HRB-Nr. 730623<BR>Vorsitzender des Aufsi
+	chtsrats: Dr. Wolfgang Porsche<BR>Vorstand: Oliver Blume\, Vorsitzender<BR
+	>Lutz Meschke\, stellvertretender Vorsitzender<BR>Barbara Frenkel\, Andrea
+	s Haffner\, Detlev von Platen\, Albrecht Reimold\, Michael Steiner</P><SPA
+	N lang="DE">\n<P align="left" dir="ltr">Informationen zum Umgang mit Ihren
+	 Daten finden Sie in unseren <FONT face="MS Sans Serif\,Microsoft Sans Ser
+	if" size="2" color="#0070c0"><FONT face="MS Sans Serif\,Microsoft Sans Ser
+	if" size="2" color="#0070c0"><FONT face="MS Sans Serif\,Microsoft Sans Ser
+	if" size="2" color="#0070c0"><A href="https://www.porsche.com/germany/pors
+	cheag-privacy/">Datenschutzhinweisen</A>.</FONT></FONT></FONT><FONT face="
+	MS Sans Serif\,Microsoft Sans Serif" size="2"><FONT face="MS Sans Serif\,M
+	icrosoft Sans Serif" size="2"></P></FONT></FONT>\n<P align="left" dir="ltr
+	"></P></SPAN></FONT>\n<P><FONT face="MS Sans Serif" size="2">Die vorgenann
+	ten Angaben werden jeder E-Mail automatisch hinzugefügt. Dies ist kein An
+	erkenntnis\,<BR>dass es sich beim Inhalt dieser E-Mail um eine rechtsverbi
+	ndliche Erklärung der Porsche AG handelt.<BR>Erklärungen\, die die Porsc
+	he AG verpflichten\, bedürfen jeweils der Unterschrift durch zwei zeichnu
+	ngs-<BR>berechtigte Personen der AG.<BR></FONT></P>\n<p></p>______________
+	__________________________________________________________________</span>\
+	n<o:p></o:p></p>\n</div>\n<div>\n<div style="margin-top:18.0pt\;margin-bot
+	tom:15.0pt">\n<p class="MsoNormal"><span style="font-size:18.0pt\;font-fam
+	ily:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">Microsoft Teams-Bes
+	prechung</span><span style="font-family:&quot\;Segoe UI&quot\;\,sans-serif
+	\;color:#252424">\n<o:p></o:p></span></p>\n</div>\n<div style="margin-bott
+	om:15.0pt">\n<div>\n<p class="MsoNormal"><b><span style="font-size:10.5pt\
+	;font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">Nehmen Sie
+	 auf dem Computer\, in der mobilen App oder im Raumgerät teil</span></b><
+	b><span style="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#2524
+	24">\n<o:p></o:p></span></b></p>\n</div>\n<p class="MsoNormal"><span style
+	="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424"><a href="
+	https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTRjN2E1ZTctN2FmNy0
+	0ZDIzLTg3MmQtM2E1YjI0YTZmZDdh%40thread.v2/0?context=%7b%22Tid%22%3a%225656
+	4e0f-83d3-4b52-92e8-a6bb9ea36564%22%2c%22Oid%22%3a%2269d5bd59-7e81-45ca-b1
+	a3-488612f325eb%22%7d" target="_blank"><span style="font-size:10.5pt\;font
+	-family:&quot\;Segoe UI Semibold&quot\;\,sans-serif\;color:#6264A7">Hier\n
+	 klicken\, um an der Besprechung teilzunehmen</span></a> <o:p></o:p></span
+	></p>\n</div>\n<div style="margin-top:15.0pt\;margin-bottom:15.0pt">\n<div
+	 style="margin-bottom:3.0pt">\n<p class="MsoNormal"><span style="font-size
+	:10.5pt\;font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">Be
+	sprechungs-ID:\n</span><span style="font-size:12.0pt\;font-family:&quot\;S
+	egoe UI&quot\;\,sans-serif\;color:#252424">373 690 041 997</span><span sty
+	le="font-size:10.5pt\;font-family:&quot\;Segoe UI&quot\;\,sans-serif\;colo
+	r:#252424">\n</span><span style="font-family:&quot\;Segoe UI&quot\;\,sans-
+	serif\;color:#252424"><br>\n</span><span style="font-size:10.5pt\;font-fam
+	ily:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">Passcode:\n</span><
+	span style="font-size:12.0pt\;font-family:&quot\;Segoe UI&quot\;\,sans-ser
+	if\;color:#252424">hkbMb7\n</span><span style="font-family:&quot\;Segoe UI
+	&quot\;\,sans-serif\;color:#252424"><o:p></o:p></span></p>\n<div>\n<p clas
+	s="MsoNormal"><span style="font-size:10.5pt\;font-family:&quot\;Segoe UI&q
+	uot\;\,sans-serif\;color:#252424"><a href="https://www.microsoft.com/en-us
+	/microsoft-teams/download-app" target="_blank"><span style="color:#6264A7"
+	>Teams herunterladen</span></a> |\n<a href="https://www.microsoft.com/micr
+	osoft-teams/join-a-meeting" target="_blank">\n<span style="color:#6264A7">
+	Im Web beitreten</span></a><o:p></o:p></span></p>\n</div>\n</div>\n</div>\
+	n<div style="margin-bottom:3.0pt">\n<p class="MsoNormal"><b><span style="f
+	ont-size:10.5pt\;font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#25
+	2424">Mit einem Videokonferenzgerät teilnehmen</span></b><span style="fon
+	t-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">\n<o:p></o:p><
+	/span></p>\n</div>\n<div>\n<p class="MsoNormal"><span style="font-size:10.
+	5pt\;font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">5555 o
+	der\n<a href="mailto:teams@vc.porsche.de">teams@vc.porsche.de</a> <o:p></o
+	:p></span></p>\n</div>\n<div>\n<p class="MsoNormal"><span style="font-size
+	:10.5pt\;font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">Vi
+	deokonferenz-ID:\n</span><span style="font-size:12.0pt\;font-family:&quot\
+	;Segoe UI&quot\;\,sans-serif\;color:#252424">121 438 257 1\n</span><span s
+	tyle="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424"><o:p>
+	</o:p></span></p>\n</div>\n<div style="margin-bottom:15.0pt">\n<p class="M
+	soNormal"><span style="font-size:10.5pt\;font-family:&quot\;Segoe UI&quot\
+	;\,sans-serif\;color:#252424"><a href="https://edge01-pag.vc.porsche.de/te
+	ams/?conf=1214382571&amp\;ivr=teams&amp\;d=vc.porsche.de&amp\;ip=13.95.114
+	.191&amp\;test=testcall&amp\;w"><span style="color:#6264A7">Alternative\n 
+	VTC-Anweisungen</span></a> <o:p></o:p></span></p>\n</div>\n<div style="mar
+	gin-bottom:3.0pt">\n<div style="margin-bottom:3.0pt">\n<p class="MsoNormal
+	"><b><span style="font-size:10.5pt\;font-family:&quot\;Segoe UI&quot\;\,sa
+	ns-serif\;color:#252424">Oder rufen Sie an (nur Audio)</span></b><span sty
+	le="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">\n<o:p>
+	</o:p></span></p>\n</div>\n<div style="margin-bottom:3.0pt">\n<p class="Ms
+	oNormal"><span style="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;colo
+	r:#252424"><a href="tel:+4969667781663\,\,861580040# "><span style="font-s
+	ize:10.5pt\;color:#6264A7">+49 69 667781663\,\,861580040#</span></a>\n</sp
+	an><span style="font-size:10.5pt\;font-family:&quot\;Segoe UI&quot\;\,sans
+	-serif\;color:#252424">&nbsp\; Germany\, Frankfurt am Main\n</span><span s
+	tyle="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424"><o:p>
+	</o:p></span></p>\n</div>\n</div>\n<p class="MsoNormal"><span style="font-
+	size:10.5pt\;font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424
+	">Telefonkonferenz-ID:\n</span><span style="font-size:12.0pt\;font-family:
+	&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">861 580 040#\n</span><s
+	pan style="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">
+	<o:p></o:p></span></p>\n<div style="margin-bottom:15.0pt">\n<p class="MsoN
+	ormal"><span style="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:
+	#252424"><a href="https://dialin.teams.microsoft.com/98c63ea5-e8f7-4141-92
+	09-486de1088cd9?id=861580040" target="_blank"><span style="font-size:10.5p
+	t\;color:#6264A7">Lokale Nummer suchen</span></a>\n | <a href="https://dia
+	lin.teams.microsoft.com/usp/pstnconferencing" target="_blank">\n<span styl
+	e="font-size:10.5pt\;color:#6264A7">PIN zurücksetzen</span></a> <o:p></o:
+	p></span></p>\n</div>\n<div style="margin-bottom:3.0pt">\n<div>\n<p class=
+	"MsoNormal"><span style="font-size:10.5pt\;font-family:&quot\;Segoe UI&quo
+	t\;\,sans-serif\;color:#252424"><img border="0" width="240" height="144" s
+	tyle="width:2.5in\;height:1.5in" id="_x0000_i1025" src="https://cdn.ui.por
+	sche.com/porsche-design-system/marque/porsche-marque-trademark.medium.min.
+	aa801f42028b1c385a5e26ae115da598@2x.png"></span><span style="font-size:10.
+	5pt\;font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424"><o:p><
+	/o:p></span></p>\n</div>\n</div>\n<div style="margin-top:15.0pt\;margin-bo
+	ttom:18.0pt">\n<p class="MsoNormal"><span style="font-family:&quot\;Segoe 
+	UI&quot\;\,sans-serif\;color:#252424"><a href="https://aka.ms/JoinTeamsMee
+	ting" target="_blank"><span style="font-size:10.5pt\;color:#6264A7">Weiter
+	e Infos</span></a> |\n<a href="https://teams.microsoft.com/meetingOptions/
+	?organizerId=69d5bd59-7e81-45ca-b1a3-488612f325eb&amp\;tenantId=56564e0f-8
+	3d3-4b52-92e8-a6bb9ea36564&amp\;threadId=19_meeting_NTRjN2E1ZTctN2FmNy00ZD
+	IzLTg3MmQtM2E1YjI0YTZmZDdh@thread.v2&amp\;messageId=0&amp\;language=de-DE"
+	 target="_blank">\n<span style="font-size:10.5pt\;color:#6264A7">Besprechu
+	ngsoptionen</span></a> <o:p>\n</o:p></span></p>\n</div>\n</div>\n<div>\n<p
+	 class="MsoNormal"><span style="color:#5F5F5F">___________________________
+	_____________________________________________________</span>\n<o:p></o:p><
+	/p>\n</div>\n<p class="MsoNormal"><span style="font-size:12.0pt\;font-fami
+	ly:&quot\;Arial&quot\;\,sans-serif"><o:p>&nbsp\;</o:p></span></p>\n</div>\
+	n</body>\n</html>\n
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-AUTOSTARTCHECK:FALSE
+X-MS-OLK-CONFTYPE:0
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Barho\, Markus
+DTEND;TZID="W. Europe Standard Time":20230302T174500
+DTSTAMP:20230220T100017Z
+DTSTART;TZID="W. Europe Standard Time":20230302T150000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Diagnose im Kraftfahrzeug
+TRANSP:OPAQUE
+UID:sabre-vobject-21351459-9254-40ab-9d15-931b676c8cac
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221025T171500
+DTSTAMP:20221011T115036Z
+DTSTART;TZID="W. Europe Standard Time":20221025T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-cb703633-29b3-40e2-b71f-87572bd79015
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221114T113000
+DTSTAMP:20221006T115402Z
+DTSTART;TZID="W. Europe Standard Time":20221114T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-1605c942-49b9-409d-8250-6772f5499796
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Hentze\, Andreas
+DTEND;TZID="W. Europe Standard Time":20221115T113000
+DTSTAMP:20221114T070016Z
+DTSTART;TZID="W. Europe Standard Time":20221115T103000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-0.11
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Klausur Sicherheitstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-fc03ced9-4b44-4cb3-82af-48808c7611b5
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230404T183000
+DTSTAMP:20230306T061922Z
+DTSTART;TZID="W. Europe Standard Time":20230404T150000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:???
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-1e13fecf-2e8b-45cb-9c8d-1d1c974446df
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Barho\, Markus
+DTEND;TZID="W. Europe Standard Time":20230316T174500
+DTSTAMP:20230303T163006Z
+DTSTART;TZID="W. Europe Standard Time":20230316T130000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Diagnose im Kraftfahrzeug
+TRANSP:OPAQUE
+UID:sabre-vobject-bc7fb9a8-8db9-4e5e-8070-2c3b1ea90e9f
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221014T124500
+DTSTAMP:20221012T090015Z
+DTSTART;TZID="W. Europe Standard Time":20221014T101500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:online
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-1e12c393-65d1-401e-b6e4-d367abb39c7a
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230328T164500
+DTSTAMP:20230117T165641Z
+DTSTART;TZID="W. Europe Standard Time":20230328T093000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-2a8b48c5-7209-4e82-a595-b304028c3c42
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zimmer\, Markus\, Dr. Ing
+DTEND;TZID="W. Europe Standard Time":20221019T123000
+DTSTAMP:20221011T115035Z
+DTSTART;TZID="W. Europe Standard Time":20221019T093000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sensoren und Aktoren im Kfz
+TRANSP:OPAQUE
+UID:sabre-vobject-ebb8ad7d-dca3-4a0b-a731-be285cc52aab
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230413T131500
+DTSTAMP:20230318T183342Z
+DTSTART;TZID="W. Europe Standard Time":20230413T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.10-PC-Raum\, LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit
+TRANSP:OPAQUE
+UID:sabre-vobject-74c41cd5-2534-4443-ae41-5673f0deb054
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zimmer\, Markus\, Dr. Ing
+DTEND;TZID="W. Europe Standard Time":20221221T093000
+DTSTAMP:20221109T140030Z
+DTSTART;TZID="W. Europe Standard Time":20221221T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-0.10
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Klausur Sensoren und Aktoren
+TRANSP:OPAQUE
+UID:sabre-vobject-9b6e05f7-ac32-4aca-9791-6d0d53b4e4a3
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230223T121500
+DTSTAMP:20230318T183340Z
+DTSTART;TZID="W. Europe Standard Time":20230223T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.10-PC-Raum\, LE1-A3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit
+TRANSP:OPAQUE
+UID:sabre-vobject-1b3106cf-0d42-4fcd-8636-7e42fd88e071
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221017T123000
+DTSTAMP:20221006T115356Z
+DTSTART;TZID="W. Europe Standard Time":20221017T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-9b7c85a8-9d0c-4185-a1f4-e075a807d4c6
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221026T160000
+DTSTAMP:20221011T115036Z
+DTSTART;TZID="W. Europe Standard Time":20221026T133000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-4c2580a4-0288-4749-9e28-5d94f15639f3
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230314T154500
+DTSTAMP:20230117T165638Z
+DTSTART;TZID="W. Europe Standard Time":20230314T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-c63e0455-ebc7-4a29-8e55-a976c590288f
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Barho\, Markus
+DTEND;TZID="W. Europe Standard Time":20230330T184500
+DTSTAMP:20230303T163008Z
+DTSTART;TZID="W. Europe Standard Time":20230330T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Diagnose im Kraftfahrzeug
+TRANSP:OPAQUE
+UID:sabre-vobject-7f17de64-f7de-4bad-bf00-ef6c66bf1114
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221012T160000
+DTSTAMP:20221012T090015Z
+DTSTART;TZID="W. Europe Standard Time":20221012T133000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:online
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-93aa9326-0547-41aa-8caa-9fd225c67dc7
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230301T173000
+DTSTAMP:20230216T080021Z
+DTSTART;TZID="W. Europe Standard Time":20230301T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-74fc2af4-ec70-4982-88d6-ad3194cb213e
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221219T100000
+DTSTAMP:20221109T140029Z
+DTSTART;TZID="W. Europe Standard Time":20221219T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-0.10
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Klausur Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-a58aa3eb-ce5b-44b8-8653-a70fb1b15700
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221102T150000
+DTSTAMP:20221011T115037Z
+DTSTART;TZID="W. Europe Standard Time":20221102T123000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-13b93a88-b6b0-4de9-993e-ac45ac23966f
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221117T113000
+DTSTAMP:20221006T115402Z
+DTSTART;TZID="W. Europe Standard Time":20221117T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-6eb83ca0-db41-4d59-8a41-bab50f743790
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221108T161500
+DTSTAMP:20221011T115037Z
+DTSTART;TZID="W. Europe Standard Time":20221108T130000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-94709484-b407-45ac-bbe3-6ecd484ba39b
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Barho\, Markus
+DTEND;TZID="W. Europe Standard Time":20230216T174500
+DTSTAMP:20230220T100017Z
+DTSTART;TZID="W. Europe Standard Time":20230216T150000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Diagnose im Kraftfahrzeug
+TRANSP:OPAQUE
+UID:sabre-vobject-6780d181-21ba-4708-9f7f-36c641152a8e
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221020T123000
+DTSTAMP:20221006T115357Z
+DTSTART;TZID="W. Europe Standard Time":20221020T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-06712d70-8734-4128-ac00-1c2e130a6561
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221011T171500
+DTSTAMP:20221011T115034Z
+DTSTART;TZID="W. Europe Standard Time":20221011T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-e0dc159d-7ac0-48b9-9277-d0b498bea6a7
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221005T160000
+DTSTAMP:20221011T115033Z
+DTSTART;TZID="W. Europe Standard Time":20221005T133000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-289c6bbe-90ce-4a95-a854-a3f311282674
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DTEND;TZID="W. Europe Standard Time":20230222T123000
+DTSTAMP:20230226T113819Z
+DTSTART;TZID="W. Europe Standard Time":20230222T121500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:online
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Info Abschlussfeier
+TRANSP:OPAQUE
+UID:sabre-vobject-59fe67c3-4bb3-42d0-97b6-175ca818b077
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221019T160000
+DTSTAMP:20221011T115036Z
+DTSTART;TZID="W. Europe Standard Time":20221019T133000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-be9304c6-43e1-4c73-a629-780ce460c301
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221109T113000
+DTSTAMP:20221103T172320Z
+DTSTART;TZID="W. Europe Standard Time":20221109T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-644a0bc2-deb3-4858-b54a-64a7bc29586e
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221027T163000
+DTSTAMP:20221017T130014Z
+DTSTART;TZID="W. Europe Standard Time":20221027T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-c328cc3c-07b3-4921-9cfc-e6dbb8d8bec6
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221110T113000
+DTSTAMP:20221006T115401Z
+DTSTART;TZID="W. Europe Standard Time":20221110T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-50ebc921-2b11-4ff6-9c84-5291a744577c
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230308T173000
+DTSTAMP:20230216T080021Z
+DTSTART;TZID="W. Europe Standard Time":20230308T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-989d177c-580e-4247-96a0-53bf2eadd703
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230404T133000
+DTSTAMP:20230222T090017Z
+DTSTART;TZID="W. Europe Standard Time":20230404T093000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-e137a499-644d-489c-991d-9a5cc57ccd5c
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20230313T113000
+DTSTAMP:20230126T164524Z
+DTSTART;TZID="W. Europe Standard Time":20230313T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Fahrerassistenz- und Sicherheitssysteme
+TRANSP:OPAQUE
+UID:sabre-vobject-f46b21cb-7c2b-477e-b689-a7625e519421
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221004T171500
+DTSTAMP:20221011T115033Z
+DTSTART;TZID="W. Europe Standard Time":20221004T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-70249a8a-ab8f-4afe-b1aa-77749dfe0368
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230426T183000
+DTSTAMP:20230216T080025Z
+DTSTART;TZID="W. Europe Standard Time":20230426T150000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-9a46388f-10f0-4144-8e19-5ab3806ac8bb
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230322T173000
+DTSTAMP:20230216T080022Z
+DTSTART;TZID="W. Europe Standard Time":20230322T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-531dc330-37db-4c4f-8a29-d6802e01ded8
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zimmer\, Markus\, Dr. Ing
+DTEND;TZID="W. Europe Standard Time":20221012T123000
+DTSTAMP:20221012T090014Z
+DTSTART;TZID="W. Europe Standard Time":20221012T093000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:online
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sensoren und Aktoren im Kfz
+TRANSP:OPAQUE
+UID:sabre-vobject-d66a3406-3e9e-47b4-af3e-8503c785009e
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221213T161500
+DTSTAMP:20221015T131703Z
+DTSTART;TZID="W. Europe Standard Time":20221213T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-1351d0dc-2647-4a45-804b-cf675021a978
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20230403T123000
+DTSTAMP:20230126T164525Z
+DTSTART;TZID="W. Europe Standard Time":20230403T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Fahrerassistenz- und Sicherheitssysteme
+TRANSP:OPAQUE
+UID:sabre-vobject-d9565475-8ffa-4a6f-8c1c-e4058a7be6fb
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zimmer\, Markus\, Dr. Ing
+DTEND;TZID="W. Europe Standard Time":20221214T113000
+DTSTAMP:20221011T115040Z
+DTSTART;TZID="W. Europe Standard Time":20221214T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sensoren und Aktoren im Kfz
+TRANSP:OPAQUE
+UID:sabre-vobject-a58bd91a-b729-4ba5-b340-102a07637227
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Hentze\, Andreas
+DTEND;TZID="W. Europe Standard Time":20221011T123000
+DTSTAMP:20221011T115034Z
+DTSTART;TZID="W. Europe Standard Time":20221011T091500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sicherheitstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-44eca3e9-a789-4445-bd47-47d6a294d2b2
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221111T114500
+DTSTAMP:20221006T115402Z
+DTSTART;TZID="W. Europe Standard Time":20221111T091500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-5b3791b4-ea0b-4fc5-bf4f-b4f54b0fc18e
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230412T183000
+DTSTAMP:20230216T080024Z
+DTSTART;TZID="W. Europe Standard Time":20230412T150000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-87a700b7-d448-4995-98cf-ed5d8d0206a1
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221212T113000
+DTSTAMP:20221006T115406Z
+DTSTART;TZID="W. Europe Standard Time":20221212T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-43cada06-e783-4a25-865b-131eb3ed2833
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221130T153000
+DTSTAMP:20221103T172321Z
+DTSTART;TZID="W. Europe Standard Time":20221130T130000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-6a50e58a-09f3-4bd7-89b5-0a1e8af215f5
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230330T131500
+DTSTAMP:20230329T120015Z
+DTSTART;TZID="W. Europe Standard Time":20230330T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:online
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit - ONLINE -
+TRANSP:OPAQUE
+UID:sabre-vobject-3f12ed29-e895-4205-9e62-25f4a6b1d36b
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221117T161500
+DTSTAMP:20221011T115038Z
+DTSTART;TZID="W. Europe Standard Time":20221117T130000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-285581f7-9432-4d4c-918b-ccb5ec16203c
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DTEND;TZID="W. Europe Standard Time":20230327T194500
+DTSTAMP:20230324T080015Z
+DTSTART;TZID="W. Europe Standard Time":20230327T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:online
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Wahl- und Zusatzfächer - ONLINE
+TRANSP:OPAQUE
+UID:sabre-vobject-787d8d5f-ce86-4ac5-8791-fd2c42139ac4
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221018T171500
+DTSTAMP:20221011T115035Z
+DTSTART;TZID="W. Europe Standard Time":20221018T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-94ed9c43-d781-40bc-aeeb-3c4bae84034f
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221109T150000
+DTSTAMP:20221011T115037Z
+DTSTART;TZID="W. Europe Standard Time":20221109T123000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-19a4d0a1-bf32-4f95-b58f-13298ab5c5a9
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20230227T113000
+DTSTAMP:20230127T090018Z
+DTSTART;TZID="W. Europe Standard Time":20230227T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Fahrerassistenz- und Sicherheitssysteme
+TRANSP:OPAQUE
+UID:sabre-vobject-121d30df-e84c-482c-8e49-b4736ed56de4
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230405T183000
+DTSTAMP:20230216T080024Z
+DTSTART;TZID="W. Europe Standard Time":20230405T150000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-6623f05f-533a-44ec-9aac-ecd4792dc4a8
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221124T113000
+DTSTAMP:20221006T115403Z
+DTSTART;TZID="W. Europe Standard Time":20221124T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-193ae649-39a8-4785-9f57-57ac20f7e719
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20230320T113000
+DTSTAMP:20230126T164525Z
+DTSTART;TZID="W. Europe Standard Time":20230320T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Fahrerassistenz- und Sicherheitssysteme
+TRANSP:OPAQUE
+UID:sabre-vobject-c9217f42-153e-4ce8-95ee-f35758a807af
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221107T113000
+DTSTAMP:20221006T115401Z
+DTSTART;TZID="W. Europe Standard Time":20221107T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-b0b99ff4-4c23-4818-9549-959cd06541d8
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230308T123000
+DTSTAMP:20230306T061920Z
+DTSTART;TZID="W. Europe Standard Time":20230308T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:???
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-ffe5a9f3-dd08-4842-9155-ad20aba15358
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230322T123000
+DTSTAMP:20230306T061921Z
+DTSTART;TZID="W. Europe Standard Time":20230322T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:???
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-f44f810d-cd72-41ec-bf51-a2e24db414f8
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230329T133000
+DTSTAMP:20230306T061921Z
+DTSTART;TZID="W. Europe Standard Time":20230329T093000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:???
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-894f1b7b-095f-44bd-b5ce-319f1aa41801
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221216T140000
+DTSTAMP:20221006T115407Z
+DTSTART;TZID="W. Europe Standard Time":20221216T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-U1.11-Elektronik-Labor
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Labor Systemnahe Programmierung
+TRANSP:OPAQUE
+UID:sabre-vobject-b29de0b5-e978-4400-a530-1de895d44da9
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230427T131500
+DTSTAMP:20230318T183342Z
+DTSTART;TZID="W. Europe Standard Time":20230427T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.10-PC-Raum\, LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit
+TRANSP:OPAQUE
+UID:sabre-vobject-13d9d54a-a752-40e5-87fb-0e01ecd6bf60
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221214T153000
+DTSTAMP:20221128T080013Z
+DTSTART;TZID="W. Europe Standard Time":20221214T130000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-89379854-cf73-4720-a7d7-6f634e241b19
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230215T180000
+DTSTAMP:20230209T090017Z
+DTSTART;TZID="W. Europe Standard Time":20230215T150000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-8a015c90-121e-439a-ac94-ed88773af5fe
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221128T100000
+DTSTAMP:20221103T172321Z
+DTSTART;TZID="W. Europe Standard Time":20221128T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-0.11
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechnerarchitekturen
+TRANSP:OPAQUE
+UID:sabre-vobject-03e493d4-14af-4cc1-8a26-04663e7c772a
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230406T131500
+DTSTAMP:20230318T183342Z
+DTSTART;TZID="W. Europe Standard Time":20230406T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.10-PC-Raum\, LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit
+TRANSP:OPAQUE
+UID:sabre-vobject-6afc8407-c8c6-4dbe-9f06-920d876518e1
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DTEND;TZID="W. Europe Standard Time":20230502T103000
+DTSTAMP:20230322T080020Z
+DTSTART;TZID="W. Europe Standard Time":20230502T093000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum\, LE1-C3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Klausur Diagnose im Kfz
+TRANSP:OPAQUE
+UID:sabre-vobject-007f4199-fb88-4210-9ed3-83c05e439834
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230315T173000
+DTSTAMP:20230216T080022Z
+DTSTART;TZID="W. Europe Standard Time":20230315T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-48d91942-46e3-4cdb-894a-4a7a0134c214
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230419T193000
+DTSTAMP:20230216T080024Z
+DTSTART;TZID="W. Europe Standard Time":20230419T150000
+LAST-MODIFIED:20230419T134857Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-ed5a135c-0e3d-4861-b6be-c668318d0d2a
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221024T123000
+DTSTAMP:20221006T115358Z
+DTSTART;TZID="W. Europe Standard Time":20221024T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-10468962-8e8d-4968-8143-1037e983126a
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221202T140000
+DTSTAMP:20221006T115405Z
+DTSTART;TZID="W. Europe Standard Time":20221202T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-U1.11-Elektronik-Labor
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Labor Systemnahe Programmierung
+TRANSP:OPAQUE
+UID:sabre-vobject-48d440d9-2317-444b-8d18-f873c340521a
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20230306T113000
+DTSTAMP:20230126T164524Z
+DTSTART;TZID="W. Europe Standard Time":20230306T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Fahrerassistenz- und Sicherheitssysteme
+TRANSP:OPAQUE
+UID:sabre-vobject-f1ed6ec6-e7fb-4149-8a8d-3c9b03dafeb5
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221010T123000
+DTSTAMP:20221006T115355Z
+DTSTART;TZID="W. Europe Standard Time":20221010T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-22b744d9-682a-4291-8e5c-816a43a05b8d
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221021T124500
+DTSTAMP:20221006T115358Z
+DTSTART;TZID="W. Europe Standard Time":20221021T101500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-27a6d217-1ca3-4ed0-a162-bd72b44b9dbc
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230329T183000
+DTSTAMP:20230216T080023Z
+DTSTART;TZID="W. Europe Standard Time":20230329T150000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-bc0b639e-c787-4922-a84d-39ab9670e8f7
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221121T113000
+DTSTAMP:20221006T115403Z
+DTSTART;TZID="W. Europe Standard Time":20221121T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-005e1d7c-319a-4db1-8868-5dbc4c4de8f8
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Hentze\, Andreas
+DTEND;TZID="W. Europe Standard Time":20221018T123000
+DTSTAMP:20221011T115035Z
+DTSTART;TZID="W. Europe Standard Time":20221018T091500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sicherheitstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-3c991b60-d32e-4e5c-945e-ad3b2d40c9bc
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221125T140000
+DTSTAMP:20221006T115404Z
+DTSTART;TZID="W. Europe Standard Time":20221125T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-U1.11-Elektronik-Labor
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Labor Systemnahe Programmierung
+TRANSP:OPAQUE
+UID:sabre-vobject-47776ba7-8275-405f-bcc4-dd78f2783a96
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230221T154500
+DTSTAMP:20230127T090017Z
+DTSTART;TZID="W. Europe Standard Time":20230221T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-6c0ab811-8bc8-4945-9a26-53cbb68ed4fd
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221123T153000
+DTSTAMP:20221103T172320Z
+DTSTART;TZID="W. Europe Standard Time":20221123T130000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-418a50ad-4624-4408-8795-ad4b884798a4
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221205T113000
+DTSTAMP:20221006T115405Z
+DTSTART;TZID="W. Europe Standard Time":20221205T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-194417e3-ade3-48b9-a947-5155392d1c07
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230216T121500
+DTSTAMP:20230318T183340Z
+DTSTART;TZID="W. Europe Standard Time":20230216T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.10-PC-Raum\, LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit
+TRANSP:OPAQUE
+UID:sabre-vobject-0a24dba6-1bd3-4319-9437-134695c4c820
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221209T140000
+DTSTAMP:20221006T115406Z
+DTSTART;TZID="W. Europe Standard Time":20221209T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-U1.11-Elektronik-Labor
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Labor Systemnahe Programmierung
+TRANSP:OPAQUE
+UID:sabre-vobject-6435b642-7d98-4402-af96-322cb643e6fe
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221104T114500
+DTSTAMP:20221006T115400Z
+DTSTART;TZID="W. Europe Standard Time":20221104T091500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-d93c428f-a25a-41d9-91c2-318d72398122
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Hentze\, Andreas
+DTEND;TZID="W. Europe Standard Time":20221004T123000
+DTSTAMP:20221011T115032Z
+DTSTART;TZID="W. Europe Standard Time":20221004T091500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sicherheitstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-d33f2a34-0a2f-47d4-9173-8e640c41ad9d
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zimmer\, Markus\, Dr. Ing
+DTEND;TZID="W. Europe Standard Time":20221207T113000
+DTSTAMP:20221011T115039Z
+DTSTART;TZID="W. Europe Standard Time":20221207T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sensoren und Aktoren im Kfz
+TRANSP:OPAQUE
+UID:sabre-vobject-75922032-6ed8-49a6-a09f-d2f0085b3fdf
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230228T154500
+DTSTAMP:20230127T090018Z
+DTSTART;TZID="W. Europe Standard Time":20230228T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-e09dd95b-4b68-490e-ba22-e1225229566c
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Hentze\, Andreas
+DTEND;TZID="W. Europe Standard Time":20221102T113000
+DTSTAMP:20221011T115037Z
+DTSTART;TZID="W. Europe Standard Time":20221102T081500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sicherheitstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-2eb337e9-3f5e-4fd4-b0b4-061c5430c8c7
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221206T161500
+DTSTAMP:20221011T115039Z
+DTSTART;TZID="W. Europe Standard Time":20221206T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-9470472b-ac96-4794-8769-567ee5818971
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221007T124500
+DTSTAMP:20221006T115355Z
+DTSTART;TZID="W. Europe Standard Time":20221007T101500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-f9c2ace7-28fe-4213-a6be-0c4d1286fd9a
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230321T154500
+DTSTAMP:20230117T165640Z
+DTSTART;TZID="W. Europe Standard Time":20230321T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-4cd62d5a-1d38-45db-96c1-683a6553646a
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221031T113000
+DTSTAMP:20221006T115359Z
+DTSTART;TZID="W. Europe Standard Time":20221031T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-a91c7aca-3ed5-4f8a-b54c-cda519016b32
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Barho\, Markus
+DTEND;TZID="W. Europe Standard Time":20230413T184500
+DTSTAMP:20230303T163009Z
+DTSTART;TZID="W. Europe Standard Time":20230413T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Diagnose im Kraftfahrzeug
+TRANSP:OPAQUE
+UID:sabre-vobject-854a5a62-ab4e-41d5-baac-7ab2948f312d
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221028T124500
+DTSTAMP:20221006T115359Z
+DTSTART;TZID="W. Europe Standard Time":20221028T101500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Rechner-Architekturen 2
+TRANSP:OPAQUE
+UID:sabre-vobject-31459491-0c2e-4df6-b55b-260ef07f5911
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Strey\, Alfred\, Dr.-Ing
+DTEND;TZID="W. Europe Standard Time":20221118T140000
+DTSTAMP:20221006T115403Z
+DTSTART;TZID="W. Europe Standard Time":20221118T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-U1.11-Elektronik-Labor
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Labor Systemnahe Programmierung
+TRANSP:OPAQUE
+UID:sabre-vobject-d03e0321-96d6-40af-9abe-a9236f652381
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221006T123000
+DTSTAMP:20221006T115354Z
+DTSTART;TZID="W. Europe Standard Time":20221006T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-11c07ff7-8fe2-429c-8625-a20df442a943
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221021T160000
+DTSTAMP:20221006T115358Z
+DTSTART;TZID="W. Europe Standard Time":20221021T133000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-ea792767-5fbf-4e28-b231-c972a412f9bb
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230420T131500
+DTSTAMP:20230318T183342Z
+DTSTART;TZID="W. Europe Standard Time":20230420T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.10-PC-Raum\, LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit
+TRANSP:OPAQUE
+UID:sabre-vobject-e30837be-3318-45e2-a00b-20a4658efdfd
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230302T121500
+DTSTAMP:20230318T183340Z
+DTSTART;TZID="W. Europe Standard Time":20230302T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.10-PC-Raum\, LE1-A3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit
+TRANSP:OPAQUE
+UID:sabre-vobject-333b6919-0958-4308-9b7d-7ea94f093ea9
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230316T121500
+DTSTAMP:20230318T183341Z
+DTSTART;TZID="W. Europe Standard Time":20230316T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:online
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit - ONLINE -
+TRANSP:OPAQUE
+UID:sabre-vobject-d079b4be-7e3e-433b-ab18-5973f63f2cfc
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Hentze\, Andreas
+DTEND;TZID="W. Europe Standard Time":20221025T123000
+DTSTAMP:20221011T115036Z
+DTSTART;TZID="W. Europe Standard Time":20221025T091500
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sicherheitstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-c8e59398-bf87-4c62-b647-f359a5978705
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20230307T154500
+DTSTAMP:20230117T165637Z
+DTSTART;TZID="W. Europe Standard Time":20230307T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Graphische Programmierung und Simulation
+TRANSP:OPAQUE
+UID:sabre-vobject-449bcdac-476b-4578-98c3-7e9705171f4e
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Barho\, Markus
+DTEND;TZID="W. Europe Standard Time":20230427T184500
+DTSTAMP:20230303T163010Z
+DTSTART;TZID="W. Europe Standard Time":20230427T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Diagnose im Kraftfahrzeug
+TRANSP:OPAQUE
+UID:sabre-vobject-a5ec33cc-9ba1-496b-8e78-64fee2281768
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Bauer\, Felix
+DTEND;TZID="W. Europe Standard Time":20230309T121500
+DTSTAMP:20230318T183341Z
+DTSTART;TZID="W. Europe Standard Time":20230309T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.10-PC-Raum\, LE1-C3.03-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:IT-Sicherheit
+TRANSP:OPAQUE
+UID:sabre-vobject-4409dc51-6bf5-4348-bd9d-1b2537203b9e
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Pinnow\, Kai\, Dr. rer. nat
+DTEND;TZID="W. Europe Standard Time":20221129T161500
+DTSTAMP:20221011T115038Z
+DTSTART;TZID="W. Europe Standard Time":20221129T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Aufbau und Programmierung von Steuergeräten
+TRANSP:OPAQUE
+UID:sabre-vobject-150c46a9-c9aa-4c89-b3cf-a3b2055403c8
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20230327T123000
+DTSTAMP:20230324T080015Z
+DTSTART;TZID="W. Europe Standard Time":20230327T100000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:online
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Fahrerassistenz- und Sicherheitssysteme - ONLINE
+TRANSP:OPAQUE
+UID:sabre-vobject-4dc1c616-408a-4579-803d-4e64a2d94162
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zomotor\, Zoltán Ádam\, Prof. Dr
+DTEND;TZID="W. Europe Standard Time":20221103T113000
+DTSTAMP:20221006T115400Z
+DTSTART;TZID="W. Europe Standard Time":20221103T090000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Regelungstechnik
+TRANSP:OPAQUE
+UID:sabre-vobject-5e3e6e8d-41f3-4588-a979-1cd77ecbded4
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Rößler\, Horst
+DTEND;TZID="W. Europe Standard Time":20230222T173000
+DTSTAMP:20230216T080020Z
+DTSTART;TZID="W. Europe Standard Time":20230222T140000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:LE1-A3.02-Vorlesungsraum
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Advanced Software Engineering
+TRANSP:OPAQUE
+UID:sabre-vobject-b65bf2e9-ba27-45c8-a6ae-eb8d60b12dd4
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20230419T134517Z
+DESCRIPTION:Zimmer\, Markus\, Dr. Ing
+DTEND;TZID="W. Europe Standard Time":20221130T113000
+DTSTAMP:20221011T115039Z
+DTSTART;TZID="W. Europe Standard Time":20221130T083000
+LAST-MODIFIED:20230419T134517Z
+LOCATION:RB41-4.16
+PRIORITY:5
+SEQUENCE:0
+SUMMARY:Sensoren und Aktoren im Kfz
+TRANSP:OPAQUE
+UID:sabre-vobject-7b0c77a1-b044-432a-8627-32ed18884839
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+END:VEVENT
+END:VCALENDAR

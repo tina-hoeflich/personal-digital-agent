@@ -10,7 +10,7 @@ def get_last_event() -> tuple[str, datetime.time, datetime.time]:
     """    
     date_today = date.today()
 
-    with open(os.path.join('resources', 'student_calender.ics'), 'rb') as f:
+    with open(os.path.join('resources', 'student_calender2.ics'), 'rb') as f:
         calendar = icalendar.Calendar.from_ical(f.read())
 
     last_event_end_time = None
