@@ -6,6 +6,7 @@ from typing import Callable
 
 class Scheduler:
 	sched: BackgroundScheduler = None
+	DISABLED = True
 	def __init__(self):
 		"""Initialize the scheduler."""
 		print("Initializing scheduler...")
@@ -17,6 +18,9 @@ class Scheduler:
 
 	def schedule_job(self, function: Callable, run_datetime: datetime) -> Job:
 		"""Schedule a job to run on a background thread."""
+		if self.DISABLED:
+			print("DISABLED SCHEDULER!")
+			return None
 		print(f"Scheduling job '{function.__qualname__}' for execution at {str(run_datetime)}")
 
 		trigger = CronTrigger(day=run_datetime.day, month=run_datetime.month, year=run_datetime.year, hour=run_datetime.hour, minute=run_datetime.minute, second=run_datetime.second, timezone="Europe/Berlin")
