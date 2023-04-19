@@ -54,7 +54,7 @@ class DepressionUseCase(UseCase):
 			email_service.send_email("jarvis@tinahoeflich.de",
 									 self.get_settings()["emergencyEmail"],
 									 "Jarvis asking for your support",
-									 "Hi there, \n \nyour friend may need someone to cheer him up :) \nCan you help me out with this? \n \nThanks, \n Jarvis")
+									 "Hi there, \n \nyour friend Tina may need someone to cheer him up :) \nCan you help me out with this? \n \nThanks, \n Jarvis")
 			return "I am sorry to hear that. I will send an email to get someone to cheer you up.", None
 
 	def musicConversation(self, input: str) -> tuple[str, Callable]:
