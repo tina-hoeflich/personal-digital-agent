@@ -7,6 +7,8 @@ GOOGLE_MAPS_API_KEY=os.environ.get("GOOGLE_MAPS_API_KEY")
 
 gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
 
+maps_cache_file = os.path.join('resources', 'maps_cache.json')
+
 def get_and_refresh_cache(frm: str, to:str, mode:str) -> dict:
     """
     get_and_refresh_cache gets the maps directions data from the cache (maps_cache.json). If the input parameters have changed or the cache is more than 3 hours old, refreshes the cache
@@ -25,7 +27,7 @@ def get_and_refresh_cache(frm: str, to:str, mode:str) -> dict:
     cache_data = {}
     cache_params = {}
     try:
-        cache = open(f"{os.getcwd()}{os.sep}maps_cache.json", "r")
+        cache = open(maps_cache_file, "r")
         cache_data = json.load(cache)
         cache_params = cache_data["parameters"]
     except:
@@ -59,7 +61,7 @@ def refresh_cache(data: dict) -> None:
     """
     print("refreshing maps_cache...")
     json_data = json.dumps(data, indent=4)
-    cache = open(f"{os.getcwd()}{os.sep}maps_cache.json", "w")
+    cache = open(maps_cache_file, "w")
     cache.write(json_data) 
 
 def get_current_data(frm: str, to: str, mode:str) -> dict:
