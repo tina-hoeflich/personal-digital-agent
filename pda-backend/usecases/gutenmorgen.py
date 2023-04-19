@@ -35,7 +35,8 @@ class GutenMorgenUseCase(UseCase):
 		cached_travel_time = self.get_cached_travel_time()
 		time_to_get_ready = 30
 		_, class_time = self.get_next_class()
-		self.scheduler.schedule_job(self.trigger,  class_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
+		if class_time is not None:
+			self.scheduler.schedule_job(self.trigger,  class_time - timedelta(minutes=cached_travel_time) - timedelta(minutes=time_to_get_ready) )
 
 	def get_triggerwords(self) -> list[str]:
 		return GENERAL_TRIGGERS
@@ -71,7 +72,6 @@ class GutenMorgenUseCase(UseCase):
 	def get_next_class(self) -> tuple[str, datetime.time]:
 		"""
 		get_next_class returns the name and time of the next university class. Uses calender service
-
 
 		Returns:
 			tuple[str, datetime.time]: class name, start time
@@ -285,6 +285,8 @@ class GutenMorgenUseCase(UseCase):
 	
 	def class_time(self, time: int, mode: str) -> str:
 		class_name, class_time = self.get_next_class()
+		if class_name is None or class_time is None:
+			return "You have no classes tomorrow!"
 		leave_time = class_time - timedelta(minutes=time) - timedelta(minutes=5)
 		day_var = "Today"
 		if class_time.date() == datetime.now().date() + timedelta(days=1):

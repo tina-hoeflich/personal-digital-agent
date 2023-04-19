@@ -90,6 +90,8 @@ def get_current_data(frm: str, to: str, mode:str) -> dict:
         }, 
         "data": res
     }
+    if res == []:
+        raise Exception('could not get travel data!')
     return data
 
 def get_cached_travel_time(origin: str, destination: str, mode_of_transportation: str) -> int:
