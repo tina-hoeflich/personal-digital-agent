@@ -3,7 +3,10 @@ import requests
 
 
 def start_player(token):
-    """Starts the music player with the given access token and resumes playback"""
+    """
+    Starts the music player with the given access token and resumes playback
+    :param token: the access token
+    """
     sp = spotipy.Spotify(auth=token)
 
     # Check if the user has an active device
@@ -31,7 +34,10 @@ def start_player(token):
 
 
 def pause_player(token):
-    """Pauses the music player with the given access token"""
+    """
+    Pauses the music player with the given access token
+    :param token: the access token
+    """
 
     sp = spotipy.Spotify(auth=token)
 
@@ -44,7 +50,10 @@ def pause_player(token):
 
 
 def get_access_token():
-    """Gets the access token for the Spotify API"""
+    """
+    Gets the access token for the Spotify API
+    :return: the access token
+    """
     url = "https://accounts.spotify.com/api/token"
 
     payload='grant_type=refresh_token&refresh_token=AQBTfAcTnaNiH_PigcmXm7TFkGOGUjV9QKPD-xScvjYpbWpvROZRQZuTJ-VqXN7u5GrJ0Cc9Q3aSvQXFQffvMj0zTQwNQU8TMCpSIi9ww2606Ts3YnTjah_MkifbWxYLhZs'

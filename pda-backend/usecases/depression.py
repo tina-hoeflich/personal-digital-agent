@@ -19,10 +19,15 @@ class DepressionUseCase(UseCase):
 		self.settings = settings
 
 	def get_triggerwords(self) -> list[str]:
+		"""
+		:return: the triggerwords of the usecase
+		"""
 		return EMAIL_TRIGGER + JOKE_TRIGGERS + MUSIC_TRIGGERS
 
 	def trigger(self):
-
+		"""
+		Trigger method that is called periodically
+		"""
 		print("Periodic trigger of the example usecase")
 		self.scheduler.schedule_job(self.trigger, datetime.now() + timedelta(seconds=60))
 
@@ -41,7 +46,10 @@ class DepressionUseCase(UseCase):
 			return "Should I play some music, to brighten up your day", self.musicConversation
 
 	def emailConversation(self, input: str) -> tuple[str, Callable]:
-		"""Method that listens for the user input and sends an email if the user says yes"""
+		"""
+		Method that listens for the user input and sends an email if the user says yes
+		:param input: the input of the user
+		"""
 		if "yes" in input:
 			email_service.send_email("jarvis@tinahoeflich.com",
 									 self.get_settings()["emergencyEmail"],
@@ -50,6 +58,10 @@ class DepressionUseCase(UseCase):
 			return "I am sorry to hear that. I will send an email to get someone to cheer you up.", None
 
 	def musicConversation(self, input: str) -> tuple[str, Callable]:
+		"""
+		param input: the input of the user
+		Method that listens for the user input and starts music if the user says yes
+		"""
 		if "yes" in input:
 			spotify_service.start_music()
 			return "Okay, music started ", self.musicConversation2
@@ -57,6 +69,10 @@ class DepressionUseCase(UseCase):
 			return "Okay, Can I do anything else for you? ", None
 	
 	def musicConversation2(self, input: str) -> tuple[str, Callable]:
+		"""
+		param input: the input of the user
+		Method that listens for the user input and stops music if the user says yes
+		"""
 		if "stop" in input:
 			spotify_service.stop_music()
 			return "Music stopped ", None
@@ -65,6 +81,7 @@ class DepressionUseCase(UseCase):
 		
 	def get_settings(self) -> object:
 		"""
-
+		Method that returns the settings of the usecase
+		:return: the settings of the usecase
 	"""
 		return self.settings.get_setting_by_name("depressionHandler")
