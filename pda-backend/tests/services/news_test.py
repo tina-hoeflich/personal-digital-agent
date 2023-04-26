@@ -1,6 +1,6 @@
 import services.news as news
 
-mock_stories = [{"title": "STORY TITLE", "description": "STORY DESCRIPTION"}] * 9
+mock_stories = [{"title": "STORY TITLE", "description": "STORY DESCRIPTION"}] * 10
 
 news.news_cache = {
     "results": mock_stories
